@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ms Pro Management Sdn Bhd - 马来西亚公寓式酒店管理专家，高收益托管</title> <!-- Optimized title for SEO -->
+    <meta name="description" content="Ms Pro Management Sdn Bhd 专注于马来西亚公寓式酒店、民宿和联排别墅的专业托管服务。我们提供全方位无忧管理，通过智能收益优化，帮助房产屋主实现稳定高收益和被动收入。了解我们的核心服务，包括室内设计、高效清洁和保底租金计划。"> <!-- Meta description for SEO -->
+    <meta name="keywords" content="公寓式酒店管理, 马来西亚房产托管, 民宿管理, 联排别墅托管, 房地产收益, 短租管理, 智能收益管理, Johor Bahru Property Management, Serviced Apartment Management Malaysia"> <!-- Keywords for SEO -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Custom Tailwind CSS configuration for colors, based on the provided image palette
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { // Dominant blue from the image: #659DBD
+                            DEFAULT: '#659DBD',
+                            50: '#E0E8ED',
+                            100: '#CADBE6',
+                            200: '#B4CDE0',
+                            300: '#9FBECD',
+                            400: '#89AFC7',
+                            500: '#739FB5',
+                            600: '#5D8FAC',
+                            700: '#477EA3',
+                            800: '#316C9B',
+                            900: '#1B5B92',
+                            950: '#0C3C62',
+                        },
+                        orange: { // Refined to a warmer, lighter neutral beige for backgrounds and soft elements
+                            DEFAULT: '#EAE0D5', // Light beige/cream
+                            50: '#FDFCF2',
+                            100: '#FCF9EB',
+                            200: '#F9F4E0',
+                            300: '#F6EFD5',
+                            400: '#F3EAC9',
+                            500: '#EAE0D5',
+                            600: '#D5CCBF',
+                            700: '#C0B8A9',
+                            800: '#AB9D93',
+                            900: '#96897E',
+                        },
+                        teal: { // Refined to a sophisticated dark gray for text and strong contrasts
+                            DEFAULT: '#4A4A4A', // Dark charcoal grey
+                            50: '#F2F2F2',
+                            100: '#E6E6E6',
+                            200: '#CCCCCC',
+                            300: '#B3B3B3',
+                            400: '#999999',
+                            500: '#808080',
+                            600: '#666666',
+                            700: '#4A4A4A',
+                            800: '#333333',
+                            900: '#1A1A1A',
+                        },
+                        lime: { // Kept as a light yellow/cream, fits the bright aesthetic
+                            DEFAULT: '#F8EECC',
+                            50: '#FFFFFF',
+                            100: '#FDFCF2',
+                            200: '#FBF9E7',
+                            300: '#F9F7DC',
+                            400: '#F7F4D1',
+                            500: '#F5F2C6',
+                            600: '#E0DEB3',
+                            700: '#CCCAA0',
+                            800: '#B8B68D',
+                            900: '#A3A279',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Required React 18 libraries -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+    <!-- Babel for in-browser JSX/React.createElement transpilation -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <script type="text/babel">
+        // Create a Language Context to manage language state throughout the application
+        const LanguageContext = React.createContext();
+
+        const App = () => {
+            // State for mobile hamburger menu
+            const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+            // State for FAQ accordion
+            const [openFAQ, setOpenFAQ] = React.useState(null); 
+            // Default language is Chinese (zh)
+            const [lang, setLang] = React.useState('zh');
+            // State to control which view is active: 'main' (for hero, about, services etc.) or 'faq'
+            const [activeView, setActiveView] = React.useState('main');
+            // New state for scrolling target to ensure smooth scroll after view transition
+            const [scrollToId, setScrollToId] = React.useState(null);
+
+            // Translations object for Chinese (zh), Malay (ms), and English (en)
+            const translations = {
+                zh: {
+                    companyName: "Ms Pro Management", // Corrected capitalization
+                    navHome: "首页",
+                    navAbout: "公司简介",
+                    navServices: "我们的服务",
+                    navTestimonials: "成功案例",
+                    navWhyChooseUs: "为何选择我们",
+                    navFAQ: "常见问题", // This will now toggle visibility of FAQ section
+                    navContact: "联系我们",
+                    navViewProperties: "查看可用房源", // New translation key for the link
+                    heroTitle: "公寓屋主看过来！让您的房产创造稳定高收益", // Reverted to original
+                    heroSubtitle: "Ms Pro Management Sdn Bhd 专注于公寓式酒店管理，提供全方位无忧解决方案，让您的投资价值最大化。", // Corrected capitalization
+                    heroButton: "查看可用房源", // This will no longer be used in Hero component
+                    aboutTitle: "公司简介",
+                    aboutStory: "我们的故事",
+                    aboutStoryText: "成立于2021年，我们最初专注于精品公寓式酒店运营，凭借专业的托管服务和智能收益管理，迅速赢得市场认可。随着业务发展，我们逐步扩展至联排别墅、独栋民宿托管，并创新推出Co-Office共享空间，满足不同客群需求。", // Updated text
+                    aboutVision: "愿景",
+                    aboutVisionText: "“重新定义房产托管，让每一处空间都创造价值”",
+                    aboutMission: "使命",
+                    aboutMissionText1: "为业主：提供省心、高回报的资产管理方案",
+                    aboutMissionText2: "为住客：打造舒适、高性价比的住宿体验",
+                    aboutMissionText3: "为社区：活化闲置房产，促进在地旅游发展",
+                    aboutTeam: "我们的团队",
+                    aboutTeamReino: "Reino Cheong | 联合创始人兼CEO",
+                    aboutTeamReinoDetails1: "10年酒店及短租运营经验",
+                    aboutTeamReinoDetails2: "曾管理马来西亚多个知名公寓式酒店项目",
+                    aboutTeamReinoDetails3: "擅长收益优化与智能系统搭建",
+                    aboutTeamHaiJing: "Lee Hai Jing | 联合创始人兼COO",
+                    aboutTeamHaiJingDetails1: "物业管理专家，服务过500+房源",
+                    aboutTeamHaiJingDetails2: "主导开发公司标准化清洁维护流程",
+                    aboutTeamHaiJingDetails3: "深耕客户体验提升与服务质量管控",
+                    aboutTeamAdvantage: "团队优势：",
+                    aboutTeamAdvantage1: "平均行业经验8年+",
+                    aboutTeamAdvantage2: "技术+服务的双核驱动模式",
+                    aboutTeamAdvantage3: "7×24小时运维支持",
+                    aboutValues: "我们的价值观",
+                    aboutValue1Title: "1. 诚信透明",
+                    aboutValue1Desc1: "拒绝隐藏条款",
+                    aboutValue1Desc2: "所有收支可溯源",
+                    aboutValue1Desc3: "如实告知运营情况",
+                    aboutValue2Title: "2. 专业极致",
+                    aboutValue2Desc1: "持续优化智能管理系统",
+                    aboutValue2Desc2: "清洁/维修人员持证上岗",
+                    aboutValue2Desc3: "每月发布行业数据报告",
+                    aboutValue3Title: "3. 高效协同",
+                    aboutValue3Desc1: "业主需求2小时内响应",
+                    aboutValue3Desc2: "使用数字化工具提升效率",
+                    aboutValue3Desc3: "跨部门无缝协作",
+                    aboutValue4Title: "4. 创新共赢",
+                    aboutValue4Desc1: "定期推出新服务模式",
+                    aboutValue4Desc2: "与业主共享行业资源",
+                    aboutValue4Desc3: "社区可持续发展计划",
+                    aboutTrust: "为什么值得信赖？",
+                    aboutTrust1: "3年服务零重大投诉",
+                    aboutTrust2: "合作房源平均续约率92%",
+                    servicesTitle: "我们的核心服务",
+                    serviceManagement: "专业管理",
+                    serviceManagementDesc: "多平台同步、智能房态管理、7x12小时客服与紧急情况响应，让您轻松托管。",
+                    serviceDesign: "室内设计",
+                    serviceDesignDesc: "提供现代、北欧、工业多种风格，助力您的公寓实现25%以上溢价。",
+                    serviceCleaning: "高效清洁",
+                    serviceCleaningDesc: "酒店级清洁标准，每客必做深度消毒，确保房源始终洁净如新。",
+                    serviceReport: "每月详细报表",
+                    serviceReportDesc: "提供透明财务和运营数据，助您全面掌握房产收益和市场趋势。",
+                    serviceGuaranteedRental: "保底租金服务",
+                    serviceGuaranteedRentalDesc: "承诺每月固定租金回报，解决空置率担忧，让您的投资稳赚不赔。",
+                    serviceDetailsTitle: "服务详情",
+                    serviceManagementDetailsTitle: "专业管理",
+                    serviceManagementBooking: "预订平台管理",
+                    serviceManagementBooking1: "多平台同步：自动上架至 Airbnb、Booking.com、Agoda、Trip.com 等主流平台",
+                    serviceManagementBooking2: "智能房态管理：实时同步预订状态，避免重复预订",
+                    serviceManagementBooking3: "差评预警：自动监测低分评价，48小时内处理",
+                    serviceManagementCustomerComm: "客户沟通",
+                    serviceManagementCustomerComm1: "7×12小时客服：处理咨询、预订变更、特殊需求",
+                    serviceManagementCustomerComm2: "多语言支持：英文、中文、马来文",
+                    serviceManagementCustomerComm3: "自动回复系统：高频问题AI即时解答（如Wi-Fi密码、入住指引）",
+                    serviceManagementCheckInOut: "入住/退房管理",
+                    serviceManagementCheckInOut1: "自助入住：电子门锁+视频指引，无需线下交接",
+                    serviceManagementCheckInOut2: "智能退房检查：AI识别损坏/遗失物品，1小时内反馈",
+                    serviceManagementCheckInOut3: "灵活政策：支持小时房、长租、月租混合模式",
+                    serviceManagementEmergency: "紧急情况处理",
+                    serviceManagementEmergency1: "30分钟响应：停水停电、门锁故障等",
+                    serviceManagementEmergency2: "合作维修商：持证电工/水管工，报价透明",
+                    serviceManagementEmergency3: "保险对接：协助处理客损理赔",
+                    serviceDesignDetailsTitle: "室内设计服务",
+                    serviceDesignStyles: "风格案例",
+                    serviceDesignModern: "现代简约风",
+                    serviceDesignModernDetails1: "特色：中性色调、多功能家具",
+                    serviceDesignModernDetails2: "案例：吉隆坡KLCC公寓改造，溢价25%",
+                    serviceDesignNordic: "北欧自然风",
+                    serviceDesignNordicDetails1: "特色：原木元素、绿植装饰",
+                    serviceDesignNordicDetails2: "案例：槟城乔治市房源，旺季房价翻倍",
+                    serviceDesignIndustrial: "工业 loft 风",
+                    serviceDesignIndustrialDetails1: "特色：裸露砖墙、创意灯光",
+                    serviceDesignIndustrialDetails2: "案例：八打灵再也Co-Office空间，入住率92%", // Updated text
+                    serviceDesignCustomized: "定制化服务",
+                    serviceDesignCustomized1: "免费设计咨询：提供3套方案任选",
+                    serviceDesignCustomized2: "软装套餐：RM5,000起（含家具+装饰品）",
+                    serviceDesignCustomized3: "智能升级：可加装智能灯光/温控系统",
+                    serviceCleaningDetailsTitle: "高效清洁标准",
+                    serviceCleaningDaily: "日常清洁",
+                    serviceCleaningDaily1: "每客必做：",
+                    serviceCleaningDaily1_1: "床品、毛巾高温洗涤更换",
+                    serviceCleaningDaily1_2: "浴室深度消毒（使用医院级消毒剂）",
+                    serviceCleaningDaily1_3: "接触面擦拭（门把手、遥控器等）",
+                    serviceCleaningDaily2: "每周深度清洁：空调滤网、冰箱除霜等",
+                    serviceCleaningQuality: "质检流程",
+                    serviceCleaningQuality1: "清洁员拍照上传",
+                    serviceCleaningQuality2: "主管抽查30%房源",
+                    serviceCleaningQuality3: "房客评分反馈（低于4.5分自动触发复洁）",
+                    serviceReportDetailsTitle: "每月详细报表内容",
+                    serviceReportCoreData: "核心数据",
+                    serviceReportCoreData1: "运营指标：入住率、平均房价、RevPAR（每房收益）",
+                    serviceReportCoreData2: "财务明细：",
+                    serviceReportCoreData2_1: "租金收入（分平台展示）",
+                    serviceReportCoreData2_2: "支出明细（清洁/维修/水电）",
+                    serviceReportCoreData2_3: "净收益计算",
+                    serviceReportCoreData3: "市场对比：同区域房源排名",
+                    serviceReportAnalysis: "增值分析",
+                    serviceReportAnalysis1: "未来30天预订预测",
+                    serviceReportAnalysis2: "收益优化建议（如装修升级可提升多少溢价）",
+                    serviceReportAnalysis3: "年度数据趋势图",
+                    serviceGuaranteedRentalDetailsTitle: "保底租金服务条款",
+                    serviceGuaranteedRentalHowItWorks: "运作方式",
+                    serviceGuaranteedRentalConditions: "签约条件：",
+                    serviceGuaranteedRentalConditions1: "房产需符合安全标准",
+                    serviceGuaranteedRentalConditions2: "最低合同期12个月",
+                    serviceGuaranteedRentalPayment: "支付规则：",
+                    serviceGuaranteedRentalPayment1: "每月5日固定转账保底金额（如RM2,500）",
+                    serviceGuaranteedRentalPayment2: "实际收益超保底部分，按比例分成",
+                    serviceGuaranteedRentalCompensation: "差额补偿：",
+                    serviceGuaranteedRentalCompensation1: "每月15日前补足上月差额",
+                    serviceGuaranteedRentalCompensation2: "全年累计补偿不超过2个月租金",
+                    serviceGuaranteedRentalOwnerObligations: "业主义务",
+                    serviceGuaranteedRentalOwnerObligations1: "允许必要的装修改造",
+                    serviceGuaranteedRentalOwnerObligations2: "重大维修费用分摊（如家电报废更换）",
+                    serviceGuaranteedRentalTransparency: "透明化承诺",
+                    serviceGuaranteedRentalTransparency1: "所有条款写入合同，无隐藏细则",
+                    serviceGuaranteedRentalTransparency2: "查看保底租金样本合同",
+                    testimonialsTitle: "客户评价 & 成功案例",
+                    testimonialsSubtitle: "倾听我们尊贵屋主的心声，了解 Ms Pro Management 如何帮助他们实现房产价值最大化。", // Corrected capitalization
+                    testimonialsPropertyBefore: "托管前：",
+                    testimonialsPropertyAfter: "托管后：",
+                    testimonialsMore: "更多成功案例和详细数据，敬请期待！",
+                    whyChooseUsTitle: "为什么选择 Ms Pro Management？", // Corrected capitalization
+                    whyChooseUsResults: "您将获得的结果：",
+                    whyChooseUsResults1: "收益提升：托管后平均租金增长 20-40%（比长租更高）",
+                    whyChooseUsResults2: "空置率下降：智能定价+营销策略，入住率维持在 80%+",
+                    whyChooseUsResults3: "管理省心：从维修到客服，我们全权处理，您只需收钱",
+                    whyChooseUsProblems: "您是否也遇到这些问题？",
+                    whyChooseUsProblems1: "房子空着没人租，白白浪费",
+                    whyChooseUsProblems2: "长租收益低，租客还难管理",
+                    whyChooseUsProblems3: "自己打理太麻烦，没时间应付租客",
+                    whyChooseUsProblems4: "担心短租会损坏房子",
+                    whyChooseUsSolutions: "我们的解决方案：",
+                    whyChooseUsSolutions1: "收益保障：若收入不达标，我们补差价",
+                    whyChooseUsSolutions2: "专业维护：严格清洁+维修监管，房子保持如新",
+                    whyChooseUsSolutions3: "全程托管：您完全不用操心，坐享被动收入",
+                    whyChooseUsReasons: "为什么屋主选择我们？",
+                    whyChooseUsReasons1: "数据说话：已帮助 200+ 房东提升收益",
+                    whyChooseUsReasons2: "透明合作：无隐藏费用，随时可查账",
+                    whyChooseUsReasons3: "灵活无忧：合约期灵活，无强制绑定",
+                    whyChooseUsCTA: "您只需做一件事：交钥匙，等收租",
+                    whyChooseUsCTAButton1: "立即咨询",
+                    whyChooseUsCTAButton2: "计算我的房源收益",
+                    contactTitle: "联系我们",
+                    contactSubtitle: "我们期待与您合作，让您的房产发挥最大价值。请填写以下信息，我们的团队将尽快与您取得联系。",
+                    contactLeaveInfo: "留下您的信息",
+                    contactName: "您的姓名",
+                    contactEmail: "您的邮箱",
+                    contactPhone: "您的电话号码 (选填)",
+                    contactMessage: "您的消息",
+                    contactNamePlaceholder: "请输入您的姓名",
+                    contactEmailPlaceholder: "请输入您的邮箱",
+                    contactPhonePlaceholder: "请输入您的电话号码",
+                    contactMessagePlaceholder: "请在这里输入您的消息",
+                    contactSend: "发送消息",
+                    contactTeam: "联系我们的团队",
+                    contactEmailLabel: "邮箱:",
+                    contactCEO: "Reino (CEO):",
+                    contactCOO: "Hai Jing (COO):",
+                    footerText: "© 2025 Ms Pro Management Sdn Bhd. 保留所有权利。", // Corrected capitalization
+                    footerPrivacy: "隐私政策",
+                    footerTerms: "服务条款",
+                    faqTitle: "常见问题解答",
+                    faqSubtitle: "以下是我们最常被问到的问题及其答案。",
+                    faqSectionTitle: "关于我们服务的基本问题",
+                    faqQ1: "Ms Pro Management 提供哪些服务？",
+                    faqA1: "我们提供公寓式酒店、民宿和联排别墅的全方位托管服务，包括室内设计、专业管理、高效清洁、每月详细报表和保底租金服务。",
+                    faqSectionRevenue: "收益相关问题",
+                    faqQ3: "我的房产收益能提升多少？",
+                    faqA3: "托管后，平均租金收入可增长20-40%（比长期租赁更高），我们通过智能定价和营销策略，使入住率保持在80%以上。",
+                    faqQ4: "有保底租金服务吗？",
+                    faqA4: "是的，我们提供保底租金服务，承诺每月固定租金回报，解决您的空置率担忧，确保您的投资稳赚不赔。具体条款将在合同中明示。",
+                    faqSectionHouseMgmt: "房产管理问题",
+                    faqQ5: "Ms Pro Management 如何保障我的房产安全？",
+                    faqA5: "我们采用严格的入住/退房检查流程，结合智能系统和人工巡查，并协助处理客损理赔，确保您的房产安全无虞。",
+                    faqQ6: "清洁和维护标准如何？",
+                    faqA6: "我们执行酒店级清洁标准，每客深度消毒。维护团队7x24小时响应，并有持证维修商合作，确保房产始终保持最佳状态。",
+                    faqQ7: "如何查看我的房产运营报告？",
+                    faqA7: "我们每月提供详细的运营报表，包含入住率、平均房价、收入支出明细等核心数据，让您随时掌握房产收益情况。",
+                    faqQ8: "如果遇到紧急情况怎么办？",
+                    faqA8: "我们有专门的紧急响应团队，30分钟内处理突发情况，如停水停电、门锁故障等，确保住客体验不受影响。",
+                    faqQ9: "合同期是多久？可以灵活调整吗？",
+                    faqA9: "我们的最低合同期为12个月，但也提供灵活的续约和解约政策，具体可根据您的需求协商。",
+                    faqQ10: "如何开始与Ms Pro Management合作？",
+                    faqA10: "您可以填写网站上的联系表格，或直接通过电话/邮件联系我们的团队。我们会尽快与您沟通，提供定制化方案。",
+                    收起详情: "收起详情", // Keep Chinese for Chinese language
+                    了解更多: "了解更多", // Keep Chinese for Chinese language
+                    关注我们: "关注我们", // Keep Chinese for Chinese language
+
+                },
+                ms: {
+                    companyName: "Ms Pro Management",
+                    navHome: "Laman Utama",
+                    navAbout: "Tentang Kami",
+                    navServices: "Perkhidmatan Kami",
+                    navTestimonials: "Kisah Kejayaan",
+                    navWhyChooseUs: "Mengapa Pilih Kami",
+                    navFAQ: "Soalan Lazim",
+                    navContact: "Hubungi Kami",
+                    navViewProperties: "Lihat Hartanah Tersedia",
+                    heroTitle: "Untuk Pemilik Kondominium! Jana Pendapatan Stabil Dari Hartanah Anda",
+                    heroSubtitle: "Ms Pro Management Sdn Bhd pakar dalam pengurusan hotel pangsapuri, menyediakan penyelesaian tanpa bimbang yang komprehensif untuk memaksimumkan nilai pelaburan anda。",
+                    heroButton: "Lihat Hartanah Tersedia",
+                    aboutTitle: "Tentang Kami",
+                    aboutStory: "Ditubuhkan pada tahun 2021, kami pada mulanya memberi tumpuan kepada operasi hotel pangsapuri butik, dengan cepat mendapat pengiktirafan pasaran dengan perkhidmatan pengurusan profesional dan pengurusan hasil pintar. Dengan perkembangan perniagaan, kami secara beransur-ansul berkembang kepada pengurusan rumah bandar dan homestay, dan secara inovatif melancarkan ruang bersama Co-Office untuk memenuhi keperluan penyewa yang berbeza.",
+                    aboutVision: "Visi",
+                    aboutVisionText: "\"Mendefinisikan semula pengurusan hartanah, membolehkan setiap ruang menjana nilai\"",
+                    aboutMission: "Misi",
+                    aboutMissionText1: "Untuk pemilik: Menyediakan penyelesaian pengurusan aset tanpa kebimbangan dan pulangan tinggi",
+                    aboutMissionText2: "Untuk penyewa: Mencipta pengalaman penginapan yang selesa dan kos efektif",
+                    aboutMissionText3: "Untuk komuniti: Mengaktifkan hartanah yang tidak digunakan dan mempromosikan pembangunan pelancongan tempatan",
+                    aboutTeam: "Pasukan Kami",
+                    aboutTeamReino: "Reino Cheong | Pengasas Bersama & CEO",
+                    aboutTeamReinoDetails1: "10 tahun pengalaman operasi hotel dan sewaan jangka pendek",
+                    aboutTeamReinoDetails2: "Pernah menguruskan beberapa projek hotel pangsapuri terkenal di Malaysia",
+                    aboutTeamReinoDetails3: "Mahir dalam pengoptimuman hasil dan pembinaan sistem pintar",
+                    aboutTeamHaiJing: "Lee Hai Jing | Pengasas Bersama & COO",
+                    aboutTeamHaiJingDetails1: "Pakar pengurusan hartanah, telah berkhidmat untuk 500+ unit",
+                    aboutTeamHaiJingDetails2: "Menerajui pembangunan proses pembersihan dan penyelenggaraan piawai syarikat",
+                    aboutTeamHaiJingDetails3: "Berfokus pada peningkatan pengalaman pelanggan dan kawalan kualiti perkhidmatan",
+                    aboutTeamAdvantage: "Kelebihan Pasukan:",
+                    aboutTeamAdvantage1: "Purata pengalaman industri 8 tahun+",
+                    aboutTeamAdvantage2: "Model dwi-pemacu teknologi + perkhidmatan",
+                    aboutTeamAdvantage3: "Sokongan operasi 7×24 jam",
+                    aboutValues: "Nilai-nilai Kami",
+                    aboutValue1Title: "1. Integriti & Ketelusan",
+                    aboutValue1Desc1: "Tiada klausa tersembunyi",
+                    aboutValue1Desc2: "Semua resit dan perbelanjaan boleh dikesan",
+                    aboutValue1Desc3: "Maklumkan status operasi dengan jujur",
+                    aboutValue2Title: "2. Profesionalisme & Kecemerlangan",
+                    aboutValue2Desc1: "Sentiasa mengoptimumkan sistem pengurusan pintar",
+                    aboutValue2Desc2: "Pembersih/juruteknik bertauliah",
+                    aboutValue2Desc3: "Terbitkan laporan data industri bulanan",
+                    aboutValue3Title: "3. Kecekapan & Kerjasama",
+                    aboutValue3Desc1: "Respon kepada keperluan pemilik dalam 2 jam",
+                    aboutValue3Desc2: "Gunakan alatan digital untuk meningkatkan kecekapan",
+                    aboutValue3Desc3: "Kerjasama lancar antara jabatan",
+                    aboutValue4Title: "4. Inovasi & Menang-Menang",
+                    aboutValue4Desc1: "Melancarkan model perkhidmatan baharu secara berkala",
+                    aboutValue4Desc2: "Berkongsi sumber industri dengan pemilik",
+                    aboutValue4Desc3: "Rancangan pembangunan komuniti yang mampan",
+                    aboutTrust: "Mengapa Dipercayai?",
+                    aboutTrust1: "3 tahun perkhidmatan tanpa aduan utama",
+                    aboutTrust2: "Kadar pembaharuan purata 92% untuk hartanah kerjasama",
+                    servicesTitle: "Perkhidmatan Teras Kami",
+                    serviceManagement: "Pengurusan Profesional",
+                    serviceManagementDesc: "Penyegerakan berbilang platform, pengurusan status bilik pintar, perkhidmatan pelanggan 7x12 jam dan respons kecemasan, menjadikan pengurusan anda mudah.",
+                    serviceDesign: "Reka Bentuk Dalaman",
+                    serviceDesignDesc: "Menawarkan pelbagai gaya moden, Nordic, dan industri untuk membantu pangsapuri anda mencapai premium 25% atau lebih.",
+                    serviceCleaning: "Pembersihan Cekap",
+                    serviceCleaningDesc: "Piawaian pembersihan bertaraf hotel, pembasmian kuman mendalam untuk setiap tetamu, memastikan hartanah sentiasa bersih seperti baru.",
+                    serviceReport: "Laporan Bulanan Terperinci",
+                    serviceReportDesc: "Menyediakan data kewangan dan operasi yang telus untuk membantu anda memahami pendapatan hartanah dan trend pasaran.",
+                    serviceGuaranteedRental: "Perkhidmatan Sewa Terjamin",
+                    serviceGuaranteedRentalDesc: "Menjamin pulangan sewa bulanan tetap, menghilangkan kebimbangan kekosongan, memastikan pelaburan anda menguntungkan.",
+                    serviceDetailsTitle: "Butiran Perkhidmatan",
+                    serviceManagementDetailsTitle: "Pengurusan Profesional",
+                    serviceManagementBooking: "Pengurusan Platform Tempahan",
+                    serviceManagementBooking1: "Penyenaraian automatik ke platform utama seperti Airbnb, Booking.com, Agoda, Trip.com",
+                    serviceManagementBooking2: "Pengurusan status bilik pintar: Penyegerakan status tempahan masa nyata, mengelakkan tempahan berganda",
+                    serviceManagementBooking3: "Amaran ulasan buruk: Pemantauan automatik ulasan rendah, pemprosesan dalam 48 jam",
+                    serviceManagementCustomerComm: "Komunikasi Pelanggan",
+                    serviceManagementCustomerComm1: "Perkhidmatan pelanggan 7×12 jam: Mengendalikan pertanyaan, perubahan tempahan, keperluan khas",
+                    serviceManagementCustomerComm2: "Sokongan berbilang bahasa: Inggeris, Cina, Melayu",
+                    serviceManagementCustomerComm3: "Sistem respons automatik: Soalan lazim dijawab segera oleh AI (cth., kata laluan Wi-Fi, arahan daftar masuk)",
+                    serviceManagementCheckInOut: "Pengurusan Daftar Masuk/Daftar Keluar",
+                    serviceManagementCheckInOut1: "Daftar masuk sendiri: Kunci pintu elektronik + panduan video, tiada penyerahan manual diperlukan",
+                    serviceManagementCheckInOut2: "Pemeriksaan daftar keluar pintar: AI mengenal pasti barang rosak/hilang, maklum balas dalam 1 jam",
+                    serviceManagementCheckInOut3: "Dasar fleksibel: Menyokong bilik jam, sewaan jangka panjang, model campuran sewaan bulanan",
+                    serviceManagementEmergency: "Pengendalian Kecemasan",
+                    serviceManagementEmergency1: "Respons 30 minit: Gangguan air/elektrik, kerosakan kunci pintu, dsb.",
+                    serviceManagementEmergency2: "Rakan kongsi pembaikan: Juruelektrik/tukang paip bertauliah, sebut harga telus",
+                    serviceManagementEmergency3: "Penyelarasan insurans: Membantu mengendalikan tuntutan kerosakan tetamu",
+                    serviceDesignDetailsTitle: "Perkhidmatan Reka Bentuk Dalaman",
+                    serviceDesignStyles: "Contoh Gaya",
+                    serviceDesignModern: "Gaya Moden Minimalis",
+                    serviceDesignModernDetails1: "Ciri: Nada neutral, perabot pelbagai fungsi",
+                    serviceDesignModernDetails2: "Kes: Pengubahsuaian pangsapuri KLCC Kuala Lumpur, peningkatan premium 25%",
+                    serviceDesignNordic: "Gaya Asli Nordik",
+                    serviceDesignNordicDetails1: "Ciri: Elemen kayu, hiasan tumbuhan hijau",
+                    serviceDesignNordicDetails2: "Contoh: Unit George Town Pulau Pinang, harga bilik dua kali ganda semasa musim puncak",
+                    serviceDesignIndustrial: "Gaya Loft Industri",
+                    serviceDesignIndustrialDetails1: "Ciri: Dinding bata terdedah, pencahayaan kreatif",
+                    serviceDesignIndustrialDetails2: "Contoh: Ruang Co-Office Petaling Jaya, kadar penghunian 92%", // Updated text
+                    serviceDesignCustomized: "Perkhidmatan Disesuaikan",
+                    serviceDesignCustomized1: "Perundingan reka bentuk percuma: 3 pelan untuk dipilih",
+                    serviceDesignCustomized2: "Pakej perabot lembut: Bermula dari RM5,000 (termasuk perabot + hiasan)",
+                    serviceDesignCustomized3: "Peningkatan pintar: Sistem pencahayaan/kawalan suhu pintar boleh ditambah",
+                    serviceCleaningDetailsTitle: "Piawaian Pembersihan Berkesan",
+                    serviceCleaningDaily: "Pembersihan Harian",
+                    serviceCleaningDaily1: "Wajib dilakukan selepas setiap tetamu:",
+                    serviceCleaningDaily1_1: "Penukaran linen katil dan tuala dengan basuhan suhu tinggi",
+                    serviceCleaningDaily1_2: "Pembasmian kuman bilik mandi secara mendalam (menggunakan disinfektan gred hospital)",
+                    serviceCleaningDaily1_3: "Mengelap permukaan sentuhan (pemegang pintu, alat kawalan jauh, dsb.)",
+                    serviceCleaningDaily2: "Pembersihan mendalam mingguan: Penapis penghawa dingin, penyahbekuan peti sejuk, dsb.",
+                    serviceCleaningQuality: "Proses Pemeriksaan Kualiti",
+                    serviceCleaningQuality1: "Jurupembersih memuat naik gambar",
+                    serviceCleaningQuality2: "Penyelia melakukan pemeriksaan sampel 30% unit",
+                    serviceCleaningQuality3: "Maklum balas penilaian tetamu (penghantaran semula automatik jika di bawah 4.5 bintang)",
+                    serviceReportDetailsTitle: "Kandungan Laporan Bulanan Terperinci",
+                    serviceReportCoreData: "Data Teras",
+                    serviceReportCoreData1: "Metrik operasi: Kadar penghunian, harga bilik purata, RevPAR (pendapatan setiap bilik tersedia)",
+                    serviceReportCoreData2: "Butiran kewangan:",
+                    serviceReportCoreData2_1: "Pendapatan sewa (dipaparkan mengikut platform)",
+                    serviceReportCoreData2_2: "Perincian perbelanjaan (pembersihan/penyelenggaraan/utiliti)",
+                    serviceReportCoreData2_3: "Pengiraan pendapatan bersih",
+                    serviceReportCoreData3: "市场对比：同区域房源排名",
+                    serviceReportAnalysis: "增值分析",
+                    serviceReportAnalysis1: "未来30天预订预测",
+                    serviceReportAnalysis2: "收益优化建议（如装修升级可提升多少溢价）",
+                    serviceReportAnalysis3: "年度数据趋势图",
+                    serviceGuaranteedRentalDetailsTitle: "保底租金服务条款",
+                    serviceGuaranteedRentalHowItWorks: "运作方式",
+                    serviceGuaranteedRentalConditions: "签约条件：",
+                    serviceGuaranteedRentalConditions1: "房产需符合安全标准",
+                    serviceGuaranteedRentalConditions2: "最低合同期12个月",
+                    serviceGuaranteedRentalPayment: "支付规则：",
+                    serviceGuaranteedRentalPayment1: "每月5日固定转账保底金额（如RM2,500）",
+                    serviceGuaranteedRentalPayment2: "实际收益超保底部分，按比例分成",
+                    serviceGuaranteedRentalCompensation: "差额补偿：",
+                    serviceGuaranteedRentalCompensation1: "每月15日前补足上月差额",
+                    serviceGuaranteedRentalCompensation2: "全年累计补偿不超过2个月租金",
+                    serviceGuaranteedRentalOwnerObligations: "业主义务",
+                    serviceGuaranteedRentalOwnerObligations1: "允许必要的装修改造",
+                    serviceGuaranteedRentalOwnerObligations2: "重大维修费用分摊（如家电报废更换）",
+                    serviceGuaranteedRentalTransparency: "透明化承诺",
+                    serviceGuaranteedRentalTransparency1: "所有条款写入合同，无隐藏细则",
+                    serviceGuaranteedRentalTransparency2: "查看保底租金样本合同",
+                    testimonialsTitle: "Kisah Kejayaan & Testimonial Pelanggan",
+                    testimonialsSubtitle: "Dengarkan apa kata pemilik hartanah kami yang dihargai dan ketahui bagaimana Ms Pro Management membantu mereka memaksimumkan nilai hartanah mereka.",
+                    testimonialsPropertyBefore: "Sebelum Pengurusan:",
+                    testimonialsPropertyAfter: "Selepas Pengurusan:",
+                    testimonialsMore: "Lebih banyak kisah kejayaan dan data terperinci akan datang tidak lama lagi!",
+                    whyChooseUsTitle: "Mengapa Pilih Ms Pro Management?",
+                    whyChooseUsResults: "Hasil yang Anda Akan Dapatkan:",
+                    whyChooseUsResults1: "Peningkatan Pendapatan: Purata pendapatan sewa meningkat 20-40% selepas pengurusan (lebih tinggi daripada sewa jangka panjang)",
+                    whyChooseUsResults2: "Pengurangan Kekosongan: Penentuan harga pintar + strategi pemasaran, kadar penghunian dikekalkan pada 80%+",
+                    whyChooseUsResults3: "Pengurusan Tanpa Kerumitan: Dari penyelenggaraan hingga perkhidmatan pelanggan, kami menguruskan semuanya, anda hanya mengutip sewa",
+                    whyChooseUsProblems: "Adakah Anda Menghadapi Masalah Ini?",
+                    whyChooseUsProblems1: "Hartanah kosong, membazir wang",
+                    whyChooseUsProblems2: "Pulangan rendah daripada sewaan jangka panjang, penyewa sukar diurus",
+                    whyChooseUsProblems3: "Terlalu rumit untuk mengurus sendiri, tiada masa untuk penyewa",
+                    whyChooseUsProblems4: "Bimbang sewaan jangka pendek akan merosakkan hartanah",
+                    whyChooseUsSolutions: "Penyelesaian Kami:",
+                    whyChooseUsSolutions1: "Jaminan Pendapatan: Jika pendapatan kurang, kami akan menampung perbezaannya",
+                    whyChooseUsSolutions2: "Penyelenggaraan Profesional: Pembersihan ketat + pengawasan penyelenggaraan, hartanah sentiasa seperti baru",
+                    whyChooseUsSolutions3: "Pengurusan Penuh: Anda tidak perlu bimbang sama sekali, nikmati pendapatan pasif",
+                    whyChooseUsReasons: "Mengapa Pemilik Memilih Kami?",
+                    whyChooseUsReasons1: "Data Berbicara: Membantu 200+ pemilik tanah meningkatkan pendapatan",
+                    whyChooseUsReasons2: "Kerjasama Telus: Tiada yuran tersembunyi, mudah diaudit bila-bila masa",
+                    whyChooseUsReasons3: "Fleksibel & Tanpa Kerumitan: Terma kontrak fleksibel, tiada ikatan paksaan",
+                    whyChooseUsCTA: "Anda hanya perlu melakukan satu perkara: Serahkan kunci, dan tunggu sewa.",
+                    whyChooseUsCTAButton1: "Tanya Sekarang",
+                    whyChooseUsCTAButton2: "Kira Pendapatan Hartanah Saya",
+                    contactTitle: "Hubungi Kami",
+                    contactSubtitle: "Kami berharap dapat bekerjasama dengan anda untuk memaksimumkan nilai hartanah anda. Sila isi borang di bawah, dan pasukan kami akan menghubungi anda tidak lama lagi.",
+                    contactLeaveInfo: "Tinggalkan Maklumat Anda",
+                    contactName: "Nama Anda",
+                    contactEmail: "E-mel Anda",
+                    contactPhone: "Nombor Telefon Anda (Pilihan)",
+                    contactMessage: "Mesej Anda",
+                    contactNamePlaceholder: "Masukkan nama anda",
+                    contactEmailPlaceholder: "Masukkan e-mel anda",
+                    contactPhonePlaceholder: "Masukkan nombor telefon anda",
+                    contactMessagePlaceholder: "Masukkan mesej anda di sini",
+                    contactSend: "Hantar Mesej",
+                    contactTeam: "Hubungi Pasukan Kami",
+                    contactEmailLabel: "E-mel:",
+                    contactCEO: "Reino (CEO):",
+                    contactCOO: "Hai Jing (COO):",
+                    footerText: "© 2025 Ms Pro Management Sdn Bhd. Hak cipta terpelihara.",
+                    footerPrivacy: "Dasar Privasi",
+                    footerTerms: "Syarat Perkhidmatan",
+                    faqTitle: "Soalan Lazim",
+                    faqSubtitle: "Berikut adalah soalan-soalan yang sering ditanya dan jawapan mereka.",
+                    faqSectionTitle: "Soalan Asas Mengenai Perkhidmatan Kami",
+                    faqQ1: "Apakah perkhidmatan yang ditawarkan oleh Ms Pro Management?",
+                    faqA1: "Kami menawarkan perkhidmatan pengurusan pangsapuri servis, homestay, dan rumah bandar secara komprehensif, termasuk reka bentuk dalaman, pengurusan profesional, pembersihan cekap, laporan bulanan terperinci, dan perkhidmatan sewa terjamin.",
+                    faqSectionRevenue: "Soalan Berkaitan Pendapatan",
+                    faqQ3: "Berapa banyak pendapatan hartanah saya boleh meningkat?",
+                    faqA3: "Selepas pengurusan, pendapatan sewa purata boleh meningkat 20-40%（lebih tinggi daripada sewa jangka panjang）, dan kami mengekalkan kadar penghunian melebihi 80% melalui penetapan harga pintar dan strategi pemasaran.",
+                    faqQ4: "Adakah terdapat perkhidmatan sewa terjamin?",
+                    faqA4: "Ya, kami menawarkan perkhidmatan sewa terjamin, menjanjikan pulangan sewa bulanan yang tetap untuk menghilangkan kebimbangan kekosongan anda dan memastikan pelaburan anda menguntungkan. Terma dan syarat khusus akan dinyatakan dalam kontrak.",
+                    faqSectionHouseMgmt: "Soalan Pengurusan Hartanah",
+                    faqQ5: "Bagaimana Ms Pro Management menjamin keselamatan hartanah saya?",
+                    faqA5: "Kami menggunakan proses daftar masuk/daftar keluar yang ketat, digabungkan dengan sistem pintar dan pemeriksaan manual, serta membantu mengendalikan tuntutan kerosakan tetamu untuk memastikan keselamatan hartanah anda.",
+                    faqQ6: "Apakah piawaian pembersihan dan penyelenggaraan?",
+                    faqA6: "Kami mematuhi piawaian pembersihan bertaraf hotel, dengan pembasmian kuman mendalam untuk setiap tetamu. Pasukan penyelenggaraan kami bertindak balas 7x24 jam, dan kami bekerjasama dengan penyedia perkhidmatan pembaikan bertauliah untuk memastikan hartanah sentiasa dalam keadaan terbaik.",
+                    faqSectionOperations: "Soalan Proses Operasi",
+                    faqQ7: "Bagaimana saya boleh melihat laporan operasi hartanah saya?",
+                    faqA7: "Kami menyediakan laporan operasi bulanan yang terperinci, termasuk metrik utama seperti kadar penghunian, kadar bilik purata, dan butiran pendapatan/perbelanjaan, membolehkan anda sentiasa mengetahui prestasi pendapatan hartanah anda.",
+                    faqQ8: "Apa yang perlu dilakukan jika kecemasan?",
+                    faqA8: "Kami mempunyai pasukan tindak balas kecemasan yang berdedikasi yang bertindak balas dalam 30 minit untuk situasi seperti gangguan air/elektrik atau kerosakan kunci pintu, memastikan pengalaman tetamu tidak terjejas.",
+                    faqQ9: "Berapa lama tempoh kontrak? Bolehkah ia disesuaikan secara fleksibel?",
+                    faqA9: "Tempoh kontrak minimum kami adalah 12 bulan, tetapi kami juga menawarkan polisi pembaharuan dan penamatan yang fleksibel, yang boleh dirundingkan mengikut keperluan anda。",
+                    faqQ10: "Bagaimana untuk mula bekerjasama dengan Ms Pro Management?",
+                    faqA10: "您可以通过网站上的联系表格，或直接通过电话/邮件联系我们的团队。我们会尽快与您沟通，提供定制化方案。", // Corrected Malay translation to match previous text
+                    收起详情: "Tutup Butiran",
+                    了解更多: "Ketahui Lebih Lanjut",
+                    关注我们: "Ikuti Kami",
+
+                },
+                en: {
+                    companyName: "Ms Pro Management",
+                    navHome: "Home",
+                    navAbout: "About Us",
+                    navServices: "Our Services",
+                    navTestimonials: "Success Stories",
+                    navWhyChooseUs: "Why Choose Us",
+                    navFAQ: "FAQ",
+                    navContact: "Contact Us",
+                    navViewProperties: "View Available Properties",
+                    heroTitle: "Condo Owners! Generate Stable & High Returns from Your Property",
+                    heroSubtitle: "Ms Pro Management Sdn Bhd specializes in serviced apartment management, offering comprehensive, worry-free solutions to maximize your investment value.",
+                    heroButton: "View Available Properties",
+                    aboutTitle: "About Us",
+                    aboutStory: "Our Story",
+                    aboutStoryText: "Established in 2021, we initially focused on boutique serviced apartment operations, quickly gaining market recognition with professional management services and smart revenue optimization. As our business grew, we gradually expanded into managing townhouses and independent homestays, and innovatively launched Co-Office shared spaces to meet the diverse needs of different customer segments.",
+                    aboutVision: "Vision",
+                    aboutVisionText: "\"Redefining property management, enabling every space to create value\"",
+                    aboutMission: "Mission",
+                    aboutMissionText1: "For Owners: Provide worry-free, high-return asset management solutions",
+                    aboutMissionText2: "For Guests: Create comfortable, cost-effective accommodation experiences", // Corrected the key here
+                    aboutMissionText3: "For the Community: Revitalize idle properties and promote local tourism development",
+                    aboutTeam: "Our Team",
+                    aboutTeamReino: "Reino Cheong | Co-founder & CEO",
+                    aboutTeamReinoDetails1: "10 years of experience in hotel and short-term rental operations",
+                    aboutTeamReinoDetails2: "Managed multiple renowned serviced apartment projects in Malaysia",
+                    aboutTeamReinoDetails3: "Specializes in revenue optimization and smart system development",
+                    aboutTeamHaiJing: "Lee Hai Jing | Co-founder & COO",
+                    aboutTeamHaiJingDetails1: "Property management expert, served 500+ properties",
+                    aboutTeamHaiJingDetails2: "Led the development of standardized cleaning and maintenance processes",
+                    aboutTeamHaiJingDetails3: "Deep expertise in enhancing customer experience and service quality control",
+                    aboutTeamAdvantage: "Team Advantages:",
+                    aboutTeamAdvantage1: "Average industry experience of 8+ years",
+                    aboutTeamAdvantage2: "Technology + service dual-core driven model",
+                    aboutTeamAdvantage3: "7x24 hour operation and maintenance support",
+                    aboutValues: "Our Values",
+                    aboutValue1Title: "1. Integrity & Transparency",
+                    aboutValue1Desc1: "No hidden clauses",
+                    aboutValue1Desc2: "All income and expenses traceable",
+                    aboutValue1Desc3: "Truthful reporting of operational operational status",
+                    aboutValue2Title: "2. Professionalism & Excellence",
+                    aboutValue2Desc1: "Continuously optimize smart management system",
+                    aboutValue2Desc2: "Certified cleaning/maintenance personnel",
+                    aboutValue2Desc3: "Monthly industry data reports published",
+                    aboutValue3Title: "3. Efficiency & Collaboration",
+                    aboutValue3Desc1: "Owner requests responded to within 2 hours",
+                    aboutValue3Desc2: "Utilize digital tools to improve efficiency",
+                    aboutValue3Desc3: "Seamless cross-departmental collaboration",
+                    aboutValue4Title: "4. Innovation & Win-Win",
+                    aboutValue4Desc1: "Regularly introduce new service models",
+                    aboutValue4Desc2: "Share industry resources with owners",
+                    aboutValue4Desc3: "Sustainable community development initiatives",
+                    aboutTrust: "Why Trust Us?",
+                    aboutTrust1: "3 years of service with zero major complaints",
+                    aboutTrust2: "Average renewal rate of 92% for partnered properties",
+                    servicesTitle: "Our Core Services",
+                    serviceManagement: "Professional Management",
+                    serviceManagementDesc: "Multi-platform synchronization, smart room status management, 7x12-hour customer service and emergency response for effortless property management.",
+                    serviceDesign: "Interior Design",
+                    serviceDesignDesc: "Offering modern, Nordic, and industrial styles to help your apartment achieve a premium of 25% or more.",
+                    serviceCleaning: "Efficient Cleaning",
+                    serviceCleaningDesc: "Hotel-grade cleaning standards, deep disinfection for every guest, ensuring properties are always spotless.",
+                    serviceReport: "Detailed Monthly Reports",
+                    serviceReportDesc: "Providing transparent financial and operational data to help you fully grasp property returns and market trends.",
+                    serviceGuaranteedRental: "Guaranteed Rental Service",
+                    serviceGuaranteedRentalDesc: "Committed to fixed monthly rental returns, alleviating vacancy worries and ensuring your investment is profitable.",
+                    serviceDetailsTitle: "Service Details",
+                    serviceManagementDetailsTitle: "Professional Management",
+                    serviceManagementBooking: "Booking Platform Management",
+                    serviceManagementBooking1: "Multi-platform synchronization: Automatic listing on major platforms like Airbnb, Booking.com, Agoda, Trip.com",
+                    serviceManagementBooking2: "Smart room status management: Real-time synchronization of booking status to avoid double bookings",
+                    serviceManagementBooking3: "Bad review alerts: Automatic monitoring of low-rated reviews, processed within 48 hours",
+                    serviceManagementCustomerComm: "Customer Communication",
+                    serviceManagementCustomerComm1: "7x12-hour customer service: Handling inquiries, booking changes, special requests",
+                    serviceManagementCustomerComm2: "Multi-language support: English, Chinese, Malay",
+                    serviceManagementCustomerComm3: "Automated response system: AI instant answers for frequently asked questions (e.g., Wi-Fi password, check-in guide)",
+                    serviceManagementCheckInOut: "Check-in/Check-out Management",
+                    serviceManagementCheckInOut1: "Self check-in: Electronic door locks + video guidance, no in-person handover required",
+                    serviceManagementCheckInOut2: "Smart check-out inspection: AI identifies damaged/missing items, feedback within 1 hour",
+                    serviceManagementCheckInOut3: "Flexible policies: Supports hourly, long-term, and monthly rental mixed modes",
+                    serviceManagementEmergency: "Emergency Handling",
+                    serviceManagementEmergency1: "30-minute response: Water/power outages, lock malfunctions, etc.",
+                    serviceManagementEmergency2: "Partner repairers: Certified electricians/plumbers, transparent quotes",
+                    serviceManagementEmergency3: "Insurance liaison: Assisting with guest damage claims",
+                    serviceDesignDetailsTitle: "Interior Design Service",
+                    serviceDesignStyles: "Style Cases",
+                    serviceDesignModern: "Modern Minimalist Style",
+                    serviceDesignModernDetails1: "Features: Neutral color palette, multi-functional furniture",
+                    serviceDesignModernDetails2: "Case: Kuala Lumpur KLCC apartment renovation, 25% premium increase",
+                    serviceDesignNordic: "Nordic Natural Style",
+                    serviceDesignNordicDetails1: "Features: Wood elements, green plant decor",
+                    serviceDesignNordicDetails2: "Case: Penang George Town property, doubled nightly rates during peak season",
+                    serviceDesignIndustrial: "Industrial Loft Style",
+                    serviceDesignIndustrialDetails1: "Features: Exposed brick walls, creative lighting",
+                    serviceDesignIndustrialDetails2: "Case: Petaling Jaya Co-Office space, 92% occupancy rate",
+                    serviceDesignCustomized: "Customized Services",
+                    serviceDesignCustomized1: "Free design consultation: 3方案供选择",
+                    serviceDesignCustomized2: "Soft furnishing package: From RM5,000 (includes furniture + decor)",
+                    serviceDesignCustomized3: "Smart upgrade: Smart lighting/thermostat systems can be added",
+                    serviceCleaningDetailsTitle: "Efficient Cleaning Standards",
+                    serviceCleaningDaily: "Daily Cleaning",
+                    serviceCleaningDaily1: "Required for every guest:",
+                    serviceCleaningDaily1_1: "High-temperature washing and replacement of bedding, towels",
+                    serviceCleaningDaily1_2: "Deep disinfection of bathrooms (using hospital-grade disinfectants)",
+                    serviceCleaningDaily1_3: "Wiping of contact surfaces (door handles, remotes, etc.)",
+                    serviceCleaningDaily2: "Weekly deep cleaning: Air conditioner filters, refrigerator defrosting, etc.",
+                    serviceCleaningQuality: "Quality Inspection Process",
+                    serviceCleaningQuality1: "Cleaners upload photos",
+                    serviceCleaningQuality2: "Supervisor spot-checks 30% of properties",
+                    serviceCleaningQuality3: "Guest rating feedback (below 4.5 stars automatically triggers re-cleaning)",
+                    serviceReportDetailsTitle: "Detailed Monthly Report Contents",
+                    serviceReportCoreData: "Core Data",
+                    serviceReportCoreData1: "Operational metrics: Occupancy rate, average daily rate, RevPAR (revenue per available room)",
+                    serviceReportCoreData2: "Financial details:",
+                    serviceReportCoreData2_1: "Rental income (displayed by platform)",
+                    serviceReportCoreData2_2: "Expense breakdown (cleaning/maintenance/utilities)",
+                    serviceReportCoreData2_3: "Net income calculation",
+                    serviceReportCoreData3: "Market comparison: Ranking of properties in the same area",
+                    serviceReportAnalysis: "Value-Added Analysis",
+                    serviceReportAnalysis1: "Next 30-day booking forecast",
+                    serviceReportAnalysis2: "Revenue optimization suggestions (e.g., how much premium renovation can add)",
+                    serviceReportAnalysis3: "Annual data trend chart",
+                    serviceGuaranteedRentalDetailsTitle: "Guaranteed Rental Service Terms",
+                    serviceGuaranteedRentalHowItWorks: "How it Works",
+                    serviceGuaranteedRentalConditions: "Contract Conditions:",
+                    serviceGuaranteedRentalConditions1: "Property must meet safety standards",
+                    serviceGuaranteedRentalConditions2: "Minimum contract period of 12 months",
+                    serviceGuaranteedRentalPayment: "Payment Rules:",
+                    serviceGuaranteedRentalPayment1: "Fixed monthly transfer of guaranteed amount on the 5th of each month (e.g., RM2,500)",
+                    serviceGuaranteedRentalPayment2: "Actual income exceeding the guaranteed amount, split proportionally",
+                    serviceGuaranteedRentalCompensation: "Difference Compensation:",
+                    serviceGuaranteedRentalCompensation1: "Difference for the previous month compensated by the 15th of each month",
+                    serviceGuaranteedRentalCompensation2: "Annual cumulative compensation not exceeding 2 months' rent",
+                    serviceGuaranteedRentalOwnerObligations: "Owner Obligations",
+                    serviceGuaranteedRentalOwnerObligations1: "Allow necessary renovations and modifications",
+                    serviceGuaranteedRentalOwnerObligations2: "Major repair cost sharing (e.g., replacement of scrapped appliances)",
+                    serviceGuaranteedRentalTransparency: "Transparency Commitment",
+                    serviceGuaranteedRentalTransparency1: "All terms written into the contract, no hidden details",
+                    serviceGuaranteedRentalTransparency2: "View sample guaranteed rental contract",
+                    testimonialsTitle: "Client Testimonials & Success Stories",
+                    testimonialsSubtitle: "Hear from our valued property owners and learn how Ms Pro Management helps them maximize their property value.",
+                    testimonialsPropertyBefore: "Before Management:",
+                    testimonialsPropertyAfter: "After Management:",
+                    testimonialsMore: "More success stories and detailed data coming soon!",
+                    whyChooseUsTitle: "Why Choose Ms Pro Management?",
+                    whyChooseUsResults: "Results You Will Get:",
+                    whyChooseUsResults1: "Increased Revenue: Average rental income increase of 20-40% after management (higher than long-term rental)",
+                    whyChooseUsResults2: "Reduced Vacancy: Smart pricing + marketing strategies, occupancy rate maintained at 80%+",
+                    whyChooseUsResults3: "Hassle-Free Management: From maintenance to customer service, we handle everything, you just collect rent",
+                    whyChooseUsProblems: "Are You Facing These Problems?",
+                    whyChooseUsProblems1: "Property sitting empty, wasting money",
+                    whyChooseUsProblems2: "Low returns from long-term rentals, difficult tenants",
+                    whyChooseUsProblems3: "Too troublesome to manage yourself, no time for tenants",
+                    whyChooseUsProblems4: "Worried about short-term rentals damaging the property",
+                    whyChooseUsSolutions: "Our Solutions:",
+                    whyChooseUsSolutions1: "Revenue Guarantee: If income falls short, we make up the difference",
+                    whyChooseUsSolutions2: "Professional Maintenance: Strict cleaning + maintenance supervision, property kept like new",
+                    whyChooseUsSolutions3: "Full Management: You don't have to worry at all, enjoy passive income",
+                    whyChooseUsReasons: "Why Owners Choose Us?",
+                    whyChooseUsReasons1: "Data Speaks: Helped 200+ landlords increase revenue",
+                    whyChooseUsReasons2: "Transparent Collaboration: No hidden fees, easily audit accounts anytime",
+                    whyChooseUsReasons3: "Flexible & Worry-Free: Flexible contract terms, no forced binding",
+                    whyChooseUsCTA: "You just need to do one thing: Hand over the keys, and wait for rent.",
+                    whyChooseUsCTAButton1: "Inquire Now",
+                    whyChooseUsCTAButton2: "Calculate My Property's Income",
+                    contactTitle: "Contact Us",
+                    contactSubtitle: "We look forward to partnering with you to maximize your property's value. Please fill out the form below, and our team will contact you shortly.",
+                    contactLeaveInfo: "Leave Your Information",
+                    contactName: "Your Name",
+                    contactEmail: "Your Email",
+                    contactPhone: "Your Phone Number (Optional)",
+                    contactMessage: "Your Message",
+                    contactNamePlaceholder: "Enter your name",
+                    contactEmailPlaceholder: "Enter your email",
+                    contactPhonePlaceholder: "Enter your phone number",
+                    contactMessagePlaceholder: "Enter your message here",
+                    contactSend: "Send Message",
+                    contactTeam: "Contact Our Team",
+                    contactEmailLabel: "Email:",
+                    contactCEO: "Reino (CEO):",
+                    contactCOO: "Hai Jing (COO):",
+                    footerText: "© 2025 Ms Pro Management Sdn Bhd. All rights reserved.",
+                    footerPrivacy: "Privacy Policy",
+                    footerTerms: "Terms of Service",
+                    faqTitle: "Frequently Asked Questions",
+                    faqSubtitle: "Below are our most frequently asked questions and their answers.",
+                    faqSectionTitle: "Basic Questions About Our Services",
+                    faqQ1: "What services does Ms Pro Management offer?",
+                    faqA1: "We provide comprehensive management services for serviced apartments, homestays, and townhouses, including interior design, professional management, efficient cleaning, detailed monthly reports, and a guaranteed rental service.",
+                    faqSectionRevenue: "Revenue Related Questions",
+                    faqQ3: "How much can my property's income increase?",
+                    faqA3: "After management, the average rental income can increase by 20-40% (higher than long-term leases). We maintain an occupancy rate of over 80% through smart pricing and marketing strategies.",
+                    faqQ4: "Is there a guaranteed rental service?",
+                    faqA4: "Yes, we offer a guaranteed rental service, promising a fixed monthly rental return to eliminate your vacancy concerns and ensure your investment is profitable. Specific terms will be clearly stated in the contract.",
+                    faqSectionHouseMgmt: "Property Management Questions",
+                    faqQ5: "How does Ms Pro Management ensure my property's safety?",
+                    faqA5: "We implement strict check-in/check-out inspection procedures, combining smart systems with manual patrols, and assist with guest damage claims to ensure your property's safety.",
+                    faqQ6: "What are the cleaning and maintenance standards?",
+                    faqA6: "We adhere to hotel-grade cleaning standards, with deep disinfection for every guest. Our maintenance team responds 24/7 and collaborates with certified repair contractors to ensure properties are always in optimal condition.",
+                    faqQ7: "How can I view my property's operational report?",
+                    faqA7: "We provide detailed monthly operational reports, including key data such as occupancy rate, average daily rate, and income/expense breakdowns, allowing you to stay informed about your property's earnings at all times.",
+                    faqQ8: "What if there's an emergency?",
+                    faqA8: "We have a dedicated emergency response team that handles emergencies such as water/power outages or lock malfunctions within 30 minutes, ensuring guest experience is not affected.",
+                    faqQ9: "How long is the contract period? Can it be flexibly adjusted?",
+                    faqA9: "Our minimum contract period is 12 months, but we also offer flexible renewal and termination policies, which can be negotiated based on your needs.",
+                    faqQ10: "How do I start collaborating with Ms Pro Management?",
+                    faqA10: "You can fill out the contact form on our website, or contact our team directly via phone/email. We will get in touch with you as soon as possible to provide a customized solution.",
+                    收起详情: "Show Less",
+                    了解更多: "Learn More",
+                    关注我们: "Follow Us",
+                }
+            };
+
+            // Get translated text based on current language
+            // This function now relies on context, so it should be used within components that consume LanguageContext.
+            // For now, it's a placeholder that needs to be consumed.
+
+            // Combined function for navigation clicks
+            const handleNavClick = (id) => {
+                setIsMenuOpen(false); // Always close menu immediately
+
+                if (id === 'faq-section') {
+                    setActiveView('faq');
+                    setScrollToId(null); // No specific scroll target within FAQ on view switch, it scrolls to top
+                } else {
+                    // For any main section
+                    if (activeView !== 'main') {
+                        setActiveView('main');
+                    }
+                    setScrollToId(id); // Set scroll target. useEffect will handle actual scroll.
+                }
+            };
+
+            // Effect to handle scrolling whenever scrollToId or activeView changes
+            React.useEffect(() => {
+                if (activeView === 'faq') {
+                    // Always scroll to top when switching to FAQ view
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    setScrollToId(null); // Clear any pending scroll for main sections
+                    return; // Exit as FAQ handled
+                }
+
+                if (scrollToId) {
+                    const section = document.getElementById(scrollToId);
+                    if (section) {
+                        // Add a tiny delay to ensure DOM is ready after view switch
+                        const timer = setTimeout(() => {
+                            section.scrollIntoView({ behavior: 'smooth' });
+                            setScrollToId(null); // Clear after successful scroll
+                        }, 100); // Small delay to allow DOM render
+                        return () => clearTimeout(timer); // Cleanup timer
+                    } else {
+                        // If element not found, clear scrollToId to prevent infinite loop attempts
+                        setScrollToId(null);
+                    }
+                }
+            }, [scrollToId, activeView]); // Keep activeView here to re-trigger if view changes and scroll is needed
+
+            // Language Selector Component
+            const LanguageSelector = () => {
+                const { lang, setLang } = React.useContext(LanguageContext);
+                return (
+                    <div className="relative text-sm">
+                        <select
+                            onChange={(e) => setLang(e.target.value)}
+                            value={lang}
+                            className="appearance-none bg-white border border-gray-300 text-gray-700 py-1 px-3 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent cursor-pointer transition-all duration-300 ease-in-out hover:border-primary-400"
+                        >
+                            <option value="zh">简体中文</option>
+                            <option value="ms">Bahasa Melayu</option>
+                            <option value="en">English</option>
+                        </select>
+                        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                            <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 6.757 7.586 5.343 9z" />
+                            </svg>
+                        </div>
+                    </div>
+                );
+            };
+
+            // Navbar Component (now passed props for toggling and scrolling)
+            const Navbar = ({ handleNavClick, activeView, setIsMenuOpen, isMenuOpen }) => { // Added setIsMenuOpen and isMenuOpen
+                const { t } = React.useContext(LanguageContext); // Consume context here
+                return (
+                    <nav className="bg-white shadow-lg fixed w-full z-50 transition-all duration-300 ease-in-out py-3">
+                        <div className="container mx-auto px-6 max-w-full flex justify-between items-center"> {/* Added max-w-full for wider screens */}
+                            {/* Company Name / Logo - always returns to main view home */}
+                            <a href="#" onClick={() => handleNavClick('home')} className="flex items-center text-2xl font-bold text-primary-900 transition-colors duration-300 ease-in-out hover:text-primary-700">
+                                <img src="https://imgur.com/vIQgkO2.png" alt="Ms Pro Management Logo" className="h-8 mr-2 rounded-full" /> {/* Integrated the new logo */}
+                                {t('companyName')}
+                            </a>
+
+                            {/* Hamburger Icon (always visible) */}
+                            <div className="flex items-center">
+                                <LanguageSelector />
+                                <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-gray-700 focus:outline-none ml-4">
+                                    <i className={`fas ${isMenuOpen ? 'fa-times' : 'fa-bars'} text-2xl`}></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* Mobile Menu (Off-Canvas) - now also functions as desktop menu when open */}
+                        <div className={`fixed top-0 left-0 h-full w-64 bg-white shadow-xl transform ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out z-50 p-6`}>
+                            <div className="flex justify-end mb-8">
+                                <button onClick={() => setIsMenuOpen(false)} className="text-gray-700 focus:outline-none">
+                                    <i className="fas fa-times text-2xl"></i>
+                                </button>
+                            </div>
+                            <nav className="flex flex-col space-y-4">
+                                {/* All navigation links */}
+                                <a href="#" onClick={() => handleNavClick('home')} className="text-gray-700 hover:text-primary-700 transition-colors duration-300 ease-in-out font-medium text-lg border-b border-gray-200 pb-2">{t('navHome')}</a>
+                                <a href="#" onClick={() => handleNavClick('about')} className="text-gray-700 hover:text-primary-700 transition-colors duration-300 ease-in-out font-medium text-lg border-b border-gray-200 pb-2">{t('navAbout')}</a>
+                                <a href="#" onClick={() => handleNavClick('services')} className="text-gray-700 hover:text-primary-700 transition-colors duration-300 ease-in-out font-medium text-lg border-b border-gray-200 pb-2">{t('navServices')}</a>
+                                <a href="#" onClick={() => handleNavClick('testimonials')} className="text-gray-700 hover:text-primary-700 transition-colors duration-300 ease-in-out font-medium text-lg border-b border-gray-200 pb-2">{t('navTestimonials')}</a>
+                                <a href="#" onClick={() => handleNavClick('whychooseus')} className="text-gray-700 hover:text-primary-700 transition-colors duration-300 ease-in-out font-medium text-lg border-b border-gray-200 pb-2">{t('navWhyChooseUs')}</a>
+                                {/* FAQ link toggles the view */}
+                                <a href="#" onClick={() => handleNavClick('faq-section')} className="text-gray-700 hover:text-primary-700 transition-colors duration-300 ease-in-out font-medium text-lg border-b border-gray-200 pb-2">{t('navFAQ')}</a>
+                                <a href="#" onClick={() => handleNavClick('contact')} className="text-gray-700 hover:text-primary-700 transition-colors duration-300 ease-in-out font-medium text-lg pb-2">{t('navContact')}</a>
+                                <a href="https://booking-engine.smartorder.ai?propertyId=940&groupId=-1" target="_blank" rel="noopener noreferrer" className="text-primary-700 hover:text-primary-900 transition-colors duration-300 ease-in-out font-medium text-lg bg-primary-200 rounded-full py-2 px-4 text-center shadow-md">
+                                    {t('navViewProperties')}
+                                </a>
+                            </nav>
+                        </div>
+                    </nav>
+                );
+            };
+
+            // Hero Section Component with background image
+            const Hero = () => {
+                const { t } = React.useContext(LanguageContext); // Consume context here
+                return (
+                    <section
+                        id="home"
+                        className="relative h-screen flex items-center justify-center overflow-hidden bg-primary-700 bg-cover bg-center" // Changed to primary-700 background
+                        style={{
+                            backgroundImage: `url('https://i.imgur.com/pUnCS9s.png')` // Updated to the new direct image link for hero section
+                        }}
+                    >
+                        {/* Overlay to ensure text readability */}
+                        <div className="absolute inset-0 bg-black opacity-20 z-0"></div>
+                        <div className="relative z-10 text-center max-w-4xl mx-auto p-6 text-white bg-black bg-opacity-30 rounded-xl shadow-2xl">
+                            <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-6 animate-fade-in-up">
+                                {t('heroTitle')}
+                            </h1>
+                            <p className="text-xl md:text-2xl mb-10 opacity-90 animate-fade-in-up delay-200">
+                                {t('heroSubtitle')}
+                            </p>
+                        </div>
+                    </section>
+                );
+            };
+
+            // About Us Section Component
+            const AboutUs = () => {
+                const { t } = React.useContext(LanguageContext); // Consume context here
+                return (
+                    <section id="about" className="py-20 bg-gradient-to-br from-white to-orange-50">
+                        <div className="container mx-auto px-6 max-w-6xl">
+                            <h2 className="text-4xl font-bold text-center text-gray-800 mb-16 relative">
+                                {t('aboutTitle')}
+                                <span className="absolute bottom-[-10px] left-1/2 transform -translate-x-1/2 w-24 h-1 bg-primary-700 rounded-full"></span>
+                            </h2>
+
+                            {/* Our Story */}
+                            <div className="grid md:grid-cols-2 gap-12 items-center mb-20 p-8 bg-white rounded-xl shadow-lg border border-gray-100">
+                                <div className="order-2 md:order-1">
+                                    <h3 className="text-3xl font-semibold text-primary-800 mb-6">{t('aboutStory')}</h3>
+                                    <p className="text-gray-600 leading-relaxed text-lg">
+                                        {t('aboutStoryText')}
+                                    </p>
+                                </div>
+                                <div className="order-1 md:order-2 flex justify-center items-center">
+                                    {/* Image of Our Story with descriptive alt text */}
+                                    <img src="https://i.imgur.com/jMXuTKB.png" alt="Ms Pro Management 的发展故事" className="rounded-xl shadow-md w-full max-w-md" onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/500x350/F8D497/754F00?text=Story"; }} />
+                                </div>
+                            </div>
+
+                            {/* Vision & Mission */}
+                            <div className="grid md:grid-cols-2 gap-12 mb-20">
+                                <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100 flex flex-col justify-between">
+                                    <div>
+                                        <h3 className="text-3xl font-semibold text-primary-800 mb-6">{t('aboutVision')}</h3>
+                                        <p className="text-gray-600 leading-relaxed text-lg italic border-l-4 border-primary-600 pl-4">
+                                            {t('aboutVisionText')}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100 flex flex-col justify-between">
+                                    <div>
+                                        <h3 className="text-3xl font-semibold text-primary-800 mb-6">{t('aboutMission')}</h3>
+                                        <ul className="list-disc list-inside text-gray-600 space-y-3 text-lg">
+                                            <li>{t('aboutMissionText1')}</li>
+                                            <li>{t('aboutMissionText2')}</li>
+                                            <li>{t('aboutMissionText3')}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Our Team */}
+                            <div className="mb-20 p-8 bg-white rounded-xl shadow-lg border border-gray-100">
+                                <h3 className="text-3xl font-semibold text-primary-800 mb-10 text-center">{t('aboutTeam')}</h3>
+                                <div className="grid md:grid-cols-2 gap-10">
+                                    {/* Reino Cheong */}
+                                    <div className="flex flex-col items-center text-center p-6 rounded-lg bg-primary-50 bg-opacity-50 shadow-md">
+                                        {/* Replace src with Reino's image URL */}
+                                        <img src="https://imgur.com/69ci5tL.png" alt="Ms Pro Management 联合创始人兼CEO Reino Cheong" className="w-32 h-32 rounded-full mb-4 object-cover border-4 border-primary-300 shadow-lg" onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/120x120/FFD700/FFFFFF?text=Reino"; }} />
+                                        <h4 className="text-xl font-bold text-gray-800 mb-2">{t('aboutTeamReino')}</h4>
+                                        <ul className="text-gray-600 text-base list-disc list-inside">
+                                            <li>{t('aboutTeamReinoDetails1')}</li>
+                                            <li>{t('aboutTeamReinoDetails2')}</li>
+                                            <li>{t('aboutTeamReinoDetails3')}</li>
+                                        </ul>
+                                    </div>
+                                    {/* Lee Hai Jing */}
+                                    <div className="flex flex-col items-center text-center p-6 rounded-lg bg-primary-50 bg-opacity-50 shadow-md">
+                                        {/* Replace src with Hai Jing's image URL */}
+                                        <img src="https://imgur.com/DX6cb1H.png" alt="Ms Pro Management 联合创始人兼COO Lee Hai Jing" className="w-32 h-32 rounded-full mb-4 object-cover border-4 border-primary-300 shadow-lg" onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/120x120/A0DA8B/FFFFFF?text=Hai+Jing"; }} />
+                                        <h4 className="text-xl font-bold text-gray-800 mb-2">{t('aboutTeamHaiJing')}</h4>
+                                        <ul className="text-gray-600 text-base list-disc list-inside">
+                                            <li>{t('aboutTeamHaiJingDetails1')}</li>
+                                            <li>{t('aboutTeamHaiJingDetails2')}</li>
+                                            <li>{t('aboutTeamHaiJingDetails3')}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div className="mt-10 p-6 bg-primary-100 rounded-lg shadow-inner text-center">
+                                    <h4 className="text-xl font-bold text-primary-800 mb-4">{t('aboutTeamAdvantage')}</h4>
+                                    <ul className="text-primary-700 text-lg space-y-2 font-medium">
+                                        <li><i className="fas fa-check-circle text-primary-700 mr-2"></i>{t('aboutTeamAdvantage1')}</li>
+                                        <li><i className="fas fa-check-circle text-primary-700 mr-2"></i>{t('aboutTeamAdvantage2')}</li>
+                                        <li><i className="fas fa-check-circle text-primary-700 mr-2"></i>{t('aboutTeamAdvantage3')}</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            {/* Our Values */}
+                            <div className="mb-20 p-8 bg-white rounded-xl shadow-lg border border-gray-100">
+                                <h3 className="text-3xl font-semibold text-primary-800 mb-10 text-center">{t('aboutValues')}</h3>
+                                <div className="grid md:grid-cols-4 gap-8">
+                                    {[
+                                        { title: t('aboutValue1Title'), desc1: t('aboutValue1Desc1'), desc2: t('aboutValue1Desc2'), desc3: t('aboutValue1Desc3') },
+                                        { title: t('aboutValue2Title'), desc1: t('aboutValue2Desc1'), desc2: t('aboutValue2Desc2'), desc3: t('aboutValue2Desc3') },
+                                        { title: t('aboutValue3Title'), desc1: t('aboutValue3Desc1'), desc2: t('aboutValue3Desc2'), desc3: t('aboutValue3Desc3') },
+                                        { title: t('aboutValue4Title'), desc1: t('aboutValue4Desc1'), desc2: t('aboutValue4Desc2'), desc3: t('aboutValue4Desc3') }
+                                    ].map((value, index) => (
+                                        <div key={index} className="bg-primary-50 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out border border-primary-100">
+                                            <h4 className="text-xl font-bold text-primary-800 mb-3">{value.title}</h4>
+                                            <ul className="text-gray-600 text-sm space-y-1">
+                                                <li><i className="fas fa-minus text-primary-600 mr-2"></i>{value.desc1}</li>
+                                                <li><i className="fas fa-minus text-primary-600 mr-2"></i>{value.desc2}</li>
+                                                <li><i className="fas fa-minus text-primary-600 mr-2"></i>{value.desc3}</li>
+                                            </ul>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Why Trust Us? */}
+                            <div className="p-8 bg-primary-700 text-white rounded-xl shadow-lg text-center">
+                                <h3 className="text-3xl font-semibold mb-6">{t('aboutTrust')}</h3>
+                                <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-12">
+                                    <p className="text-xl font-medium flex items-center"><i className="fas fa-handshake text-primary-300 mr-3"></i>{t('aboutTrust1')}</p>
+                                    <p className="text-xl font-medium flex items-center"><i className="fas fa-sync-alt text-primary-300 mr-3"></i>{t('aboutTrust2')}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                );
+            };
+
+            // Services Section Component
+            const Services = () => {
+                const { t } = React.useContext(LanguageContext); // Consume context here
+                const [openService, setOpenService] = React.useState(null);
+
+                const toggleService = (serviceName) => {
+                    setOpenService(openService === serviceName ? null : serviceName);
+                };
+
+                const ServiceDetail = ({ titleKey, sections, children }) => (
+                    <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100 mb-8">
+                        <h3 className="text-3xl font-bold text-primary-800 mb-6">{t(titleKey)}</h3>
+                        {sections.map((section, idx) => (
+                            <div key={idx} className="mb-6 last:mb-0">
+                                <h4 className="text-2xl font-semibold text-gray-700 mb-3 flex items-center">
+                                    <i className={`${section.icon} text-primary-700 mr-3`}></i>
+                                    {t(section.titleKey)}
+                                </h4>
+                                <ul className="list-disc list-inside text-gray-600 space-y-2 pl-4">
+                                    {section.items.map((itemKey, itemIdx) => (
+                                        <li key={itemIdx}>{t(itemKey)}</li>
+                                    ))}
+                                </ul>
+                                {children && section.titleKey === 'serviceDesignStyles' && children}
+                                {children && section.titleKey === 'serviceCleaningDaily' && children}
+                                {children && section.titleKey === 'serviceReportCoreData' && children}
+                            </div>
+                        ))}
+                    </div>
+                );
+
+                return (
+                    <section id="services" className="py-20 bg-gradient-to-br from-orange-50 to-white">
+                        <div className="container mx-auto px-6 max-w-6xl">
+                            <h2 className="text-4xl font-bold text-center text-gray-800 mb-16 relative">
+                                {t('servicesTitle')}
+                                <span className="absolute bottom-[-10px] left-1/2 transform -translate-x-1/2 w-24 h-1 bg-primary-700 rounded-full"></span>
+                            </h2>
+
+                            {/* Service Cards */}
+                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 mb-20">
+                                {[
+                                    { name: 'Management', icon: 'fas fa-chart-line', titleKey: 'serviceManagement', descKey: 'serviceManagementDesc' },
+                                    { name: 'Design', icon: 'fas fa-paint-brush', titleKey: 'serviceDesign', descKey: 'serviceDesignDesc' },
+                                    { name: 'Cleaning', icon: 'fas fa-broom', titleKey: 'serviceCleaning', descKey: 'serviceCleaningDesc' },
+                                    { name: 'Report', icon: 'fas fa-file-alt', titleKey: 'serviceReport', descKey: 'serviceReportDesc' },
+                                    { name: 'GuaranteedRental', icon: 'fas fa-hand-holding-usd', titleKey: 'serviceGuaranteedRental', descKey: 'serviceGuaranteedRentalDesc' },
+                                ].map((service) => (
+                                    <div key={service.name} className="bg-white p-8 rounded-xl shadow-lg border border-gray-100 flex flex-col items-center text-center transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl">
+                                        <div className="text-primary-700 text-5xl mb-6">
+                                            <i className={service.icon}></i>
+                                        </div>
+                                        <h3 className="text-2xl font-bold text-gray-800 mb-4">{t(service.titleKey)}</h3>
+                                        <p className="text-gray-600 mb-6 flex-grow">{t(service.descKey)}</p>
+                                        <button
+                                            onClick={() => toggleService(service.name)}
+                                            className="bg-primary-700 text-white py-3 px-6 rounded-full font-semibold hover:bg-primary-800 transition-colors duration-300 ease-in-out shadow-md"
+                                        >
+                                            {/* Corrected the translation keys for the button */}
+                                            {openService === service.name ? t('收起详情') : t('了解更多')}
+                                        </button>
+                                    </div>
+                                ))}
+                            </div>
+
+                            {/* Service Details Section */}
+                            {openService && (
+                                <div className="mt-20">
+                                    <h3 className="text-4xl font-bold text-center text-gray-800 mb-12 relative">
+                                        {t('serviceDetailsTitle')}
+                                        <span className="absolute bottom-[-10px] left-1/2 transform -translate-x-1/2 w-20 h-1 bg-primary-700 rounded-full"></span>
+                                    </h3>
+                                    {openService === 'Management' && (
+                                        <ServiceDetail
+                                            titleKey="serviceManagementDetailsTitle"
+                                            sections={[
+                                                { icon: 'fas fa-laptop-code', titleKey: 'serviceManagementBooking', items: ['serviceManagementBooking1', 'serviceManagementBooking2', 'serviceManagementBooking3'] },
+                                                { icon: 'fas fa-comments', titleKey: 'serviceManagementCustomerComm', items: ['serviceManagementCustomerComm1', 'serviceManagementCustomerComm2', 'serviceManagementCustomerComm3'] },
+                                                { icon: 'fas fa-key', titleKey: 'serviceManagementCheckInOut', items: ['serviceManagementCheckInOut1', 'serviceManagementCheckInOut2', 'serviceManagementCheckInOut3'] },
+                                                { icon: 'fas fa-exclamation-triangle', titleKey: 'serviceManagementEmergency', items: ['serviceManagementEmergency1', 'serviceManagementEmergency2', 'serviceManagementEmergency3'] },
+                                            ]}
+                                        />
+                                    )}
+                                    {openService === 'Design' && (
+                                        <ServiceDetail
+                                            titleKey="serviceDesignDetailsTitle"
+                                            sections={[
+                                                { icon: 'fas fa-palette', titleKey: 'serviceDesignStyles', items: [] }, // Styles are listed in sub-bullets
+                                                { icon: 'fas fa-ruler-combined', titleKey: 'serviceDesignCustomized', items: ['serviceDesignCustomized1', 'serviceDesignCustomized2', 'serviceDesignCustomized3'] },
+                                            ]}
+                                        >
+                                            {/* Nested lists for design styles */}
+                                            <ul className="list-none space-y-4 pl-4 text-gray-600">
+                                                <li className="mb-2">
+                                                    <h5 className="font-semibold text-lg text-gray-700 flex items-center"><i className="fas fa-brush text-primary-600 mr-2"></i>{t('serviceDesignModern')}</h5>
+                                                    <ul className="list-disc list-inside pl-4 text-sm">
+                                                        <li>{t('serviceDesignModernDetails1')}</li>
+                                                        <li>{t('serviceDesignModernDetails2')}</li>
+                                                    </ul>
+                                                </li>
+                                                <li className="mb-2">
+                                                    <h5 className="font-semibold text-lg text-gray-700 flex items-center"><i className="fas fa-leaf text-primary-600 mr-2"></i>{t('serviceDesignNordic')}</h5>
+                                                    <ul className="list-disc list-inside pl-4 text-sm">
+                                                        <li>{t('serviceDesignNordicDetails1')}</li>
+                                                        <li>{t('serviceDesignNordicDetails2')}</li>
+                                                    </ul>
+                                                </li>
+                                                <li className="mb-2">
+                                                    <h5 className="font-semibold text-lg text-gray-700 flex items-center"><i className="fas fa-industry text-primary-600 mr-2"></i>{t('serviceDesignIndustrial')}</h5>
+                                                    <ul className="list-disc list-inside pl-4 text-sm">
+                                                        <li>{t('serviceDesignIndustrialDetails1')}</li>
+                                                        <li>{t('serviceDesignIndustrialDetails2')}</li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </ServiceDetail>
+                                    )}
+                                    {openService === 'Cleaning' && (
+                                        <ServiceDetail
+                                            titleKey="serviceCleaningDetailsTitle"
+                                            sections={[
+                                                { icon: 'fas fa-spray-can', titleKey: 'serviceCleaningDaily', items: ['serviceCleaningDaily1'] },
+                                                { icon: 'fas fa-clipboard-check', titleKey: 'serviceCleaningQuality', items: ['serviceCleaningQuality1', 'serviceCleaningQuality2', 'serviceCleaningQuality3'] },
+                                            ]}
+                                        >
+                                            {/* Nested list for daily cleaning details */}
+                                            <ul className="list-disc list-inside text-gray-600 space-y-2 pl-8">
+                                                <li>{t('serviceCleaningDaily1_1')}</li>
+                                                <li>{t('serviceCleaningDaily1_2')}</li>
+                                                <li>{t('serviceCleaningDaily1_3')}</li>
+                                            </ul>
+                                            <p className="text-gray-600 mt-4 pl-4"><i className="fas fa-redo-alt text-primary-600 mr-2"></i>{t('serviceCleaningDaily2')}</p>
+                                        </ServiceDetail>
+                                    )}
+                                    {openService === 'Report' && (
+                                        <ServiceDetail
+                                            titleKey="serviceReportDetailsTitle"
+                                            sections={[
+                                                { icon: 'fas fa-database', titleKey: 'serviceReportCoreData', items: ['serviceReportCoreData1', 'serviceReportCoreData2', 'serviceReportCoreData3'] },
+                                                { icon: 'fas fa-chart-pie', titleKey: 'serviceReportAnalysis', items: ['serviceReportAnalysis1', 'serviceReportAnalysis2', 'serviceReportAnalysis3'] },
+                                            ]}
+                                        >
+                                            {/* Nested list for financial details */}
+                                            <ul className="list-disc list-inside text-gray-600 space-y-2 pl-8">
+                                                <li>{t('serviceReportCoreData2_1')}</li>
+                                                <li>{t('serviceReportCoreData2_2')}</li>
+                                                <li>{t('serviceReportCoreData2_3')}</li>
+                                            </ul>
+                                        </ServiceDetail>
+                                    )}
+                                    {openService === 'GuaranteedRental' && (
+                                        <ServiceDetail
+                                            titleKey="serviceGuaranteedRentalDetailsTitle"
+                                            sections={[
+                                                { icon: 'fas fa-info-circle', titleKey: 'serviceGuaranteedRentalHowItWorks', items: [] }, // Content in sub-sections
+                                                { icon: 'fas fa-file-contract', titleKey: 'serviceGuaranteedRentalConditions', items: ['serviceGuaranteedRentalConditions1', 'serviceGuaranteedRentalConditions2'] },
+                                                { icon: 'fas fa-money-check-alt', titleKey: 'serviceGuaranteedRentalPayment', items: ['serviceGuaranteedRentalPayment1', 'serviceGuaranteedRentalPayment2'] },
+                                                { icon: 'fas fa-exchange-alt', titleKey: 'serviceGuaranteedRentalCompensation', items: ['serviceGuaranteedRentalCompensation1', 'serviceGuaranteedRentalCompensation2'] },
+                                                { icon: 'fas fa-user-tie', titleKey: 'serviceGuaranteedRentalOwnerObligations', items: ['serviceGuaranteedRentalOwnerObligations1', 'serviceGuaranteedRentalOwnerObligations2'] },
+                                                { icon: 'fas fa-eye', titleKey: 'serviceGuaranteedRentalTransparency', items: ['serviceGuaranteedRentalTransparency1', 'serviceGuaranteedRentalTransparency2'] },
+                                            ]}
+                                        />
+                                    )}
+                                </div>
+                            )}
+                        </div>
+                    </section>
+                );
+            };
+
+            // Testimonials Section Component
+            const Testimonials = () => {
+                const { t } = React.useContext(LanguageContext); // Consume context here
+                return (
+                    <section id="testimonials" className="py-20 bg-gradient-to-br from-orange-50 to-primary-100">
+                        <div className="container mx-auto px-6 max-w-6xl">
+                            <h2 className="text-4xl font-bold text-center text-gray-800 mb-16 relative">
+                                {t('testimonialsTitle')}
+                                <span className="absolute bottom-[-10px] left-1/2 transform -translate-x-1/2 w-24 h-1 bg-primary-700 rounded-full"></span>
+                            </h2>
+                            <p className="text-xl text-center text-gray-600 mb-12 max-w-3xl mx-auto">{t('testimonialsSubtitle')}</p>
+
+                            <div className="grid md:grid-cols-2 gap-12">
+                                {/* Testimonial Card 1 */}
+                                <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100 flex flex-col items-center text-center">
+                                    {/* Image of Client 1 with descriptive alt text */}
+                                    <img src="https://placehold.co/100x100/FFD700/FFFFFF?text=Client+1" alt="客户Tan先生的肖像" className="w-24 h-24 rounded-full object-cover mb-6 border-4 border-primary-200 shadow-md" onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/100x100/FFD700/FFFFFF?text=Client"; }} />
+                                    <p className="text-gray-700 italic mb-6 text-lg">
+                                        {lang === 'zh' ? "Ms Pro Management 真的改变了我的生活！以前我的公寓总是空着，或者只能低价长租。现在他们帮我做短租管理，收益翻了近一倍，而且完全不用我操心，所有事情都打理得井井有条。最重要的是，每月能准时收到钱，太省心了！" : "Ms Pro Management benar-benar mengubah hidup saya! Sebelum ini, kondominium saya sering kosong, atau hanya boleh disewa jangka panjang dengan harga rendah. Sekarang mereka menguruskan sewa jangka pendek untuk saya, pendapatan saya hampir dua kali ganda, dan saya tidak perlu risau sama sekali, semuanya diuruskan dengan baik. Paling penting, saya menerima wang setiap bulan tepat pada masanya, sangat mudah!"}
+                                    </p>
+                                    <p className="font-semibold text-primary-800 text-xl">{lang === 'zh' ? "- Tan 先生, 吉隆坡的屋主" : "- Encik Tan, Pemilik Hartanah di Kuala Lumpur"}</p>
+                                    <div className="mt-6 w-full text-left">
+                                        <h4 className="text-lg font-bold text-gray-800 mb-2">{t('testimonialsPropertyBefore')}</h4>
+                                        <p className="text-gray-600 mb-4">{lang === 'zh' ? "平均月收入：RM 1,200 （长租）" : "Purata Pendapatan Bulanan: RM 1,200 (Sewa Jangka Panjang)"}</p>
+                                        <h4 className="text-lg font-bold text-gray-800 mb-2">{t('testimonialsPropertyAfter')}</h4>
+                                        <p className="text-gray-600">{lang === 'zh' ? "平均月收入：RM 2,500+ （短租托管）" : "Purata Pendapatan Bulanan: RM 2,500+ (Pengurusan Sewa Jangka Pendek)"}</p>
+                                    </div>
+                                </div>
+
+                                {/* Testimonial Card 2 */}
+                                <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100 flex flex-col items-center text-center">
+                                    {/* Image of Client 2 with descriptive alt text */}
+                                    <img src="https://placehold.co/100x100/A0DA8B/FFFFFF?text=Client+2" alt="客户Lim女士的肖像" className="w-24 h-24 rounded-full object-cover mb-6 border-4 border-primary-200 shadow-md" onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/100x100/A0DA8B/FFFFFF?text=Client"; }} />
+                                    <p className="text-gray-700 italic mb-6 text-lg">
+                                        {lang === 'zh' ? "我是一个房地产投资者，人在国外，不可能自己管理在新山的房产。Ms Pro Management 的一站式服务非常完美，从设计、装修到后期的运营、清洁，他们都做得非常专业。每月收到的报表也很清晰透明，让我对自己的投资了如指掌。感谢他们让我的投资变得如此简单高效！" : "Saya seorang pelabur hartanah yang berada di luar negara dan tidak mungkin menguruskan hartanah saya di Johor Bahru sendiri. Perkhidmatan sehenti Ms Pro Management sangat sempurna, dari reka bentuk, pengubahsuaian, hingga operasi dan pembersihan selepas itu, mereka semua sangat profesional. Laporan bulanan yang saya terima juga sangat jelas dan telus, membolehkan saya memahami pelaburan saya dengan baik. Terima kasih kepada mereka kerana menjadikan pelaburan saya begitu mudah dan cekap!"}
+                                    </p>
+                                    <p className="font-semibold text-primary-800 text-xl">{lang === 'zh' ? "- Lim 女士, 槟城的屋主" : "- Puan Lim, Pemilik Hartanah di Pulau Pinang"}</p>
+                                    <div className="mt-6 w-full text-left">
+                                        <h4 className="text-lg font-bold text-gray-800 mb-2">{t('testimonialsPropertyBefore')}</h4>
+                                        <p className="text-gray-600 mb-4">{lang === 'zh' ? "空置率高，几乎无收益" : "Kadar kekosongan tinggi, hampir tiada pendapatan"}</p>
+                                        <h4 className="text-lg font-bold text-gray-800 mb-2">{t('testimonialsPropertyAfter')}</h4>
+                                        <p className="text-gray-600">{lang === 'zh' ? "年入住率达 85%，年化收益率提升 15%" : "Kadar penghunian tahunan mencapai 85%, kadar pulangan tahunan meningkat 15%"}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <p className="text-center text-gray-600 italic mt-12 text-lg">
+                                {t('testimonialsMore')}
+                            </p>
+                        </div>
+                    </section>
+                );
+            };
+
+            // Why Choose Us Section Component
+            const WhyChooseUs = () => {
+                const { t } = React.useContext(LanguageContext); // Consume context here
+                return (
+                    <section id="whychooseus" className="py-20 bg-gradient-to-br from-white to-orange-50">
+                        <div className="container mx-auto px-6 max-w-6xl">
+                            <h2 className="text-4xl font-bold text-center text-gray-800 mb-16 relative">
+                                {t('whyChooseUsTitle')}
+                                <span className="absolute bottom-[-10px] left-1/2 transform -translate-x-1/2 w-24 h-1 bg-primary-700 rounded-full"></span>
+                            </h2>
+
+                            {/* What You Will Get */}
+                            <div className="bg-primary-50 p-8 rounded-xl shadow-lg mb-16 border border-primary-100">
+                                <h3 className="text-3xl font-semibold text-primary-800 mb-8 text-center">{t('whyChooseUsResults')}</h3>
+                                <div className="grid md:grid-cols-3 gap-8">
+                                    <div className="flex flex-col items-center text-center p-4">
+                                        <div className="text-primary-700 text-5xl mb-4"><i className="fas fa-chart-line"></i></div>
+                                        <h4 className="text-xl font-bold text-gray-800 mb-2">{t('whyChooseUsResults1')}</h4>
+                                    </div>
+                                    <div className="flex flex-col items-center text-center p-4">
+                                        <div className="text-primary-700 text-5xl mb-4"><i className="fas fa-house-damage"></i></div>
+                                        <h4 className="text-xl font-bold text-gray-800 mb-2">{t('whyChooseUsResults2')}</h4>
+                                    </div>
+                                    <div className="flex flex-col items-center text-center p-4">
+                                        <div className="text-primary-700 text-5xl mb-4"><i className="fas fa-handshake"></i></div>
+                                        <h4 className="text-xl font-bold text-gray-800 mb-2">{t('whyChooseUsResults3')}</h4>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Problems & Solutions */}
+                            <div className="grid md:grid-cols-2 gap-12 mb-16">
+                                {/* Problems */}
+                                <div className="bg-orange-500 p-8 rounded-xl shadow-lg border border-orange-600 text-teal-900"> {/* Updated to use orange-500 and teal-900 for text */}
+                                    <h3 className="text-3xl font-semibold mb-8 text-center">{t('whyChooseUsProblems')}</h3>
+                                    <ul className="list-none space-y-4 text-lg">
+                                        <li className="flex items-start"><i className="fas fa-times-circle text-teal-900 text-2xl mr-3 mt-1"></i>{t('whyChooseUsProblems1')}</li>
+                                        <li className="flex items-start"><i className="fas fa-times-circle text-teal-900 text-2xl mr-3 mt-1"></i>{t('whyChooseUsProblems2')}</li>
+                                        <li className="flex items-start"><i className="fas fa-times-circle text-teal-900 text-2xl mr-3 mt-1"></i>{t('whyChooseUsProblems3')}</li>
+                                        <li className="flex items-start"><i className="fas fa-times-circle text-teal-900 text-2xl mr-3 mt-1"></i>{t('whyChooseUsProblems4')}</li>
+                                    </ul>
+                                </div>
+
+                                {/* Solutions */}
+                                <div className="bg-teal-500 p-8 rounded-xl shadow-lg border border-teal-600 text-white"> {/* Updated to use teal-500 */}
+                                    <h3 className="text-3xl font-semibold mb-8 text-center">{t('whyChooseUsSolutions')}</h3>
+                                    <ul className="list-none space-y-4 text-lg">
+                                        <li className="flex items-start"><i className="fas fa-check-circle text-white text-2xl mr-3 mt-1"></i>{t('whyChooseUsSolutions1')}</li>
+                                        <li className="flex items-start"><i className="fas fa-check-circle text-white text-2xl mr-3 mt-1"></i>{t('whyChooseUsSolutions2')}</li>
+                                        <li className="flex items-start"><i className="fas fa-check-circle text-white text-2xl mr-3 mt-1"></i>{t('whyChooseUsSolutions3')}</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            {/* Why Owners Choose Us */}
+                            <div className="bg-primary-100 p-8 rounded-xl shadow-lg mb-16 border border-primary-200">
+                                <h3 className="text-3xl font-semibold text-primary-800 mb-8 text-center">{t('whyChooseUsReasons')}</h3>
+                                <div className="grid md:grid-cols-3 gap-8">
+                                    <div className="flex flex-col items-center text-center p-4">
+                                        <div className="text-primary-700 text-5xl mb-4"><i className="fas fa-chart-bar"></i></div>
+                                        <h4 className="text-xl font-bold text-gray-800 mb-2">{t('whyChooseUsReasons1')}</h4>
+                                    </div>
+                                    <div className="flex flex-col items-center text-center p-4">
+                                        <div className="text-primary-700 text-5xl mb-4"><i className="fas fa-receipt"></i></div>
+                                        <h4 className="text-xl font-bold text-gray-800 mb-2">{t('whyChooseUsReasons2')}</h4>
+                                    </div>
+                                    <div className="flex flex-col items-center text-center p-4">
+                                        <div className="text-primary-700 text-5xl mb-4"><i className="fas fa-clipboard-list"></i></div>
+                                        <h4 className="text-xl font-bold text-gray-800 mb-2">{t('whyChooseUsReasons3')}</h4>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Call to Action */}
+                            <div className="bg-primary-700 text-white p-10 rounded-xl shadow-lg text-center">
+                                <h3 className="text-4xl font-bold mb-6 leading-tight">{t('whyChooseUsCTA')}</h3>
+                                <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                                    <a href="#" onClick={() => handleNavClick('contact')} className="bg-white text-primary-700 hover:bg-primary-100 hover:scale-105 transition-all duration-300 ease-in-out font-bold py-4 px-10 rounded-full shadow-lg text-lg transform hover:-translate-y-1">
+                                        {t('whyChooseUsCTAButton1')}
+                                    </a>
+                                    <a href="https://booking-engine.smartorder.ai?propertyId=940&groupId=-1" target="_blank" rel="noopener noreferrer" className="border-2 border-white text-white hover:bg-white hover:text-primary-700 hover:scale-105 transition-all duration-300 ease-in-out font-bold py-4 px-10 rounded-full shadow-lg text-lg transform hover:-translate-y-1">
+                                        {t('whyChooseUsCTAButton2')}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                );
+            };
+            
+            // Contact Us Section Component
+            const ContactUs = () => {
+                const { t } = React.useContext(LanguageContext); // Consume context here
+                return (
+                    <section id="contact" className="py-20 bg-gradient-to-br from-white to-orange-50">
+                        <div className="container mx-auto px-6 max-w-6xl">
+                            <h2 className="text-4xl font-bold text-center text-gray-800 mb-16 relative">
+                                {t('contactTitle')}
+                                <span className="absolute bottom-[-10px] left-1/2 transform -translate-x-1/2 w-24 h-1 bg-primary-700 rounded-full"></span>
+                            </h2>
+                            <p className="text-xl text-center text-gray-600 mb-12 max-w-3xl mx-auto">{t('contactSubtitle')}</p>
+
+                            <div className="grid md:grid-cols-2 gap-12 bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                                {/* Contact Form */}
+                                <div>
+                                    <h3 className="text-3xl font-semibold text-primary-800 mb-8">{t('contactLeaveInfo')}</h3>
+                                    <form className="space-y-6">
+                                        <div>
+                                            <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">{t('contactName')}</label>
+                                            <input
+                                                type="text"
+                                                id="name"
+                                                name="name"
+                                                className="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-primary-700 focus:border-transparent transition-all duration-300"
+                                                placeholder={t('contactNamePlaceholder')}
+                                                required
+                                            />
+                                        </div>
+                                        <div>
+                                            <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">{t('contactEmail')}</label>
+                                            <input
+                                                type="email"
+                                                id="email"
+                                                name="email"
+                                                className="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-primary-700 focus:border-transparent transition-all duration-300"
+                                                placeholder={t('contactEmailPlaceholder')}
+                                                required
+                                            />
+                                        </div>
+                                        <div>
+                                            <label htmlFor="phone" className="block text-gray-700 text-sm font-bold mb-2">{t('contactPhone')}</label>
+                                            <input
+                                                type="tel"
+                                                id="phone"
+                                                name="phone"
+                                                className="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-primary-700 focus:border-transparent transition-all duration-300"
+                                                placeholder={t('contactPhonePlaceholder')}
+                                            />
+                                        </div>
+                                        <div>
+                                            <label htmlFor="message" className="block text-gray-700 text-sm font-bold mb-2">{t('contactMessage')}</label>
+                                            <textarea
+                                                id="message"
+                                                name="message"
+                                                rows="5"
+                                                className="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-primary-700 focus:border-transparent transition-all duration-300"
+                                                placeholder={t('contactMessagePlaceholder')}
+                                                required
+                                            ></textarea>
+                                        </div>
+                                        <button
+                                            type="submit"
+                                            className="bg-primary-700 text-white font-bold py-3 px-8 rounded-full focus:outline-none focus:shadow-outline hover:bg-primary-800 transition-colors duration-300 ease-in-out shadow-md hover:scale-105 transform hover:-translate-y-1"
+                                        >
+                                            {t('contactSend')}
+                                        </button>
+                                    </form>
+                                </div>
+
+                                {/* Contact Information */}
+                                <div className="bg-primary-50 p-8 rounded-xl shadow-inner border border-primary-100 flex flex-col justify-center">
+                                    <h3 className="text-3xl font-semibold text-primary-800 mb-8">{t('contactTeam')}</h3>
+                                    <ul className="space-y-6 text-gray-700 text-lg">
+                                        <li className="flex items-center">
+                                            <i className="fas fa-envelope text-primary-700 text-2xl mr-4"></i>
+                                            <strong>{t('contactEmailLabel')}</strong> Mspropertyyy@gmail.com
+                                        </li>
+                                        <li className="flex items-center">
+                                            <i className="fas fa-phone-alt text-primary-700 text-2xl mr-4"></i>
+                                            <strong>{t('contactCEO')}</strong> +6016-791 3913
+                                        </li>
+                                        <li className="flex items-center">
+                                            <i className="fas fa-phone-alt text-primary-700 text-2xl mr-4"></i>
+                                            <strong>{t('contactCOO')}</strong> +6010-206 5796
+                                        </li>
+                                        <li className="flex items-start">
+                                            <i className="fas fa-map-marker-alt text-primary-700 text-2xl mr-4 mt-1"></i>
+                                            <span>
+                                                Ms Pro Management Sdn Bhd,
+                                                <br /> L-08-03 Laguna Height Condominium Jalan Sri Laguna 1 Taman Laguna
+                                                <br /> 81200 Johor Bahru Johor
+                                            </span>
+                                        </li>
+                                    </ul>
+                                    <div className="mt-10">
+                                        <h4 className="text-xl font-bold text-primary-800 mb-4">{t('关注我们')}</h4> {/* Translated title */}
+                                        <div className="flex space-x-6">
+                                            <a href="https://www.facebook.com/profile.php?id=100089252581375" target="_blank" rel="noopener noreferrer" className="text-primary-700 hover:text-primary-900 transition-colors duration-300"><i className="fab fa-facebook-square text-4xl"></i></a>
+                                            <a href="#" className="text-primary-700 hover:text-primary-900 transition-colors duration-300"><i className="fab fa-instagram-square text-4xl"></i></a>
+                                            <a href="#" className="text-primary-700 hover:text-primary-900 transition-colors duration-300"><i className="fab fa-linkedin text-4xl"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                );
+            };
+
+            // FAQ Content Component (moved from faq_page.html)
+            const FAQContent = () => {
+                const { t } = React.useContext(LanguageContext); // Consume context here
+                const faqData = [
+                    {
+                        section: t('faqSectionTitle'),
+                        questions: [
+                            { q: t('faqQ1'), a: t('faqA1') }
+                        ]
+                    },
+                    {
+                        section: t('faqSectionRevenue'),
+                        questions: [
+                            { q: t('faqQ3'), a: t('faqA3') },
+                            { q: t('faqQ4'), a: t('faqA4') }
+                        ]
+                    },
+                    {
+                        section: t('faqSectionHouseMgmt'),
+                        questions: [
+                            { q: t('faqQ5'), a: t('faqA5') },
+                            { q: t('faqQ6'), a: t('faqA6') }
+                        ]
+                    },
+                    {
+                        section: t('faqSectionOperations'),
+                        questions: [
+                            { q: t('faqQ7'), a: t('faqA7') },
+                            { q: t('faqQ8'), a: t('faqA8') }
+                        ]
+                    },
+                    {
+                        section: t('faqSectionOther'),
+                        questions: [
+                            { q: t('faqQ9'), a: t('faqA9') },
+                            { q: t('faqQ10'), a: t('faqA10') }
+                        ]
+                    }
+                ];
+
+                const toggleFAQ = (index) => {
+                    setOpenFAQ(openFAQ === index ? null : index);
+                };
+
+                return (
+                    <section id="faq-section" className="py-20 bg-gradient-to-br from-primary-100 to-orange-50 min-h-screen">
+                        <div className="container mx-auto px-6 max-w-6xl">
+                            <h2 className="text-4xl font-bold text-center text-gray-800 mb-16 relative">
+                                {t('faqTitle')}
+                                <span className="absolute bottom-[-10px] left-1/2 transform -translate-x-1/2 w-24 h-1 bg-primary-700 rounded-full"></span>
+                            </h2>
+                            <p className="text-xl text-center text-gray-600 mb-12 max-w-3xl mx-auto">{t('faqSubtitle')}</p>
+
+                            <div className="space-y-6">
+                                {faqData.map((section, sectionIndex) => (
+                                    <div key={sectionIndex} className="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
+                                        <h3 className="text-2xl font-bold text-primary-800 mb-6 flex items-center">
+                                            {section.section}
+                                        </h3>
+                                        <div className="space-y-4">
+                                            {section.questions.map((item, itemIndex) => (
+                                                <div key={itemIndex} className="border-b border-gray-200 last:border-b-0 pb-4 last:pb-0">
+                                                    <button
+                                                        className="flex justify-between items-center w-full text-left text-lg font-semibold text-gray-800 hover:text-primary-700 transition-colors duration-300 ease-in-out"
+                                                        onClick={() => toggleFAQ(`${sectionIndex}-${itemIndex}`)}
+                                                    >
+                                                        <span>{item.q}</span>
+                                                        <i className={`fas ${openFAQ === `${sectionIndex}-${itemIndex}` ? 'fa-chevron-up' : 'fa-chevron-down'} text-primary-600 text-sm transition-transform duration-300`}></i>
+                                                    </button>
+                                                    {openFAQ === `${sectionIndex}-${itemIndex}` && (
+                                                        <p className="mt-4 text-gray-600 leading-relaxed pl-6 animate-fade-in">
+                                                            {item.a}
+                                                        </p>
+                                                    )}
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+                );
+            };
+
+            // Footer Component (now passed prop for toggling FAQ view)
+            const Footer = ({ handleNavClick }) => { // Changed from toggleFAQView to handleNavClick
+                const { t } = React.useContext(LanguageContext); // Consume context here
+                return (
+                    <footer className="bg-gray-800 text-white py-10">
+                        <div className="container mx-auto px-6">
+                            <div className="text-center">
+                                <p className="text-lg mb-4">{t('footerText')}</p>
+                                <div className="flex justify-center space-x-6 text-sm">
+                                    <a href="#" className="hover:text-primary-400 transition-colors duration-300">{t('footerPrivacy')}</a>
+                                    {/* Link to FAQ now uses handleNavClick */}
+                                    <a href="#" onClick={() => handleNavClick('faq-section')} className="hover:text-primary-400 transition-colors duration-300">{t('navFAQ')}</a> 
+                                    <a href="#" className="hover:text-primary-400 transition-colors duration-300">{t('footerTerms')}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                );
+            };
+
+
+            // Main App Structure
+            return (
+                <LanguageContext.Provider value={{ lang, setLang, t: (key) => translations[lang][key] || key }}> {/* Provide t function from App scope */}
+                    <div className="font-inter antialiased bg-gray-50 text-gray-900">
+                        {/* Navbar receives props */}
+                        <Navbar handleNavClick={handleNavClick} activeView={activeView} setIsMenuOpen={setIsMenuOpen} isMenuOpen={isMenuOpen} />
+                        <main className="pt-20"> {/* Adjusted for fixed navbar */}
+                            {/* Conditional rendering based on activeView state */}
+                            {activeView === 'main' ? (
+                                <>
+                                    <Hero />
+                                    <AboutUs />
+                                    <Services />
+                                    <Testimonials />
+                                    <WhyChooseUs />
+                                    <ContactUs />
+                                </>
+                            ) : (
+                                <FAQContent /> // Render FAQ directly here when activeView is 'faq'
+                            )}
+                        </main>
+                        {/* Footer receives props */}
+                        <Footer handleNavClick={handleNavClick} /> {/* Changed prop to handleNavClick */}
+                    </div>
+                </LanguageContext.Provider>
+            );
+        };
+
+        // Custom CSS for animations and general styling not handled by Tailwind
+        const style = document.createElement('style');
+        style.innerHTML = `
+            html {
+                scroll-behavior: smooth;
+            }
+            body {
+                font-family: 'Inter', sans-serif;
+            }
+            .animate-fade-in-up {
+                animation: fadeInUp 1s ease-out forwards;
+                opacity: 0;
+            }
+            .animate-fade-in-up.delay-200 {
+                animation-delay: 0.2s;
+            }
+            .animate-fade-in {
+                animation: fadeIn 0.5s ease-out forwards;
+                opacity: 0;
+            }
+            /* Ensure the canvas fills its container */
+            canvas {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Render the App component into the root element
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+</html>
