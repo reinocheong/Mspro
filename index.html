@@ -8,7 +8,7 @@
     <title>Ms Pro Management Sdn Bhd - 马来西亚公寓式酒店管理专家，高收益托管</title> <!-- Optimized title for SEO -->
     <meta name="description" content="Ms Pro Management Sdn Bhd 专注于马来西亚公寓式酒店、民宿和联排别墅的专业托管服务。我们提供全方位无忧管理，通过智能收益优化，帮助房产屋主实现稳定高收益和被动收入。了解我们的核心服务，包括室内设计、高效清洁和保底租金计划。"> <!-- Meta description for SEO -->
     <!-- 3.2 关键词优化 - 补充长尾关键词 -->
-    <meta name="keywords" content="公寓式酒店管理, 马来西亚房产托管, 民宿管理, 联排别墅托管, 房地产收益, 短租管理, 智能收益管理, Johor Bahru Property Management, Serviced Apartment Management Malaysia, Johor Bahru 短租管理, 新山房产托管, 马来西亚民宿运营, 新山公寓式酒店托管, 吉隆坡短租管理服务, 马来西亚民宿专业托管"> <!-- Added new long-tail keywords -->
+    <meta name="keywords" content="公寓式酒店管理, 马来西亚房产托管, 民宿管理, 联排别墅托管, 房地产收益, 短租管理, 智能收益管理, Johor Bahru Property Management, Serviced Apartment Management Malaysia, Johor Bahru 短租管理, 新山房产托管, 马来西亚民宿运营, 新山公寓式酒店托管, 吉隆坡短租管理服务, 马来西亚民宿专业托管, 新山民宿管理, 新山民宿管理公司, 新山民宿托管服务, 新山短租房管理, 新山Airbnb代管, JB民宿管理推荐"> <!-- Added new long-tail keywords for JB homestay management -->
     
     <!-- 1.2 社交媒体元标签 (Open Graph) -->
     <meta property="og:title" content="Ms Pro Management Sdn Bhd - 马来西亚公寓式酒店管理专家，高收益托管">
@@ -248,8 +248,7 @@
             // State for smart CTA text
             const [ctaText, setCtaText] = React.useState(''); // Initialized as empty, will be set by translations
 
-
-            // Translations object for Chinese (zh), English (en), and Malay (ms)
+            // Translations object for Chinese (zh), English (en), and Malay (ms) - MOVED INSIDE APP COMPONENT
             const translations = {
                 zh: {
                     companyName: "Ms Pro Management",
@@ -462,9 +461,9 @@
                     关注我们: "关注我们",
                     faqSectionOther: "其他问题",
                     language: "语言",
-                    chinese: "中文",
-                    english: "英文",
-                    malay: "马来文",
+                    chinese: "CN", 
+                    english: "EN", 
+                    malay: "MY", 
                     messageSent: "消息已发送！", // Added for form submission feedback
 
                     // Testimonials specific translation keys
@@ -477,248 +476,14 @@
                     testimonialsLimAltText: "Ms Pro Management 客户 Lim 女士的专业肖像，她正在称赞无忧管理服务",
                     testimonialsLimQuote: "我是一个房地产投资者，人在国外，不可能自己管理在新山的房产。Ms Pro Management 的一站式服务非常完美，从设计、装修到后期的运营、清洁，他们都做得非常专业。每月收到的报表也很清晰透明，让我对自己的投资了如指掌。感谢他们让我的投资变得如此简单高效！",
                     testimonialsLimAuthor: "- Lim 女士, 槟城的屋主",
-                    testimonialsLimBefore: "High vacancy rate, almost no income",
-                    testimonialsLimAfter: "Annual occupancy rate reached 85%, annualized ROI increased by 15%",
+                    testimonialsLimBefore: "空置率高，几乎无收益",
+                    testimonialsLimAfter: "年入住率达 85%，年化收益率提升 15%",
 
                     // New translation keys for trust badges and email validation
                     trustBadgeTripAdvisorAlt: "TripAdvisor卓越证书",
                     trustBadgeAirbnbAlt: "Airbnb官方合作伙伴",
-                    contactEmailInvalid: "请输入有效的邮箱地址",
-                },
-                en: {
-                    companyName: "Ms Pro Management",
-                    navHome: "Home",
-                    navAbout: "About Us",
-                    navServices: "Our Services",
-                    navTestimonials: "Success Stories",
-                    navWhyChooseUs: "Why Choose Us",
-                    navFAQ: "FAQ",
-                    navContact: "Contact Us",
-                    navViewProperties: "View Available Properties",
-                    heroTitle: "Attention Apartment Owners! Let Your Property Generate Stable High Returns",
-                    heroSubtitle: "Ms Pro Management Sdn Bhd specializes in serviced apartment management, offering comprehensive, worry-free solutions to maximize your investment value.",
-                    aboutTitle: "About Us",
-                    aboutStory: "Our Story",
-                    aboutStoryText: "Established in 2021, we initially focused on boutique serviced apartment operations. With professional托管 services and intelligent revenue management, we quickly gained market recognition. As our business developed, we gradually expanded to managing townhouses and private homestays, and innovatively launched Co-Office co-working spaces to meet the diverse needs of various customer groups.",
-                    aboutVision: "Vision",
-                    aboutVisionText: "“Redefining Property Management, Ensuring Every Space Creates Value”",
-                    aboutMission: "Mission",
-                    aboutMissionText1: "For Owners: Provide hassle-free, high-return asset management solutions",
-                    aboutMissionText2: "For Guests: Create comfortable, high-value accommodation experiences",
-                    aboutMissionText3: "For Communities: Revitalize idle properties and promote local tourism development",
-                    aboutTeam: "Our Team",
-                    aboutTeamReino: "Reino Cheong | Co-founder & CEO",
-                    aboutTeamReinoDetails1: "10+ years of hotel and short-term rental operations experience",
-                    aboutTeamReinoDetails2: "Managed multiple well-known serviced apartment projects in Malaysia",
-                    aboutTeamReinoDetails3: "Specializes in revenue optimization and smart system development",
-                    aboutTeamHaiJing: "Lee Hai Jing | Co-founder & COO",
-                    aboutTeamHaiJingDetails1: "Property management expert, served 500+ properties",
-                    aboutTeamHaiJingDetails2: "Led the development of the company's standardized cleaning and maintenance procedures",
-                    aboutTeamHaiJingDetails3: "Deeply committed to improving customer experience and service quality control",
-                    aboutTeamAdvantage: "Team Advantages:",
-                    aboutTeamAdvantage1: "Average industry experience 8+ years",
-                    aboutTeamAdvantage2: "Technology + service dual-core driven model",
-                    aboutTeamAdvantage3: "7×24 hour operation and maintenance support",
-                    aboutValues: "Our Values",
-                    aboutValue1Title: "1. Integrity & Transparency",
-                    aboutValue1Desc1: "No hidden clauses",
-                    aboutValue1Desc2: "All income and expenses traceable",
-                    aboutValue1Desc3: "Accurate reporting of operational status",
-                    aboutValue2Title: "2. Professional Excellence",
-                    aboutValue2Desc1: "Continuously optimize smart management systems",
-                    aboutValue2Desc2: "Certified cleaning/maintenance personnel",
-                    aboutValue2Desc3: "Monthly industry data reports",
-                    aboutValue3Title: "3. Efficient Collaboration",
-                    aboutValue3Desc1: "Owner requests responded to within 2 hours",
-                    aboutValue3Desc2: "Utilize digital tools to improve efficiency",
-                    aboutValue3Desc3: "Seamless cross-departmental collaboration",
-                    aboutValue4Title: "4. Innovation & Win-Win",
-                    aboutValue4Desc1: "Regularly introduce new service models",
-                    aboutValue4Desc2: "Share industry resources with owners",
-                    aboutValue4Desc3: "Community sustainable development plan",
-                    aboutTrust: "Why Trust Us?",
-                    aboutTrust1: "3 years of service with zero major complaints",
-                    aboutTrust2: "Average renewal rate of cooperative properties 92%",
-                    servicesTitle: "Our Core Services",
-                    serviceManagement: "Professional Management",
-                    serviceManagementDesc: "Multi-platform synchronization, intelligent property status management, 7x12-hour customer service and emergency response for hassle-free property management.",
-                    serviceDesign: "Interior Design",
-                    serviceDesignDesc: "Offers modern, Nordic, industrial styles to help your apartment achieve over 25% premium.",
-                    serviceCleaning: "Efficient Cleaning",
-                    serviceCleaningDesc: "Hotel-level cleaning standards, deep disinfection after every guest, ensuring properties are always spotless.",
-                    serviceReport: "Monthly Detailed Reports",
-                    serviceReportDesc: "Provides transparent financial and operational data to give you full control over property income and market trends.",
-                    serviceGuaranteedRental: "Guaranteed Rental Service",
-                    serviceGuaranteedRentalDesc: "Guarantees a fixed monthly rental return, eliminating vacancy concerns and ensuring a stable return on your investment.",
-                    serviceDetailsTitle: "Service Details",
-                    serviceManagementDetailsTitle: "Professional Management",
-                    serviceManagementBooking: "Booking Platform Management",
-                    serviceManagementBooking1: "Multi-platform synchronization: Automatically listed on major platforms like Airbnb, Booking.com, Agoda, Trip.com",
-                    serviceManagementBooking2: "Smart room status management: Real-time synchronization of booking status to avoid double bookings",
-                    serviceManagementBooking3: "Bad review alert: Automatically monitors low ratings, handled within 48 hours",
-                    serviceManagementCustomerComm: "Customer Communication",
-                    serviceManagementCustomerComm1: "7x12-hour customer service: Handling inquiries, booking changes, special requests",
-                    serviceManagementCustomerComm2: "Multi-language support: English, Chinese, Malay",
-                    serviceManagementCustomerComm3: "Automated response system: AI instant answers for frequent questions (e.g., Wi-Fi password, check-in guide)",
-                    serviceManagementCheckInOut: "Check-in/Check-out Management",
-                    serviceManagementCheckInOut1: "Self-check-in: Electronic door lock + video guide, no in-person handover needed",
-                    serviceManagementCheckInOut2: "Smart check-out inspection: AI identifies damaged/lost items, feedback within 1 hour",
-                    serviceManagementCheckInOut3: "Flexible policies: Supports hourly, long-term, monthly rental mixed modes",
-                    serviceManagementEmergency: "Emergency Handling",
-                    serviceManagementEmergency1: "30-minute response: Water/power outages, lock malfunctions, etc.",
-                    serviceManagementEmergency2: "Partner repair technicians: Certified electricians/plumbers, transparent quotes",
-                    serviceManagementEmergency3: "Insurance liaison: Assistance with guest damage claims",
-                    serviceDesignDetailsTitle: "Interior Design Service",
-                    serviceDesignStyles: "Style Cases",
-                    serviceDesignModern: "Modern Minimalist Style",
-                    serviceDesignModernDetails1: "Features: Neutral tones, multi-functional furniture",
-                    serviceDesignModernDetails2: "Case: Kuala Lumpur KLCC apartment renovation, 25% premium",
-                    serviceDesignNordic: "Nordic Natural Style",
-                    serviceDesignNordicDetails1: "Features: Wood elements, plant decorations",
-                    serviceDesignNordicDetails2: "Case: Penang George Town property, peak season prices doubled",
-                    serviceDesignIndustrial: "Industrial Loft Style",
-                    serviceDesignIndustrialDetails1: "Features: Exposed brick walls, creative lighting",
-                    serviceDesignIndustrialDetails2: "Case: Petaling Jaya Co-Office space, 92% occupancy rate",
-                    serviceDesignCustomized: "Customized Service",
-                    serviceDesignCustomized1: "Free design consultation: 3 options to choose from",
-                    serviceDesignCustomized2: "Soft furnishing package: From RM5,000 (includes furniture + decorations)",
-                    serviceDesignCustomized3: "Smart upgrade: Optional installation of smart lighting/thermostat systems",
-                    serviceCleaningDetailsTitle: "Efficient Cleaning Standards",
-                    serviceCleaningDaily: "Daily Cleaning",
-                    serviceCleaningDaily1: "Required for every guest:",
-                    serviceCleaningDaily1_1: "Linens, towels high-temperature washed and replaced",
-                    serviceCleaningDaily1_2: "Bathroom deep disinfection (using hospital-grade disinfectant)",
-                    serviceCleaningDaily1_3: "Surface wiping (door handles, remotes, etc.)",
-                    serviceCleaningDaily2: "Weekly deep cleaning: AC filter, refrigerator defrosting, etc.",
-                    serviceCleaningQuality: "Quality Inspection Process",
-                    serviceCleaningQuality1: "Cleaner uploads photos",
-                    serviceCleaningQuality2: "Supervisor spot-checks 30% of properties",
-                    serviceCleaningQuality3: "Guest rating feedback (below 4.5 stars automatically triggers re-cleaning)",
-                    serviceReportDetailsTitle: "Monthly Detailed Report Content",
-                    serviceReportCoreData: "Core Data",
-                    serviceReportCoreData1: "Operational metrics: Occupancy rate, average daily rate, RevPAR (Revenue per Available Room)",
-                    serviceReportCoreData2: "Financial details:",
-                    serviceReportCoreData2_1: "Rental income (displayed by platform)",
-                    serviceReportCoreData2_2: "Expense breakdown (cleaning/maintenance/utilities)",
-                    serviceReportCoreData2_3: "Net income calculation",
-                    serviceReportCoreData3: "Market comparison: Ranking of properties in the same area",
-                    serviceReportAnalysis: "Value-Added Analysis",
-                    serviceReportAnalysis1: "Next 30-day booking forecast",
-                    serviceReportAnalysis2: "Revenue optimization suggestions (e.g., how much premium a renovation upgrade can bring)",
-                    serviceReportAnalysis3: "Annual data trend chart",
-                    serviceGuaranteedRentalDetailsTitle: "Guaranteed Rental Service Terms",
-                    serviceGuaranteedRentalHowItWorks: "How it Works",
-                    serviceGuaranteedRentalConditions: "Contract Conditions:",
-                    serviceGuaranteedRentalConditions1: "Property must meet safety standards",
-                    serviceGuaranteedRentalConditions2: "Minimum contract period 12 months",
-                    serviceGuaranteedRentalPayment: "Payment Rules:",
-                    serviceGuaranteedRentalPayment1: "Fixed monthly transfer of guaranteed amount by 5th (e.g., RM2,500)",
-                    serviceGuaranteedRentalPayment2: "Actual income exceeding guaranteed amount, shared proportionally",
-                    serviceGuaranteedRentalCompensation: "Difference Compensation:",
-                    serviceGuaranteedRentalCompensation1: "Difference compensated by the 15th of the following month",
-                    serviceGuaranteedRentalCompensation2: "Annual cumulative compensation not exceeding 2 months' rent",
-                    serviceGuaranteedRentalOwnerObligations: "Owner Obligations",
-                    serviceGuaranteedRentalOwnerObligations1: "Allow necessary renovations/modifications",
-                    serviceGuaranteedRentalOwnerObligations2: "Major repair cost sharing (e.g., replacement of scrapped appliances)",
-                    serviceGuaranteedRentalTransparency: "Transparency Commitment",
-                    serviceGuaranteedRentalTransparency1: "All terms written in contract, no hidden details",
-                    serviceGuaranteedRentalTransparency2: "View sample guaranteed rental contract",
-                    testimonialsTitle: "客户评价 & 成功案例",
-                    testimonialsSubtitle: "倾听我们尊贵屋主的心声，了解 Ms Pro Management 如何帮助他们实现房产价值最大化。",
-                    testimonialsMore: "更多成功案例和详细数据，敬请期待！",
-                    testimonialsPropertyBefore: "托管前",
-                    testimonialsPropertyAfter: "托管后",
-                    whyChooseUsTitle: "为什么选择 Ms Pro Management？",
-                    whyChooseUsResults: "您将获得的结果：",
-                    whyChooseUsResults1: "收益提升：托管后平均租金增长 20-40%（比长租更高）",
-                    whyChooseUsResults2: "空置率下降：智能定价+营销策略，入住率维持在 80%+",
-                    whyChooseUsResults3: "管理省心：从维修到客服，我们全权处理，您只需收钱",
-                    whyChooseUsProblems: "您是否也遇到这些问题？",
-                    whyChooseUsProblems1: "房子空着没人租，白白浪费",
-                    whyChooseUsProblems2: "长租收益低，租客还难管理",
-                    whyChooseUsProblems3: "自己打理太麻烦，没时间应付租客",
-                    whyChooseUsProblems4: "担心短租会损坏房子",
-                    whyChooseUsSolutions: "我们的解决方案：",
-                    whyChooseUsSolutions1: "收益保障：若收入不达标，我们补差价",
-                    whyChooseUsSolutions2: "专业维护：严格清洁+维修监管，房子保持如新",
-                    whyChooseUsSolutions3: "全程托管：您完全不用操心，坐享被动收入",
-                    whyChooseUsReasons: "为什么屋主选择我们？",
-                    whyChooseUsReasons1: "数据说话：已帮助 200+ 房东提升收益",
-                    whyChooseUsReasons2: "透明合作：无隐藏费用，随时可查账",
-                    whyChooseUsReasons3: "灵活无忧：合约期灵活，无强制绑定",
-                    whyChooseUsCTA: "您只需做一件事：交钥匙，等收租",
-                    whyChooseUsCTAButton1: "立即咨询",
-                    whyChooseUsCTAButton2: "计算我的房源收益",
-                    contactTitle: "联系我们",
-                    contactSubtitle: "我们期待与您合作，让您的房产发挥最大价值。请填写以下信息，我们的团队将尽快与您取得联系。",
-                    contactLeaveInfo: "留下您的信息",
-                    contactName: "您的姓名",
-                    contactEmail: "您的邮箱",
-                    contactPhone: "您的电话号码 (选填)",
-                    contactMessage: "您的消息",
-                    contactNamePlaceholder: "请输入您的姓名",
-                    contactEmailPlaceholder: "请输入有效的邮箱地址",
-                    contactPhonePlaceholder: "请输入您的电话号码",
-                    contactMessagePlaceholder: "请在这里输入您的消息",
-                    contactSend: "发送消息",
-                    contactTeam: "联系我们的团队",
-                    contactEmailLabel: "邮箱:",
-                    contactCEO: "Reino (CEO):",
-                    contactCOO: "Hai Jing (COO):",
-                    footerText: "© 2025 Ms Pro Management Sdn Bhd. 保留所有权利。",
-                    footerPrivacy: "隐私政策",
-                    footerTerms: "服务条款",
-                    faqTitle: "常见问题解答",
-                    faqSubtitle: "以下是我们最常被问到的问题及其答案。",
-                    faqSectionTitle: "关于我们服务的基本问题",
-                    faqQ1: "Ms Pro Management 提供哪些服务？",
-                    faqA1: "我们提供公寓式酒店、民宿和联排别墅的全方位托管服务，包括室内设计、专业管理、高效清洁、每月详细报表和保底租金服务。",
-                    faqSectionRevenue: "收益相关问题",
-                    faqQ3: "我的房产收益能提升多少？",
-                    faqA3: "托管后，平均租金收入可增长20-40%（比长期租赁更高），我们通过智能定价和营销策略，使入住率保持在80%以上。",
-                    faqQ4: "有保底租金服务吗？",
-                    faqA4: "是的，我们提供保底租金服务，承诺每月固定租金回报，解决您的空置率担忧，确保您的投资稳赚不赔。具体条款将在合同中明示。",
-                    faqSectionHouseMgmt: "房产管理问题",
-                    faqQ5: "Ms Pro Management 如何保障我的房产安全？",
-                    faqA5: "我们采用严格的入住/退房检查流程，结合智能系统和人工巡查，并协助处理客损理赔，确保您的房产安全无虞。",
-                    faqQ6: "清洁和维护标准如何？",
-                    faqA6: "我们执行酒店级清洁标准，每客深度消毒。维护团队7x24小时响应，并有持证维修商合作，确保房产始终保持最佳状态。",
-                    faqQ7: "如何查看我的房产运营报告？",
-                    faqA7: "我们每月提供详细的运营报表，包含入住率、平均房价、收入支出明细等核心数据，让您随时掌握房产收益情况。",
-                    faqQ8: "如果遇到紧急情况怎么办？",
-                    faqA8: "我们有专门的紧急响应团队，30分钟内处理突发情况，如停水停电、门锁故障等，确保住客体验不受影响。",
-                    faqQ9: "合同期是多久？可以灵活调整吗？",
-                    faqA9: "我们的最低合同期为12个月，但也提供灵活的续约和解约政策，具体可根据您的需求协商。",
-                    faqQ10: "如何开始与Ms Pro Management合作？",
-                    faqA10: "您可以填写网站上的联系表格，或直接通过电话/邮件联系我们的团队。我们会尽快与您沟通，提供定制化方案。",
-                    收起详情: "收起详情",
-                    了解更多: "了解更多",
-                    关注我们: "关注我们",
-                    faqSectionOther: "其他问题",
-                    language: "语言",
-                    chinese: "中文",
-                    english: "英文",
-                    malay: "马来文",
-                    messageSent: "消息已发送！", // Added for form submission feedback
-
-                    // Testimonials specific translation keys
-                    testimonialsTanAltText: "Ms Pro Management 客户 Tan 先生的专业肖像，他正在分享对托管服务的积极评价",
-                    testimonialsTanQuote: "Ms Pro Management 真的改变了我的生活！以前我的公寓总是空着，或者只能低价长租。现在他们帮我做短租管理，收益翻了近一倍，而且完全不用我操心，所有事情都打理得井井有条。最重要的是，每月能准时收到钱，太省心了！",
-                    testimonialsTanAuthor: "- Tan 先生, 吉隆坡的屋主",
-                    testimonialsTanBefore: "平均月收入：RM 1,200 （长租）",
-                    testimonialsTanAfter: "平均月收入：RM 2,500+ （短租托管）",
-
-                    testimonialsLimAltText: "Ms Pro Management 客户 Lim 女士的专业肖像，她正在称赞无忧管理服务",
-                    testimonialsLimQuote: "我是一个房地产投资者，人在国外，不可能自己管理在新山的房产。Ms Pro Management 的一站式服务非常完美，从设计、装修到后期的运营、清洁，他们都做得非常专业。每月收到的报表也很清晰透明，让我对自己的投资了如指掌。感谢他们让我的投资变得如此简单高效！",
-                    testimonialsLimAuthor: "- Lim 女士, 槟城的屋主",
-                    testimonialsLimBefore: "High vacancy rate, almost no income",
-                    testimonialsLimAfter: "Annual occupancy rate reached 85%, annualized ROI increased by 15%",
-
-                    // New translation keys for trust badges and email validation
-                    trustBadgeTripAdvisorAlt: "TripAdvisor卓越证书",
-                    trustBadgeAirbnbAlt: "Airbnb官方合作伙伴",
-                    trustBadgeBookingAlt: "Booking.com 合作伙伴标志", // New translation
-                    trustBadgeAgodaAlt: "Agoda 合作伙伴标志",      // New translation
+                    trustBadgeBookingAlt: "Booking.com 合作伙伴标志", 
+                    trustBadgeAgodaAlt: "Agoda 合作伙伴标志",      
                     contactEmailInvalid: "请输入有效的邮箱地址",
                 },
                 en: {
@@ -864,7 +629,243 @@
                     testimonialsMore: "More success stories and detailed data coming soon!",
                     testimonialsPropertyBefore: "Property Before Management",
                     testimonialsPropertyAfter: "Property After Management",
-                    whyChooseUsTitle: "Why Choose Ms Pro Management?",
+                    whyChooseUsTitle: "Why Choose Us?",
+                    whyChooseUsResults: "Results You Will Get:",
+                    whyChooseUsResults1: "Increased Income: Average rental income growth of 20-40% (higher than long-term rental)",
+                    whyChooseUsResults2: "Reduced Vacancy: Smart pricing + marketing strategy, occupancy rate maintained at 80%+",
+                    whyChooseUsResults3: "Hassle-Free Management: From maintenance to customer service, we handle everything, you just collect income",
+                    whyChooseUsProblems: "Are You Experiencing These Problems?",
+                    whyChooseUsProblems1: "Property vacant, no tenants, wasted potential",
+                    whyChooseUsProblems2: "Low long-term rental income, difficult tenant management",
+                    whyChooseUsProblems3: "Too troublesome to manage yourself, no time to deal with tenants",
+                    whyChooseUsProblems4: "Worried about property damage from short-term rentals",
+                    whyChooseUsSolutions: "Our Solutions:",
+                    whyChooseUsSolutions1: "Income Guarantee: If income doesn't meet targets, we make up the difference",
+                    whyChooseUsSolutions2: "Professional Maintenance: Strict cleaning + maintenance supervision, property kept like new",
+                    whyChooseUsSolutions3: "Full Management: You don't have to worry, enjoy passive income",
+                    whyChooseUsReasons: "Why Owners Choose Us?",
+                    whyChooseUsReasons1: "Data-driven: Helped 200+ landlords increase income",
+                    whyChooseUsReasons2: "Transparent Cooperation: No hidden fees, account statements available anytime",
+                    whyChooseUsReasons3: "Flexible & Worry-Free: Flexible contract terms, no forced binding",
+                    whyChooseUsCTA: "You only need to do one thing: Hand over the keys, and wait for the rent",
+                    whyChooseUsCTAButton1: "Inquire Now",
+                    whyChooseUsCTAButton2: "Calculate My Property's Income",
+                    contactTitle: "Contact Us",
+                    contactSubtitle: "We look forward to cooperating with you to maximize your property's value. Please fill in the information below, and our team will contact you as soon as possible.",
+                    contactLeaveInfo: "Leave Your Information",
+                    contactName: "Your Name",
+                    contactEmail: "Your Email",
+                    contactPhone: "Your Phone Number (Optional)",
+                    contactMessage: "Your Message",
+                    contactNamePlaceholder: "Enter your name",
+                    contactEmailPlaceholder: "Enter a valid email address",
+                    contactPhonePlaceholder: "Enter your phone number",
+                    contactMessagePlaceholder: "Enter your message here",
+                    contactSend: "Send Message",
+                    contactTeam: "Contact Our Team",
+                    contactEmailLabel: "Email:",
+                    contactCEO: "Reino (CEO):",
+                    contactCOO: "Hai Jing (COO):",
+                    footerText: "© 2025 Ms Pro Management Sdn Bhd. All Rights Reserved.",
+                    footerPrivacy: "隐私政策",
+                    footerTerms: "服务条款",
+                    faqTitle: "常见问题解答",
+                    faqSubtitle: "以下是我们最常被问到的问题及其答案。",
+                    faqSectionTitle: "关于我们服务的基本问题",
+                    faqQ1: "Ms Pro Management 提供哪些服务？",
+                    faqA1: "我们提供公寓式酒店、民宿和联排别墅的全方位托管服务，包括室内设计、专业管理、高效清洁、每月详细报表和保底租金服务。",
+                    faqSectionRevenue: "收益相关问题",
+                    faqQ3: "我的房产收益能提升多少？",
+                    faqA3: "托管后，平均租金收入可增长20-40%（比长期租赁更高），我们通过智能定价和营销策略，使入住率保持在80%以上。",
+                    faqQ4: "有保底租金服务吗？",
+                    faqA4: "是的，我们提供保底租金服务，承诺每月固定租金回报，解决您的空置率担忧，确保您的投资稳赚不赔。具体条款将在合同中明示。",
+                    faqSectionHouseMgmt: "房产管理问题",
+                    faqQ5: "Ms Pro Management 如何保障我的房产安全？",
+                    faqA5: "我们采用严格的入住/退房检查流程，结合智能系统和人工巡查，并协助处理客损理赔，确保您的房产安全无虞。",
+                    faqQ6: "清洁和维护标准如何？",
+                    faqA6: "我们执行酒店级清洁标准，每客深度消毒。维护团队7x24小时响应，并有持证维修商合作，确保房产始终保持最佳状态。",
+                    faqQ7: "如何查看我的房产运营报告？",
+                    faqA7: "我们每月提供详细的运营报表，包含入住率、平均房价、收入支出明细等核心数据，让您随时掌握房产收益情况。",
+                    faqQ8: "如果遇到紧急情况怎么办？",
+                    faqA8: "我们有专门的紧急响应团队，30分钟内处理突发情况，如停水停电、门锁故障等，确保住客体验不受影响。",
+                    faqQ9: "合同期是多久？可以灵活调整吗？",
+                    faqA9: "我们的最低合同期为12个月，但也提供灵活的续约和解约政策，具体可根据您的需求协商。",
+                    faqQ10: "如何开始与Ms Pro Management合作？",
+                    faqA10: "您可以填写网站上的联系表格，或直接通过电话/邮件联系我们的团队。我们会尽快与您沟通，提供定制化方案。",
+                    收起详情: "收起详情",
+                    了解更多: "了解更多",
+                    关注我们: "关注我们",
+                    faqSectionOther: "其他问题",
+                    language: "语言",
+                    chinese: "CN", 
+                    english: "EN", 
+                    malay: "MY", 
+                    messageSent: "消息已发送！", // Added for form submission feedback
+
+                    // Testimonials specific translation keys
+                    testimonialsTanAltText: "Ms Pro Management 客户 Tan 先生的专业肖像，他正在分享对托管服务的积极评价",
+                    testimonialsTanQuote: "Ms Pro Management 真的改变了我的生活！以前我的公寓总是空着，或者只能低价长租。现在他们帮我做短租管理，收益翻了近一倍，而且完全不用我操心，所有事情都打理得井井有条。最重要的是，每月能准时收到钱，太省心了！",
+                    testimonialsTanAuthor: "- Tan 先生, 吉隆坡的屋主",
+                    testimonialsTanBefore: "平均月收入：RM 1,200 （长租）",
+                    testimonialsTanAfter: "平均月收入：RM 2,500+ （短租托管）",
+
+                    testimonialsLimAltText: "Ms Pro Management 客户 Lim 女士的专业肖像，她正在称赞无忧管理服务",
+                    testimonialsLimQuote: "我是一个房地产投资者，人在国外，不可能自己管理在新山的房产。Ms Pro Management 的一站式服务非常完美，从设计、装修到后期的运营、清洁，他们都做得非常专业。每月收到的报表也很清晰透明，让我对自己的投资了如指掌。感谢他们让我的投资变得如此简单高效！",
+                    testimonialsLimAuthor: "- Lim 女士, 槟城的屋主",
+                    testimonialsLimBefore: "空置率高，几乎无收益",
+                    testimonialsLimAfter: "年入住率达 85%，年化收益率提升 15%",
+
+                    // New translation keys for trust badges and email validation
+                    trustBadgeTripAdvisorAlt: "TripAdvisor卓越证书",
+                    trustBadgeAirbnbAlt: "Airbnb官方合作伙伴",
+                    trustBadgeBookingAlt: "Booking.com 合作伙伴标志", 
+                    trustBadgeAgodaAlt: "Agoda 合作伙伴标志",      
+                    contactEmailInvalid: "请输入有效的邮箱地址",
+                },
+                en: {
+                    companyName: "Ms Pro Management",
+                    navHome: "Home",
+                    navAbout: "About Us",
+                    navServices: "Our Services",
+                    navTestimonials: "Success Stories",
+                    navWhyChooseUs: "Why Choose Us",
+                    navFAQ: "FAQ",
+                    navContact: "Contact Us",
+                    navViewProperties: "View Available Properties",
+                    heroTitle: "Attention Apartment Owners! Let Your Property Generate Stable High Returns",
+                    heroSubtitle: "Ms Pro Management Sdn Bhd specializes in serviced apartment management, offering comprehensive, worry-free solutions to maximize your investment value.",
+                    aboutTitle: "About Us",
+                    aboutStory: "Our Story",
+                    aboutStoryText: "Established in 2021, we initially focused on boutique serviced apartment operations. With professional托管 services and intelligent revenue management, we quickly gained market recognition. As our business developed, we gradually expanded to managing townhouses and private homestays, and innovatively launched Co-Office co-working spaces to meet the diverse needs of various customer groups.",
+                    aboutVision: "Vision",
+                    aboutVisionText: "“Redefining Property Management, Ensuring Every Space Creates Value”",
+                    aboutMission: "Mission",
+                    aboutMissionText1: "For Owners: Provide hassle-free, high-return asset management solutions",
+                    aboutMissionText2: "For Guests: Create comfortable, high-value accommodation experiences",
+                    aboutMissionText3: "For Communities: Revitalize idle properties and promote local tourism development",
+                    aboutTeam: "Our Team",
+                    aboutTeamReino: "Reino Cheong | Co-founder & CEO",
+                    aboutTeamReinoDetails1: "10+ years of hotel and short-term rental operations experience",
+                    aboutTeamReinoDetails2: "Managed multiple well-known serviced apartment projects in Malaysia",
+                    aboutTeamReinoDetails3: "Specializes in revenue optimization and smart system development",
+                    aboutTeamHaiJing: "Lee Hai Jing | Co-founder & COO",
+                    aboutTeamHaiJingDetails1: "Property management expert, served 500+ properties",
+                    aboutTeamHaiJingDetails2: "Led the development of the company's standardized cleaning and maintenance procedures",
+                    aboutTeamHaiJingDetails3: "Deeply committed to improving customer experience and service quality control",
+                    aboutTeamAdvantage: "Team Advantages:",
+                    aboutTeamAdvantage1: "Average industry experience 8+ years",
+                    aboutTeamAdvantage2: "Technology + service dual-core driven model",
+                    aboutTeamAdvantage3: "7×24 hour operation and maintenance support",
+                    aboutValues: "Our Values",
+                    aboutValue1Title: "1. Integrity & Transparency",
+                    aboutValue1Desc1: "No hidden clauses",
+                    aboutValue1Desc2: "All income and expenses traceable",
+                    aboutValue1Desc3: "Accurate reporting of operational status",
+                    aboutValue2Title: "2. Professional Excellence",
+                    aboutValue2Desc1: "Continuously optimize smart management systems",
+                    aboutValue2Desc2: "Certified cleaning/maintenance personnel",
+                    aboutValue2Desc3: "Monthly industry data reports",
+                    aboutValue3Title: "3. Efficient Collaboration",
+                    aboutValue3Desc1: "Owner requests responded to within 2 hours",
+                    aboutValue3Desc2: "Utilize digital tools to improve efficiency",
+                    aboutValue3Desc3: "Seamless cross-departmental collaboration",
+                    aboutValue4Title: "4. Innovation & Win-Win",
+                    aboutValue4Desc1: "Regularly introduce new service models",
+                    aboutValue4Desc2: "Share industry resources with owners",
+                    aboutValue4Desc3: "Community sustainable development plan",
+                    aboutTrust: "Why Trust Us?",
+                    aboutTrust1: "3 years of service with zero major complaints",
+                    aboutTrust2: "Average renewal rate of cooperative properties 92%",
+                    servicesTitle: "Our Core Services",
+                    serviceManagement: "Professional Management",
+                    serviceManagementDesc: "Multi-platform synchronization, intelligent property status management, 7x12-hour customer service and emergency response for hassle-free property management.",
+                    serviceDesign: "Interior Design",
+                    serviceDesignDesc: "Offers modern, Nordic, industrial styles to help your apartment achieve over 25% premium.",
+                    serviceCleaning: "Efficient Cleaning",
+                    serviceCleaningDesc: "Hotel-level cleaning standards, deep disinfection after every guest, ensuring properties are always spotless.",
+                    serviceReport: "Monthly Detailed Reports",
+                    serviceReportDesc: "Provides transparent financial and operational data to give you full control over property income and market trends.",
+                    serviceGuaranteedRental: "Guaranteed Rental Service",
+                    serviceGuaranteedRentalDesc: "Guarantees a fixed monthly rental return, eliminating vacancy concerns and ensuring a stable return on your investment.",
+                    serviceDetailsTitle: "Service Details",
+                    serviceManagementDetailsTitle: "Professional Management",
+                    serviceManagementBooking: "Booking Platform Management",
+                    serviceManagementBooking1: "Multi-platform synchronization: Automatically listed on major platforms like Airbnb, Booking.com, Agoda, Trip.com",
+                    serviceManagementBooking2: "Smart room status management: Real-time synchronization of booking status to avoid double bookings",
+                    serviceManagementBooking3: "Bad review alert: Automatically monitors low ratings, handled within 48 hours",
+                    serviceManagementCustomerComm: "Customer Communication",
+                    serviceManagementCustomerComm1: "7x12-hour customer service: Handling inquiries, booking changes, special requests",
+                    serviceManagementCustomerComm2: "Multi-language support: English, Chinese, Malay",
+                    serviceManagementCustomerComm3: "Automated response system: AI instant answers for frequent questions (e.g., Wi-Fi password, check-in guide)",
+                    serviceManagementCheckInOut: "Check-in/Check-out Management",
+                    serviceManagementCheckInOut1: "Self-check-in: Electronic door lock + video guide, no in-person handover needed",
+                    serviceManagementCheckInOut2: "Smart check-out inspection: AI identifies damaged/lost items, feedback within 1 hour",
+                    serviceManagementCheckInOut3: "Flexible policies: Supports hourly, long-term, monthly rental mixed modes",
+                    serviceManagementEmergency: "Emergency Handling",
+                    serviceManagementEmergency1: "30-minute response: Water/power outages, lock malfunctions, etc.",
+                    serviceManagementEmergency2: "Partner repair technicians: Certified electricians/plumbers, transparent quotes",
+                    serviceManagementEmergency3: "Insurance liaison: Assistance with guest damage claims",
+                    serviceDesignDetailsTitle: "Interior Design Service",
+                    serviceDesignStyles: "Style Cases",
+                    serviceDesignModern: "Modern Minimalist Style",
+                    serviceDesignModernDetails1: "Features: Neutral tones, multi-functional furniture",
+                    serviceDesignModernDetails2: "Case: Kuala Lumpur KLCC apartment renovation, 25% premium",
+                    serviceDesignNordic: "Nordic Natural Style",
+                    serviceDesignNordicDetails1: "Features: Wood elements, plant decorations",
+                    serviceDesignNordicDetails2: "Case: Penang George Town property, peak season prices doubled",
+                    serviceDesignIndustrial: "Industrial Loft Style",
+                    serviceDesignIndustrialDetails1: "Features: Exposed brick walls, creative lighting",
+                    serviceDesignIndustrialDetails2: "Case: Petaling Jaya Co-Office space, 92% occupancy rate",
+                    serviceDesignCustomized: "Customized Service",
+                    serviceDesignCustomized1: "Free design consultation: 3 options to choose from",
+                    serviceDesignCustomized2: "Soft furnishing package: From RM5,000 (includes furniture + decorations)",
+                    serviceDesignCustomized3: "Smart upgrade: Optional installation of smart lighting/thermostat systems",
+                    serviceCleaningDetailsTitle: "Efficient Cleaning Standards",
+                    serviceCleaningDaily: "Daily Cleaning",
+                    serviceCleaningDaily1: "Required for every guest:",
+                    serviceCleaningDaily1_1: "Linens, towels high-temperature washed and replaced",
+                    serviceCleaningDaily1_2: "Bathroom deep disinfection (using hospital-grade disinfectant)",
+                    serviceCleaningDaily1_3: "Surface wiping (door handles, remotes, etc.)",
+                    serviceCleaningDaily2: "Weekly deep cleaning: AC filter, refrigerator defrosting, etc.",
+                    serviceCleaningQuality: "Quality Inspection Process",
+                    serviceCleaningQuality1: "Cleaner uploads photos",
+                    serviceCleaningQuality2: "Supervisor spot-checks 30% of properties",
+                    serviceCleaningQuality3: "Guest rating feedback (below 4.5 stars automatically triggers re-cleaning)",
+                    serviceReportDetailsTitle: "Monthly Detailed Report Content",
+                    serviceReportCoreData: "Core Data",
+                    serviceReportCoreData1: "Operational metrics: Occupancy rate, average daily rate, RevPAR (Revenue per Available Room)",
+                    serviceReportCoreData2: "Financial details:",
+                    serviceReportCoreData2_1: "Rental income (displayed by platform)",
+                    serviceReportCoreData2_2: "Expense breakdown (cleaning/maintenance/utilities)",
+                    serviceReportCoreData2_3: "Net income calculation",
+                    serviceReportCoreData3: "Market comparison: Ranking of properties in the same area",
+                    serviceReportAnalysis: "Value-Added Analysis",
+                    serviceReportAnalysis1: "Next 30-day booking forecast",
+                    serviceReportAnalysis2: "Revenue optimization suggestions (e.g., how much premium a renovation upgrade can bring)",
+                    serviceReportAnalysis3: "Annual data trend chart",
+                    serviceGuaranteedRentalDetailsTitle: "Guaranteed Rental Service Terms",
+                    serviceGuaranteedRentalHowItWorks: "How it Works",
+                    serviceGuaranteedRentalConditions: "Contract Conditions:",
+                    serviceGuaranteedRentalConditions1: "Property must meet safety standards",
+                    serviceGuaranteedRentalConditions2: "Minimum contract period 12 months",
+                    serviceGuaranteedRentalPayment: "Payment Rules:",
+                    serviceGuaranteedRentalPayment1: "Fixed monthly transfer of guaranteed amount by 5th (e.g., RM2,500)",
+                    serviceGuaranteedRentalPayment2: "Actual income exceeding guaranteed amount, shared proportionally",
+                    serviceGuaranteedRentalCompensation: "Difference Compensation:",
+                    serviceGuaranteedRentalCompensation1: "Difference compensated by the 15th of the following month",
+                    serviceGuaranteedRentalCompensation2: "Annual cumulative compensation not exceeding 2 months' rent",
+                    serviceGuaranteedRentalOwnerObligations: "Owner Obligations",
+                    serviceGuaranteedRentalOwnerObligations1: "Allow necessary renovations/modifications",
+                    serviceGuaranteedRentalOwnerObligations2: "Major repair cost sharing (e.g., replacement of scrapped appliances)",
+                    serviceGuaranteedRentalTransparency: "Transparency Commitment",
+                    serviceGuaranteedRentalTransparency1: "All terms written in contract, no hidden details",
+                    serviceGuaranteedRentalTransparency2: "View sample guaranteed rental contract",
+                    testimonialsTitle: "Client Testimonials & Success Stories",
+                    testimonialsSubtitle: "Hear from our valued property owners and learn how Ms Pro Management helped them maximize their property value.",
+                    testimonialsMore: "More success stories and detailed data coming soon!",
+                    testimonialsPropertyBefore: "Property Before Management",
+                    testimonialsPropertyAfter: "Property After Management",
+                    whyChooseUsTitle: "Why Choose Us?",
                     whyChooseUsResults: "Results You Will Get:",
                     whyChooseUsResults1: "Increased Income: Average rental income growth of 20-40% (higher than long-term rental)",
                     whyChooseUsResults2: "Reduced Vacancy: Smart pricing + marketing strategy, occupancy rate maintained at 80%+",
@@ -926,723 +927,16 @@
                     faqQ9: "What is the contract period? Can it be flexible?",
                     faqA9: "Our minimum contract period is 12 months, but we also offer flexible renewal and termination policies, which can be negotiated based on your needs.",
                     faqQ10: "How do I start cooperating with Ms Pro Management?",
-                    faqA10: "You can fill out the contact form on our website, or directly contact our team via phone/email. We will get in touch with you as soon as possible to provide a customized solution。",
+                    faqA10: "You can fill out the contact form on our website, or directly contact our team via phone/email. We will get in touch with you as soon as possible to provide a customized solution.",
                     收起详情: "Hide Details",
                     了解更多: "Learn More",
                     关注我们: "Follow Us",
                     faqSectionOther: "Other Questions",
+                    faqSectionOperations: "Operational Questions", // Added this missing key
                     language: "Language",
-                    chinese: "Chinese",
-                    english: "English",
-                    malay: "Malay",
-                    messageSent: "Message Sent!", // Added for form submission feedback
-
-                    // Testimonials specific translation keys
-                    testimonialsTanAltText: "Professional portrait of Mr. Tan, a Ms Pro Management client, sharing his positive review of the management service",
-                    testimonialsTanQuote: "Ms Pro Management has truly changed my life! Previously, my apartment was always vacant or I could only rent it out for a low long-term price. Now they help me with short-term rental management, and my income has almost doubled, and I don't have to worry about anything; everything is handled perfectly. Most importantly, I receive payments on time every month, which is so hassle-free!",
-                    testimonialsTanAuthor: "- Mr. Tan, Property Owner in Kuala Lumpur",
-                    testimonialsTanBefore: "Average Monthly Income: RM 1,200 (Long-term rental)",
-                    testimonialsTanAfter: "Average Monthly Income: RM 2,500+ (Short-term management)",
-
-                    testimonialsLimAltText: "Professional portrait of Ms. Lim, a Ms Pro Management client, praising the worry-free management service",
-                    testimonialsLimQuote: "I am a real estate investor, and I'm based overseas, so it's impossible for me to manage my property in Johor Bahru myself. Ms Pro Management's one-stop service is perfect; from design and renovation to operations and cleaning, they are all very professional. The monthly reports are also very clear and transparent, allowing me to fully understand my investment. Thanks to them for making my investment so simple and efficient!",
-                    testimonialsLimAuthor: "- Ms. Lim, Property Owner in Penang",
-                    testimonialsLimBefore: "High vacancy rate, almost no income",
-                    testimonialsLimAfter: "Annual occupancy rate reached 85%, annualized ROI increased by 15%",
-
-                    // New translation keys for trust badges and email validation
-                    trustBadgeTripAdvisorAlt: "TripAdvisor卓越证书",
-                    trustBadgeAirbnbAlt: "Airbnb官方合作伙伴",
-                    trustBadgeBookingAlt: "Booking.com 合作伙伴标志", // New translation
-                    trustBadgeAgodaAlt: "Agoda 合作伙伴标志",      // New translation
-                    contactEmailInvalid: "请输入有效的邮箱地址",
-                },
-                en: {
-                    companyName: "Ms Pro Management",
-                    navHome: "Home",
-                    navAbout: "About Us",
-                    navServices: "Our Services",
-                    navTestimonials: "Success Stories",
-                    navWhyChooseUs: "Why Choose Us",
-                    navFAQ: "FAQ",
-                    navContact: "Contact Us",
-                    navViewProperties: "View Available Properties",
-                    heroTitle: "Attention Apartment Owners! Let Your Property Generate Stable High Returns",
-                    heroSubtitle: "Ms Pro Management Sdn Bhd specializes in serviced apartment management, offering comprehensive, worry-free solutions to maximize your investment value.",
-                    aboutTitle: "About Us",
-                    aboutStory: "Our Story",
-                    aboutStoryText: "Established in 2021, we initially focused on boutique serviced apartment operations. With professional托管 services and intelligent revenue management, we quickly gained market recognition. As our business developed, we gradually expanded to managing townhouses and private homestays, and innovatively launched Co-Office co-working spaces to meet the diverse needs of various customer groups.",
-                    aboutVision: "Vision",
-                    aboutVisionText: "“Redefining Property Management, Ensuring Every Space Creates Value”",
-                    aboutMission: "Mission",
-                    aboutMissionText1: "For Owners: Provide hassle-free, high-return asset management solutions",
-                    aboutMissionText2: "For Guests: Create comfortable, high-value accommodation experiences",
-                    aboutMissionText3: "For Communities: Revitalize idle properties and promote local tourism development",
-                    aboutTeam: "Our Team",
-                    aboutTeamReino: "Reino Cheong | Co-founder & CEO",
-                    aboutTeamReinoDetails1: "10+ years of hotel and short-term rental operations experience",
-                    aboutTeamReinoDetails2: "Managed multiple well-known serviced apartment projects in Malaysia",
-                    aboutTeamReinoDetails3: "Specializes in revenue optimization and smart system development",
-                    aboutTeamHaiJing: "Lee Hai Jing | Co-founder & COO",
-                    aboutTeamHaiJingDetails1: "Property management expert, served 500+ properties",
-                    aboutTeamHaiJingDetails2: "Led the development of the company's standardized cleaning and maintenance procedures",
-                    aboutTeamHaiJingDetails3: "Deeply committed to improving customer experience and service quality control",
-                    aboutTeamAdvantage: "Team Advantages:",
-                    aboutTeamAdvantage1: "Average industry experience 8+ years",
-                    aboutTeamAdvantage2: "Technology + service dual-core driven model",
-                    aboutTeamAdvantage3: "7×24 hour operation and maintenance support",
-                    aboutValues: "Our Values",
-                    aboutValue1Title: "1. Integrity & Transparency",
-                    aboutValue1Desc1: "No hidden clauses",
-                    aboutValue1Desc2: "All income and expenses traceable",
-                    aboutValue1Desc3: "Accurate reporting of operational status",
-                    aboutValue2Title: "2. Professional Excellence",
-                    aboutValue2Desc1: "Continuously optimize smart management systems",
-                    aboutValue2Desc2: "Certified cleaning/maintenance personnel",
-                    aboutValue2Desc3: "Monthly industry data reports",
-                    aboutValue3Title: "3. Efficient Collaboration",
-                    aboutValue3Desc1: "Owner requests responded to within 2 hours",
-                    aboutValue3Desc2: "Utilize digital tools to improve efficiency",
-                    aboutValue3Desc3: "Seamless cross-departmental collaboration",
-                    aboutValue4Title: "4. Innovation & Win-Win",
-                    aboutValue4Desc1: "Regularly introduce new service models",
-                    aboutValue4Desc2: "Share industry resources with owners",
-                    aboutValue4Desc3: "Community sustainable development plan",
-                    aboutTrust: "Why Trust Us?",
-                    aboutTrust1: "3 years of service with zero major complaints",
-                    aboutTrust2: "Average renewal rate of cooperative properties 92%",
-                    servicesTitle: "Our Core Services",
-                    serviceManagement: "Professional Management",
-                    serviceManagementDesc: "Multi-platform synchronization, intelligent property status management, 7x12-hour customer service and emergency response for hassle-free property management.",
-                    serviceDesign: "Interior Design",
-                    serviceDesignDesc: "Offers modern, Nordic, industrial styles to help your apartment achieve over 25% premium.",
-                    serviceCleaning: "Efficient Cleaning",
-                    serviceCleaningDesc: "Hotel-level cleaning standards, deep disinfection after every guest, ensuring properties are always spotless.",
-                    serviceReport: "Monthly Detailed Reports",
-                    serviceReportDesc: "Provides transparent financial and operational data to give you full control over property income and market trends.",
-                    serviceGuaranteedRental: "Guaranteed Rental Service",
-                    serviceGuaranteedRentalDesc: "Guarantees a fixed monthly rental return, eliminating vacancy concerns and ensuring a stable return on your investment.",
-                    serviceDetailsTitle: "Service Details",
-                    serviceManagementDetailsTitle: "Professional Management",
-                    serviceManagementBooking: "Booking Platform Management",
-                    serviceManagementBooking1: "Multi-platform synchronization: Automatically listed on major platforms like Airbnb, Booking.com, Agoda, Trip.com",
-                    serviceManagementBooking2: "Smart room status management: Real-time synchronization of booking status to avoid double bookings",
-                    serviceManagementBooking3: "Bad review alert: Automatically monitors low ratings, handled within 48 hours",
-                    serviceManagementCustomerComm: "Customer Communication",
-                    serviceManagementCustomerComm1: "7x12-hour customer service: Handling inquiries, booking changes, special requests",
-                    serviceManagementCustomerComm2: "Multi-language support: English, Chinese, Malay",
-                    serviceManagementCustomerComm3: "Automated response system: AI instant answers for frequent questions (e.g., Wi-Fi password, check-in guide)",
-                    serviceManagementCheckInOut: "Check-in/Check-out Management",
-                    serviceManagementCheckInOut1: "Self-check-in: Electronic door lock + video guide, no in-person handover needed",
-                    serviceManagementCheckInOut2: "Smart check-out inspection: AI identifies damaged/lost items, feedback within 1 hour",
-                    serviceManagementCheckInOut3: "Flexible policies: Supports hourly, long-term, monthly rental mixed modes",
-                    serviceManagementEmergency: "Emergency Handling",
-                    serviceManagementEmergency1: "30-minute response: Water/power outages, lock malfunctions, etc.",
-                    serviceManagementEmergency2: "Partner repair technicians: Certified electricians/plumbers, transparent quotes",
-                    serviceManagementEmergency3: "Insurance liaison: Assistance with guest damage claims",
-                    serviceDesignDetailsTitle: "Interior Design Service",
-                    serviceDesignStyles: "Style Cases",
-                    serviceDesignModern: "Modern Minimalist Style",
-                    serviceDesignModernDetails1: "Features: Neutral tones, multi-functional furniture",
-                    serviceDesignModernDetails2: "Case: Kuala Lumpur KLCC apartment renovation, 25% premium",
-                    serviceDesignNordic: "Nordic Natural Style",
-                    serviceDesignNordicDetails1: "Features: Wood elements, plant decorations",
-                    serviceDesignNordicDetails2: "Case: Penang George Town property, peak season prices doubled",
-                    serviceDesignIndustrial: "Industrial Loft Style",
-                    serviceDesignIndustrialDetails1: "Features: Exposed brick walls, creative lighting",
-                    serviceDesignIndustrialDetails2: "Case: Petaling Jaya Co-Office space, 92% occupancy rate",
-                    serviceDesignCustomized: "Customized Service",
-                    serviceDesignCustomized1: "Free design consultation: 3 options to choose from",
-                    serviceDesignCustomized2: "Soft furnishing package: From RM5,000 (includes furniture + decorations)",
-                    serviceDesignCustomized3: "Smart upgrade: Optional installation of smart lighting/thermostat systems",
-                    serviceCleaningDetailsTitle: "Efficient Cleaning Standards",
-                    serviceCleaningDaily: "Daily Cleaning",
-                    serviceCleaningDaily1: "Required for every guest:",
-                    serviceCleaningDaily1_1: "Linens, towels high-temperature washed and replaced",
-                    serviceCleaningDaily1_2: "Bathroom deep disinfection (using hospital-grade disinfectant)",
-                    serviceCleaningDaily1_3: "Surface wiping (door handles, remotes, etc.)",
-                    serviceCleaningDaily2: "Weekly deep cleaning: AC filter, refrigerator defrosting, etc.",
-                    serviceCleaningQuality: "Quality Inspection Process",
-                    serviceCleaningQuality1: "Cleaner uploads photos",
-                    serviceCleaningQuality2: "Supervisor spot-checks 30% of properties",
-                    serviceCleaningQuality3: "Guest rating feedback (below 4.5 stars automatically triggers re-cleaning)",
-                    serviceReportDetailsTitle: "Monthly Detailed Report Content",
-                    serviceReportCoreData: "Core Data",
-                    serviceReportCoreData1: "Operational metrics: Occupancy rate, average daily rate, RevPAR (Revenue per Available Room)",
-                    serviceReportCoreData2: "Financial details:",
-                    serviceReportCoreData2_1: "Rental income (displayed by platform)",
-                    serviceReportCoreData2_2: "Expense breakdown (cleaning/maintenance/utilities)",
-                    serviceReportCoreData2_3: "Net income calculation",
-                    serviceReportCoreData3: "Market comparison: Ranking of properties in the same area",
-                    serviceReportAnalysis: "Value-Added Analysis",
-                    serviceReportAnalysis1: "Next 30-day booking forecast",
-                    serviceReportAnalysis2: "Revenue optimization suggestions (e.g., how much premium a renovation upgrade can bring)",
-                    serviceReportAnalysis3: "Annual data trend chart",
-                    serviceGuaranteedRentalDetailsTitle: "Guaranteed Rental Service Terms",
-                    serviceGuaranteedRentalHowItWorks: "How it Works",
-                    serviceGuaranteedRentalConditions: "Contract Conditions:",
-                    serviceGuaranteedRentalConditions1: "Property must meet safety standards",
-                    serviceGuaranteedRentalConditions2: "Minimum contract period 12 months",
-                    serviceGuaranteedRentalPayment: "Payment Rules:",
-                    serviceGuaranteedRentalPayment1: "Fixed monthly transfer of guaranteed amount by 5th (e.g., RM2,500)",
-                    serviceGuaranteedRentalPayment2: "Actual income exceeding guaranteed amount, shared proportionally",
-                    serviceGuaranteedRentalCompensation: "Difference Compensation:",
-                    serviceGuaranteedRentalCompensation1: "Difference compensated by the 15th of the following month",
-                    serviceGuaranteedRentalCompensation2: "Annual cumulative compensation not exceeding 2 months' rent",
-                    serviceGuaranteedRentalOwnerObligations: "Owner Obligations",
-                    serviceGuaranteedRentalOwnerObligations1: "Allow necessary renovations/modifications",
-                    serviceGuaranteedRentalOwnerObligations2: "Major repair cost sharing (e.g., replacement of scrapped appliances)",
-                    serviceGuaranteedRentalTransparency: "Transparency Commitment",
-                    serviceGuaranteedRentalTransparency1: "All terms written in contract, no hidden details",
-                    serviceGuaranteedRentalTransparency2: "View sample guaranteed rental contract",
-                    testimonialsTitle: "Client Testimonials & Success Stories",
-                    testimonialsSubtitle: "Hear from our valued property owners and learn how Ms Pro Management helped them maximize their property value.",
-                    testimonialsMore: "More success stories and detailed data coming soon!",
-                    testimonialsPropertyBefore: "Property Before Management",
-                    testimonialsPropertyAfter: "Property After Management",
-                    whyChooseUsTitle: "Why Choose Us?",
-                    whyChooseUsResults: "Results You Will Get:",
-                    whyChooseUsResults1: "Increased Income: Average rental income growth of 20-40% (higher than long-term rental)",
-                    whyChooseUsResults2: "Reduced Vacancy: Smart pricing + marketing strategy, occupancy rate maintained at 80%+",
-                    whyChooseUsResults3: "Hassle-Free Management: From maintenance to customer service, we handle everything, you just collect income",
-                    whyChooseUsProblems: "Are You Experiencing These Problems?",
-                    whyChooseUsProblems1: "Property vacant, no tenants, wasted potential",
-                    whyChooseUsProblems2: "Low long-term rental income, difficult tenant management",
-                    whyChooseUsProblems3: "Too troublesome to manage yourself, no time to deal with tenants",
-                    whyChooseUsProblems4: "Worried about property damage from short-term rentals",
-                    whyChooseUsSolutions: "Our Solutions:",
-                    whyChooseUsSolutions1: "Income Guarantee: If income doesn't meet targets, we make up the difference",
-                    whyChooseUsSolutions2: "Professional Maintenance: Strict cleaning + maintenance supervision, property kept like new",
-                    whyChooseUsSolutions3: "Full Management: You don't have to worry, enjoy passive income",
-                    whyChooseUsReasons: "Why Owners Choose Us?",
-                    whyChooseUsReasons1: "Data-driven: Helped 200+ landlords increase income",
-                    whyChooseUsReasons2: "Transparent Cooperation: No hidden fees, account statements available anytime",
-                    whyChooseUsReasons3: "Flexible & Worry-Free: Flexible contract terms, no forced binding",
-                    whyChooseUsCTA: "You only need to do one thing: Hand over the keys, and wait for the rent",
-                    whyChooseUsCTAButton1: "Inquire Now",
-                    whyChooseUsCTAButton2: "Calculate My Property's Income",
-                    contactTitle: "Contact Us",
-                    contactSubtitle: "We look forward to cooperating with you to maximize your property's value. Please fill in the information below, and our team will contact you as soon as possible.",
-                    contactLeaveInfo: "Leave Your Information",
-                    contactName: "Your Name",
-                    contactEmail: "Your Email",
-                    contactPhone: "Your Phone Number (Optional)",
-                    contactMessage: "Your Message",
-                    contactNamePlaceholder: "Enter your name",
-                    contactEmailPlaceholder: "Enter a valid email address",
-                    contactPhonePlaceholder: "Enter your phone number",
-                    contactMessagePlaceholder: "Enter your message here",
-                    contactSend: "Send Message",
-                    contactTeam: "Contact Our Team",
-                    contactEmailLabel: "Email:",
-                    contactCEO: "Reino (CEO):",
-                    contactCOO: "Hai Jing (COO):",
-                    footerText: "© 2025 Ms Pro Management Sdn Bhd. All Rights Reserved.",
-                    footerPrivacy: "Privacy Policy",
-                    footerTerms: "Terms of Service",
-                    faqTitle: "Frequently Asked Questions",
-                    faqSubtitle: "Below are our most frequently asked questions and their answers.",
-                    faqSectionTitle: "Basic Questions About Our Services",
-                    faqQ1: "What services does Ms Pro Management offer?",
-                    faqA1: "We offer comprehensive property management services for serviced apartments, homestays, and townhouses, including interior design, professional management, efficient cleaning, monthly detailed reports, and guaranteed rental service.",
-                    faqSectionRevenue: "Revenue Related Questions",
-                    faqQ3: "How much can my property's income increase?",
-                    faqA3: "After management, average rental income can increase by 20-40% (higher than long-term leases). Through smart pricing and marketing strategies, we maintain an occupancy rate of over 80%.",
-                    faqQ4: "Is there a guaranteed rental service?",
-                    faqA4: "Yes, we offer a guaranteed rental service, promising a fixed monthly rental return to eliminate your vacancy concerns and ensure a stable return on your investment. Specific terms will be clearly stated in the contract.",
-                    faqSectionHouseMgmt: "Property Management Questions",
-                    faqQ5: "How does Ms Pro Management ensure the safety of my property?",
-                    faqA5: "We implement strict check-in/check-out inspection processes, combined with smart systems and manual patrols, and assist with guest damage claims to ensure your property's safety and security.",
-                    faqQ6: "What are the cleaning and maintenance standards?",
-                    faqA6: "We adhere to hotel-level cleaning standards, with deep disinfection after every guest. Our maintenance team responds 24/7, and we partner with certified repair technicians to ensure your property always remains in optimal condition.",
-                    faqQ7: "How can I view my property's operational reports?",
-                    faqA7: "We provide detailed monthly operational reports, including key data such as occupancy rate, average daily rate, and income/expense breakdowns, allowing you to stay informed about your property's earnings at all times。",
-                    faqQ8: "What if there's an emergency?",
-                    faqA8: "We have a dedicated emergency response team that handles emergencies such as water/power outages, lock malfunctions, etc., within 30 minutes, ensuring guest experience is not affected。",
-                    faqQ9: "What is the contract period? Can it be flexible?",
-                    faqA9: "Our minimum contract period is 12 months, but we also offer flexible renewal and termination policies, which can be negotiated based on your needs。",
-                    faqQ10: "How do I start cooperating with Ms Pro Management?",
-                    faqA10: "You can fill out the contact form on our website, or directly contact our team via phone/email. We will get in touch with you as soon as possible to provide a customized solution。",
-                    收起详情: "Hide Details",
-                    了解更多: "Learn More",
-                    关注我们: "Follow Us",
-                    faqSectionOther: "Other Questions",
-                    language: "Language",
-                    chinese: "Chinese",
-                    english: "English",
-                    malay: "Malay",
-                    messageSent: "Message Sent!", // Added for form submission feedback
-
-                    // Testimonials specific translation keys
-                    testimonialsTanAltText: "Professional portrait of Mr. Tan, a Ms Pro Management client, sharing his positive review of the management service",
-                    testimonialsTanQuote: "Ms Pro Management has truly changed my life! Previously, my apartment was always vacant or I could only rent it out for a low long-term price. Now they help me with short-term rental management, and my income has almost doubled, and I don't have to worry about anything; everything is handled perfectly. Most importantly, I receive payments on time every month, which is so hassle-free!",
-                    testimonialsTanAuthor: "- Mr. Tan, Property Owner in Kuala Lumpur",
-                    testimonialsTanBefore: "Average Monthly Income: RM 1,200 (Long-term rental)",
-                    testimonialsTanAfter: "Average Monthly Income: RM 2,500+ (Short-term management)",
-
-                    testimonialsLimAltText: "Professional portrait of Ms. Lim, a Ms Pro Management client, praising the worry-free management service",
-                    testimonialsLimQuote: "I am a real estate investor, and I'm based overseas, so it's impossible for me to manage my property in Johor Bahru myself. Ms Pro Management's one-stop service is perfect; from design and renovation to operations and cleaning, they are all very professional. The monthly reports are also very clear and transparent, allowing me to fully understand my investment. Thanks to them for making my investment so simple and efficient!",
-                    testimonialsLimAuthor: "- Ms. Lim, Property Owner in Penang",
-                    testimonialsLimBefore: "High vacancy rate, almost no income",
-                    testimonialsLimAfter: "Annual occupancy rate reached 85%, annualized ROI increased by 15%",
-
-                    // New translation keys for trust badges and email validation
-                    trustBadgeTripAdvisorAlt: "TripAdvisor卓越证书",
-                    trustBadgeAirbnbAlt: "Airbnb官方合作伙伴",
-                    trustBadgeBookingAlt: "Booking.com 合作伙伴标志", // New translation
-                    trustBadgeAgodaAlt: "Agoda 合作伙伴标志",      // New translation
-                    contactEmailInvalid: "Please enter a valid email address",
-                },
-                en: {
-                    companyName: "Ms Pro Management",
-                    navHome: "Home",
-                    navAbout: "About Us",
-                    navServices: "Our Services",
-                    navTestimonials: "Success Stories",
-                    navWhyChooseUs: "Why Choose Us",
-                    navFAQ: "FAQ",
-                    navContact: "Contact Us",
-                    navViewProperties: "View Available Properties",
-                    heroTitle: "Attention Apartment Owners! Let Your Property Generate Stable High Returns",
-                    heroSubtitle: "Ms Pro Management Sdn Bhd specializes in serviced apartment management, offering comprehensive, worry-free solutions to maximize your investment value.",
-                    aboutTitle: "About Us",
-                    aboutStory: "Our Story",
-                    aboutStoryText: "Established in 2021, we initially focused on boutique serviced apartment operations. With professional托管 services and intelligent revenue management, we quickly gained market recognition. As our business developed, we gradually expanded to managing townhouses and private homestays, and innovatively launched Co-Office co-working spaces to meet the diverse needs of various customer groups.",
-                    aboutVision: "Vision",
-                    aboutVisionText: "“Redefining Property Management, Ensuring Every Space Creates Value”",
-                    aboutMission: "Mission",
-                    aboutMissionText1: "For Owners: Provide hassle-free, high-return asset management solutions",
-                    aboutMissionText2: "For Guests: Create comfortable, high-value accommodation experiences",
-                    aboutMissionText3: "For Communities: Revitalize idle properties and promote local tourism development",
-                    aboutTeam: "Our Team",
-                    aboutTeamReino: "Reino Cheong | Co-founder & CEO",
-                    aboutTeamReinoDetails1: "10+ years of hotel and short-term rental operations experience",
-                    aboutTeamReinoDetails2: "Managed multiple well-known serviced apartment projects in Malaysia",
-                    aboutTeamReinoDetails3: "Specializes in revenue optimization and smart system development",
-                    aboutTeamHaiJing: "Lee Hai Jing | Co-founder & COO",
-                    aboutTeamHaiJingDetails1: "Property management expert, served 500+ properties",
-                    aboutTeamHaiJingDetails2: "Led the development of the company's standardized cleaning and maintenance procedures",
-                    aboutTeamHaiJingDetails3: "Deeply committed to improving customer experience and service quality control",
-                    aboutTeamAdvantage: "Team Advantages:",
-                    aboutTeamAdvantage1: "Average industry experience 8+ years",
-                    aboutTeamAdvantage2: "Technology + service dual-core driven model",
-                    aboutTeamAdvantage3: "7×24 hour operation and maintenance support",
-                    aboutValues: "Our Values",
-                    aboutValue1Title: "1. Integrity & Transparency",
-                    aboutValue1Desc1: "No hidden clauses",
-                    aboutValue1Desc2: "All income and expenses traceable",
-                    aboutValue1Desc3: "Accurate reporting of operational status",
-                    aboutValue2Title: "2. Professional Excellence",
-                    aboutValue2Desc1: "Continuously optimize smart management systems",
-                    aboutValue2Desc2: "Certified cleaning/maintenance personnel",
-                    aboutValue2Desc3: "Monthly industry data reports",
-                    aboutValue3Title: "3. Efficient Collaboration",
-                    aboutValue3Desc1: "Owner requests responded to within 2 hours",
-                    aboutValue3Desc2: "Utilize digital tools to improve efficiency",
-                    aboutValue3Desc3: "Seamless cross-departmental collaboration",
-                    aboutValue4Title: "4. Innovation & Win-Win",
-                    aboutValue4Desc1: "Regularly introduce new service models",
-                    aboutValue4Desc2: "Share industry resources with owners",
-                    aboutValue4Desc3: "Community sustainable development plan",
-                    aboutTrust: "Why Trust Us?",
-                    aboutTrust1: "3 years of service with zero major complaints",
-                    aboutTrust2: "Average renewal rate of cooperative properties 92%",
-                    servicesTitle: "Our Core Services",
-                    serviceManagement: "Professional Management",
-                    serviceManagementDesc: "Multi-platform synchronization, intelligent property status management, 7x12-hour customer service and emergency response for hassle-free property management.",
-                    serviceDesign: "Interior Design",
-                    serviceDesignDesc: "Offers modern, Nordic, industrial styles to help your apartment achieve over 25% premium.",
-                    serviceCleaning: "Efficient Cleaning",
-                    serviceCleaningDesc: "Hotel-level cleaning standards, deep disinfection after every guest, ensuring properties are always spotless.",
-                    serviceReport: "Monthly Detailed Reports",
-                    serviceReportDesc: "Provides transparent financial and operational data to give you full control over property income and market trends.",
-                    serviceGuaranteedRental: "Guaranteed Rental Service",
-                    serviceGuaranteedRentalDesc: "Guarantees a fixed monthly rental return, eliminating vacancy concerns and ensuring a stable return on your investment.",
-                    serviceDetailsTitle: "Service Details",
-                    serviceManagementDetailsTitle: "Professional Management",
-                    serviceManagementBooking: "Booking Platform Management",
-                    serviceManagementBooking1: "Multi-platform synchronization: Automatically listed on major platforms like Airbnb, Booking.com, Agoda, Trip.com",
-                    serviceManagementBooking2: "Smart room status management: Real-time synchronization of booking status to avoid double bookings",
-                    serviceManagementBooking3: "Bad review alert: Automatically monitors low ratings, handled within 48 hours",
-                    serviceManagementCustomerComm: "Customer Communication",
-                    serviceManagementCustomerComm1: "7x12-hour customer service: Handling inquiries, booking changes, special requests",
-                    serviceManagementCustomerComm2: "Multi-language support: English, Chinese, Malay",
-                    serviceManagementCustomerComm3: "Automated response system: AI instant answers for frequent questions (e.g., Wi-Fi password, check-in guide)",
-                    serviceManagementCheckInOut: "Check-in/Check-out Management",
-                    serviceManagementCheckInOut1: "Self-check-in: Electronic door lock + video guide, no in-person handover needed",
-                    serviceManagementCheckInOut2: "Smart check-out inspection: AI identifies damaged/lost items, feedback within 1 hour",
-                    serviceManagementCheckInOut3: "Flexible policies: Supports hourly, long-term, monthly rental mixed modes",
-                    serviceManagementEmergency: "Emergency Handling",
-                    serviceManagementEmergency1: "30-minute response: Water/power outages, lock malfunctions, etc.",
-                    serviceManagementEmergency2: "Partner repair technicians: Certified electricians/plumbers, transparent quotes",
-                    serviceManagementEmergency3: "Insurance liaison: Assistance with guest damage claims",
-                    serviceDesignDetailsTitle: "Interior Design Service",
-                    serviceDesignStyles: "Style Cases",
-                    serviceDesignModern: "Modern Minimalist Style",
-                    serviceDesignModernDetails1: "Features: Neutral tones, multi-functional furniture",
-                    serviceDesignModernDetails2: "Case: Kuala Lumpur KLCC apartment renovation, 25% premium",
-                    serviceDesignNordic: "Nordic Natural Style",
-                    serviceDesignNordicDetails1: "Features: Wood elements, plant decorations",
-                    serviceDesignNordicDetails2: "Case: Penang George Town property, peak season prices doubled",
-                    serviceDesignIndustrial: "Industrial Loft Style",
-                    serviceDesignIndustrialDetails1: "Features: Exposed brick walls, creative lighting",
-                    serviceDesignIndustrialDetails2: "Case: Petaling Jaya Co-Office space, 92% occupancy rate",
-                    serviceDesignCustomized: "Customized Service",
-                    serviceDesignCustomized1: "Free design consultation: 3 options to choose from",
-                    serviceDesignCustomized2: "Soft furnishing package: From RM5,000 (includes furniture + decorations)",
-                    serviceDesignCustomized3: "Smart upgrade: Optional installation of smart lighting/thermostat systems",
-                    serviceCleaningDetailsTitle: "Efficient Cleaning Standards",
-                    serviceCleaningDaily: "Daily Cleaning",
-                    serviceCleaningDaily1: "Required for every guest:",
-                    serviceCleaningDaily1_1: "Linens, towels high-temperature washed and replaced",
-                    serviceCleaningDaily1_2: "Bathroom deep disinfection (using hospital-grade disinfectant)",
-                    serviceCleaningDaily1_3: "Surface wiping (door handles, remotes, etc.)",
-                    serviceCleaningDaily2: "Weekly deep cleaning: AC filter, refrigerator defrosting, etc.",
-                    serviceCleaningQuality: "Quality Inspection Process",
-                    serviceCleaningQuality1: "Cleaner uploads photos",
-                    serviceCleaningQuality2: "Supervisor spot-checks 30% of properties",
-                    serviceCleaningQuality3: "Guest rating feedback (below 4.5 stars automatically triggers re-cleaning)",
-                    serviceReportDetailsTitle: "Monthly Detailed Report Content",
-                    serviceReportCoreData: "Core Data",
-                    serviceReportCoreData1: "Operational metrics: Occupancy rate, average daily rate, RevPAR (Revenue per Available Room)",
-                    serviceReportCoreData2: "Financial details:",
-                    serviceReportCoreData2_1: "Rental income (displayed by platform)",
-                    serviceReportCoreData2_2: "Expense breakdown (cleaning/maintenance/utilities)",
-                    serviceReportCoreData2_3: "Net income calculation",
-                    serviceReportCoreData3: "Market comparison: Ranking of properties in the same area",
-                    serviceReportAnalysis: "Value-Added Analysis",
-                    serviceReportAnalysis1: "Next 30-day booking forecast",
-                    serviceReportAnalysis2: "Revenue optimization suggestions (e.g., how much premium a renovation upgrade can bring)",
-                    serviceReportAnalysis3: "Annual data trend chart",
-                    serviceGuaranteedRentalDetailsTitle: "Guaranteed Rental Service Terms",
-                    serviceGuaranteedRentalHowItWorks: "How it Works",
-                    serviceGuaranteedRentalConditions: "Contract Conditions:",
-                    serviceGuaranteedRentalConditions1: "Property must meet safety standards",
-                    serviceGuaranteedRentalConditions2: "Minimum contract period 12 months",
-                    serviceGuaranteedRentalPayment: "Payment Rules:",
-                    serviceGuaranteedRentalPayment1: "Fixed monthly transfer of guaranteed amount by 5th (e.g., RM2,500)",
-                    serviceGuaranteedRentalPayment2: "Actual income exceeding guaranteed amount, shared proportionally",
-                    serviceGuaranteedRentalCompensation: "Difference Compensation:",
-                    serviceGuaranteedRentalCompensation1: "Difference compensated by the 15th of the following month",
-                    serviceGuaranteedRentalCompensation2: "Annual cumulative compensation not exceeding 2 months' rent",
-                    serviceGuaranteedRentalOwnerObligations: "Owner Obligations",
-                    serviceGuaranteedRentalOwnerObligations1: "Allow necessary renovations/modifications",
-                    serviceGuaranteedRentalOwnerObligations2: "Major repair cost sharing (e.g., replacement of scrapped appliances)",
-                    serviceGuaranteedRentalTransparency: "Transparency Commitment",
-                    serviceGuaranteedRentalTransparency1: "All terms written in contract, no hidden details",
-                    serviceGuaranteedRentalTransparency2: "View sample guaranteed rental contract",
-                    testimonialsTitle: "Client Testimonials & Success Stories",
-                    testimonialsSubtitle: "Hear from our valued property owners and learn how Ms Pro Management helped them maximize their property value.",
-                    testimonialsMore: "More success stories and detailed data coming soon!",
-                    testimonialsPropertyBefore: "Property Before Management",
-                    testimonialsPropertyAfter: "Property After Management",
-                    whyChooseUsTitle: "Why Choose Us?",
-                    whyChooseUsResults: "Results You Will Get:",
-                    whyChooseUsResults1: "Increased Income: Average rental income growth of 20-40% (higher than long-term rental)",
-                    whyChooseUsResults2: "Reduced Vacancy: Smart pricing + marketing strategy, occupancy rate maintained at 80%+",
-                    whyChooseUsResults3: "Hassle-Free Management: From maintenance to customer service, we handle everything, you just collect income",
-                    whyChooseUsProblems: "Are You Experiencing These Problems?",
-                    whyChooseUsProblems1: "Property vacant, no tenants, wasted potential",
-                    whyChooseUsProblems2: "Low long-term rental income, difficult tenant management",
-                    whyChooseUsProblems3: "Too troublesome to manage yourself, no time to deal with tenants",
-                    whyChooseUsProblems4: "Worried about property damage from short-term rentals",
-                    whyChooseUsSolutions: "Our Solutions:",
-                    whyChooseUsSolutions1: "Income Guarantee: If income doesn't meet targets, we make up the difference",
-                    whyChooseUsSolutions2: "Professional Maintenance: Strict cleaning + maintenance supervision, property kept like new",
-                    whyChooseUsSolutions3: "Full Management: You don't have to worry, enjoy passive income",
-                    whyChooseUsReasons: "Why Owners Choose Us?",
-                    whyChooseUsReasons1: "Data-driven: Helped 200+ landlords increase income",
-                    whyChooseUsReasons2: "Transparent Cooperation: No hidden fees, account statements available anytime",
-                    whyChooseUsReasons3: "Flexible & Worry-Free: Flexible contract terms, no forced binding",
-                    whyChooseUsCTA: "You only need to do one thing: Hand over the keys, and wait for the rent",
-                    whyChooseUsCTAButton1: "Inquire Now",
-                    whyChooseUsCTAButton2: "Calculate My Property's Income",
-                    contactTitle: "Contact Us",
-                    contactSubtitle: "We look forward to cooperating with you to maximize your property's value. Please fill in the information below, and our team will contact you as soon as possible.",
-                    contactLeaveInfo: "Leave Your Information",
-                    contactName: "Your Name",
-                    contactEmail: "Your Email",
-                    contactPhone: "Your Phone Number (Optional)",
-                    contactMessage: "Your Message",
-                    contactNamePlaceholder: "Enter your name",
-                    contactEmailPlaceholder: "Enter a valid email address",
-                    contactPhonePlaceholder: "Enter your phone number",
-                    contactMessagePlaceholder: "Enter your message here",
-                    contactSend: "Send Message",
-                    contactTeam: "Contact Our Team",
-                    contactEmailLabel: "Email:",
-                    contactCEO: "Reino (CEO):",
-                    contactCOO: "Hai Jing (COO):",
-                    footerText: "© 2025 Ms Pro Management Sdn Bhd. All Rights Reserved.",
-                    footerPrivacy: "Privacy Policy",
-                    footerTerms: "Terms of Service",
-                    faqTitle: "Frequently Asked Questions",
-                    faqSubtitle: "Below are our most frequently asked questions and their answers.",
-                    faqSectionTitle: "Basic Questions About Our Services",
-                    faqQ1: "What services does Ms Pro Management offer?",
-                    faqA1: "We offer comprehensive property management services for serviced apartments, homestays, and townhouses, including interior design, professional management, efficient cleaning, monthly detailed reports, and guaranteed rental service.",
-                    faqSectionRevenue: "Revenue Related Questions",
-                    faqQ3: "How much can my property's income increase?",
-                    faqA3: "After management, average rental income can increase by 20-40% (higher than long-term leases). Through smart pricing and marketing strategies, we maintain an occupancy rate of over 80%.",
-                    faqQ4: "Is there a guaranteed rental service?",
-                    faqA4: "Yes, we offer a guaranteed rental service, promising a fixed monthly rental return to eliminate your vacancy concerns and ensure a stable return on your investment. Specific terms will be clearly stated in the contract.",
-                    faqSectionHouseMgmt: "Property Management Questions",
-                    faqQ5: "How does Ms Pro Management ensure the safety of my property?",
-                    faqA5: "We implement strict check-in/check-out inspection processes, combined with smart systems and manual patrols, and assist with guest damage claims to ensure your property's safety and security.",
-                    faqQ6: "What are the cleaning and maintenance standards?",
-                    faqA6: "We adhere to hotel-level cleaning standards, with deep disinfection after every guest. Our maintenance team responds 24/7, and we partner with certified repair technicians to ensure your property always remains in optimal condition.",
-                    faqQ7: "How can I view my property's operational reports?",
-                    faqA7: "We provide detailed monthly operational reports, including key data such as occupancy rate, average daily rate, and income/expense breakdowns, allowing you to stay informed about your property's earnings at all times。",
-                    faqQ8: "What if there's an emergency?",
-                    faqA8: "We have a dedicated emergency response team that handles emergencies such as water/power outages, lock malfunctions, etc., within 30 minutes, ensuring guest experience is not affected。",
-                    faqQ9: "What is the contract period? Can it be flexible?",
-                    faqA9: "Our minimum contract period is 12 months, but we also offer flexible renewal and termination policies, which can be negotiated based on your needs。",
-                    faqQ10: "How do I start cooperating with Ms Pro Management?",
-                    faqA10: "You can fill out the contact form on our website, or directly contact our team via phone/email. We will get in touch with you as soon as possible to provide a customized solution。",
-                    收起详情: "Hide Details",
-                    了解更多: "Learn More",
-                    关注我们: "Follow Us",
-                    faqSectionOther: "Other Questions",
-                    language: "Language",
-                    chinese: "Chinese",
-                    english: "English",
-                    malay: "Malay",
-                    messageSent: "Message Sent!", // Added for form submission feedback
-
-                    // Testimonials specific translation keys
-                    testimonialsTanAltText: "Professional portrait of Mr. Tan, a Ms Pro Management client, sharing his positive review of the management service",
-                    testimonialsTanQuote: "Ms Pro Management has truly changed my life! Previously, my apartment was always vacant or I could only rent it out for a low long-term price. Now they help me with short-term rental management, and my income has almost doubled, and I don't have to worry about anything; everything is handled perfectly. Most importantly, I receive payments on time every month, which is so hassle-free!",
-                    testimonialsTanAuthor: "- Mr. Tan, Property Owner in Kuala Lumpur",
-                    testimonialsTanBefore: "Average Monthly Income: RM 1,200 (Long-term rental)",
-                    testimonialsTanAfter: "Average Monthly Income: RM 2,500+ (Short-term management)",
-
-                    testimonialsLimAltText: "Professional portrait of Ms. Lim, a Ms Pro Management client, praising the worry-free management service",
-                    testimonialsLimQuote: "I am a real estate investor, and I'm based overseas, so it's impossible for me to manage my property in Johor Bahru myself. Ms Pro Management's one-stop service is perfect; from design and renovation to operations and cleaning, they are all very professional. The monthly reports are also very clear and transparent, allowing me to fully understand my investment. Thanks to them for making my investment so simple and efficient!",
-                    testimonialsLimAuthor: "- Ms. Lim, Property Owner in Penang",
-                    testimonialsLimBefore: "High vacancy rate, almost no income",
-                    testimonialsLimAfter: "Annual occupancy rate reached 85%, annualized ROI increased by 15%",
-
-                    // New translation keys for trust badges and email validation
-                    trustBadgeTripAdvisorAlt: "TripAdvisor卓越证书",
-                    trustBadgeAirbnbAlt: "Airbnb官方合作伙伴",
-                    trustBadgeBookingAlt: "Booking.com 合作伙伴标志", // New translation
-                    trustBadgeAgodaAlt: "Agoda 合作伙伴标志",      // New translation
-                    contactEmailInvalid: "Please enter a valid email address",
-                },
-                en: {
-                    companyName: "Ms Pro Management",
-                    navHome: "Home",
-                    navAbout: "About Us",
-                    navServices: "Our Services",
-                    navTestimonials: "Success Stories",
-                    navWhyChooseUs: "Why Choose Us",
-                    navFAQ: "FAQ",
-                    navContact: "Contact Us",
-                    navViewProperties: "View Available Properties",
-                    heroTitle: "Attention Apartment Owners! Let Your Property Generate Stable High Returns",
-                    heroSubtitle: "Ms Pro Management Sdn Bhd specializes in serviced apartment management, offering comprehensive, worry-free solutions to maximize your investment value.",
-                    aboutTitle: "About Us",
-                    aboutStory: "Our Story",
-                    aboutStoryText: "Established in 2021, we initially focused on boutique serviced apartment operations. With professional托管 services and intelligent revenue management, we quickly gained market recognition. As our business developed, we gradually expanded to managing townhouses and private homestays, and innovatively launched Co-Office co-working spaces to meet the diverse needs of various customer groups.",
-                    aboutVision: "Vision",
-                    aboutVisionText: "“Redefining Property Management, Ensuring Every Space Creates Value”",
-                    aboutMission: "Mission",
-                    aboutMissionText1: "For Owners: Provide hassle-free, high-return asset management solutions",
-                    aboutMissionText2: "For Guests: Create comfortable, high-value accommodation experiences",
-                    aboutMissionText3: "For Communities: Revitalize idle properties and promote local tourism development",
-                    aboutTeam: "Our Team",
-                    aboutTeamReino: "Reino Cheong | Co-founder & CEO",
-                    aboutTeamReinoDetails1: "10+ years of hotel and short-term rental operations experience",
-                    aboutTeamReinoDetails2: "Managed multiple well-known serviced apartment projects in Malaysia",
-                    aboutTeamReinoDetails3: "Specializes in revenue optimization and smart system development",
-                    aboutTeamHaiJing: "Lee Hai Jing | Co-founder & COO",
-                    aboutTeamHaiJingDetails1: "Property management expert, served 500+ properties",
-                    aboutTeamHaiJingDetails2: "Led the development of the company's standardized cleaning and maintenance procedures",
-                    aboutTeamHaiJingDetails3: "Deeply committed to improving customer experience and service quality control",
-                    aboutTeamAdvantage: "Team Advantages:",
-                    aboutTeamAdvantage1: "Average industry experience 8+ years",
-                    aboutTeamAdvantage2: "Technology + service dual-core driven model",
-                    aboutTeamAdvantage3: "7×24 hour operation and maintenance support",
-                    aboutValues: "Our Values",
-                    aboutValue1Title: "1. Integrity & Transparency",
-                    aboutValue1Desc1: "No hidden clauses",
-                    aboutValue1Desc2: "All income and expenses traceable",
-                    aboutValue1Desc3: "Accurate reporting of operational status",
-                    aboutValue2Title: "2. Professional Excellence",
-                    aboutValue2Desc1: "Continuously optimize smart management systems",
-                    aboutValue2Desc2: "Certified cleaning/maintenance personnel",
-                    aboutValue2Desc3: "Monthly industry data reports",
-                    aboutValue3Title: "3. Efficient Collaboration",
-                    aboutValue3Desc1: "Owner requests responded to within 2 hours",
-                    aboutValue3Desc2: "Utilize digital tools to improve efficiency",
-                    aboutValue3Desc3: "Seamless cross-departmental collaboration",
-                    aboutValue4Title: "4. Innovation & Win-Win",
-                    aboutValue4Desc1: "Regularly introduce new service models",
-                    aboutValue4Desc2: "Share industry resources with owners",
-                    aboutValue4Desc3: "Community sustainable development plan",
-                    aboutTrust: "Why Trust Us?",
-                    aboutTrust1: "3 years of service with zero major complaints",
-                    aboutTrust2: "Average renewal rate of cooperative properties 92%",
-                    servicesTitle: "Our Core Services",
-                    serviceManagement: "Professional Management",
-                    serviceManagementDesc: "Multi-platform synchronization, intelligent property status management, 7x12-hour customer service and emergency response for hassle-free property management.",
-                    serviceDesign: "Interior Design",
-                    serviceDesignDesc: "Offers modern, Nordic, industrial styles to help your apartment achieve over 25% premium.",
-                    serviceCleaning: "Efficient Cleaning",
-                    serviceCleaningDesc: "Hotel-level cleaning standards, deep disinfection after every guest, ensuring properties are always spotless.",
-                    serviceReport: "Monthly Detailed Reports",
-                    serviceReportDesc: "Provides transparent financial and operational data to give you full control over property income and market trends.",
-                    serviceGuaranteedRental: "Guaranteed Rental Service",
-                    serviceGuaranteedRentalDesc: "Guarantees a fixed monthly rental return, eliminating vacancy concerns and ensuring a stable return on your investment.",
-                    serviceDetailsTitle: "Service Details",
-                    serviceManagementDetailsTitle: "Professional Management",
-                    serviceManagementBooking: "Booking Platform Management",
-                    serviceManagementBooking1: "Multi-platform synchronization: Automatically listed on major platforms like Airbnb, Booking.com, Agoda, Trip.com",
-                    serviceManagementBooking2: "Smart room status management: Real-time synchronization of booking status to avoid double bookings",
-                    serviceManagementBooking3: "Bad review alert: Automatically monitors low ratings, handled within 48 hours",
-                    serviceManagementCustomerComm: "Customer Communication",
-                    serviceManagementCustomerComm1: "7x12-hour customer service: Handling inquiries, booking changes, special requests",
-                    serviceManagementCustomerComm2: "Multi-language support: English, Chinese, Malay",
-                    serviceManagementCustomerComm3: "Automated response system: AI instant answers for frequent questions (e.g., Wi-Fi password, check-in guide)",
-                    serviceManagementCheckInOut: "Check-in/Check-out Management",
-                    serviceManagementCheckInOut1: "Self-check-in: Electronic door lock + video guide, no in-person handover needed",
-                    serviceManagementCheckInOut2: "Smart check-out inspection: AI identifies damaged/lost items, feedback within 1 hour",
-                    serviceManagementCheckInOut3: "Flexible policies: Supports hourly, long-term, monthly rental mixed modes",
-                    serviceManagementEmergency: "Emergency Handling",
-                    serviceManagementEmergency1: "30-minute response: Water/power outages, lock malfunctions, etc.",
-                    serviceManagementEmergency2: "Partner repair technicians: Certified electricians/plumbers, transparent quotes",
-                    serviceManagementEmergency3: "Insurance liaison: Assistance with guest damage claims",
-                    serviceDesignDetailsTitle: "Interior Design Service",
-                    serviceDesignStyles: "Style Cases",
-                    serviceDesignModern: "Modern Minimalist Style",
-                    serviceDesignModernDetails1: "Features: Neutral tones, multi-functional furniture",
-                    serviceDesignModernDetails2: "Case: Kuala Lumpur KLCC apartment renovation, 25% premium",
-                    serviceDesignNordic: "Nordic Natural Style",
-                    serviceDesignNordicDetails1: "Features: Wood elements, plant decorations",
-                    serviceDesignNordicDetails2: "Case: Penang George Town property, peak season prices doubled",
-                    serviceDesignIndustrial: "Industrial Loft Style",
-                    serviceDesignIndustrialDetails1: "Features: Exposed brick walls, creative lighting",
-                    serviceDesignIndustrialDetails2: "Case: Petaling Jaya Co-Office space, 92% occupancy rate",
-                    serviceDesignCustomized: "Customized Service",
-                    serviceDesignCustomized1: "Free design consultation: 3 options to choose from",
-                    serviceDesignCustomized2: "Soft furnishing package: From RM5,000 (includes furniture + decorations)",
-                    serviceDesignCustomized3: "Smart upgrade: Optional installation of smart lighting/thermostat systems",
-                    serviceCleaningDetailsTitle: "Efficient Cleaning Standards",
-                    serviceCleaningDaily: "Daily Cleaning",
-                    serviceCleaningDaily1: "Required for every guest:",
-                    serviceCleaningDaily1_1: "Linens, towels high-temperature washed and replaced",
-                    serviceCleaningDaily1_2: "Bathroom deep disinfection (using hospital-grade disinfectant)",
-                    serviceCleaningDaily1_3: "Surface wiping (door handles, remotes, etc.)",
-                    serviceCleaningDaily2: "Weekly deep cleaning: AC filter, refrigerator defrosting, etc.",
-                    serviceCleaningQuality: "Quality Inspection Process",
-                    serviceCleaningQuality1: "Cleaner uploads photos",
-                    serviceCleaningQuality2: "Supervisor spot-checks 30% of properties",
-                    serviceCleaningQuality3: "Guest rating feedback (below 4.5 stars automatically triggers re-cleaning)",
-                    serviceReportDetailsTitle: "Monthly Detailed Report Content",
-                    serviceReportCoreData: "Core Data",
-                    serviceReportCoreData1: "Operational metrics: Occupancy rate, average daily rate, RevPAR (Revenue per Available Room)",
-                    serviceReportCoreData2: "Financial details:",
-                    serviceReportCoreData2_1: "Rental income (displayed by platform)",
-                    serviceReportCoreData2_2: "Expense breakdown (cleaning/maintenance/utilities)",
-                    serviceReportCoreData2_3: "Net income calculation",
-                    serviceReportCoreData3: "Market comparison: Ranking of properties in the same area",
-                    serviceReportAnalysis: "Value-Added Analysis",
-                    serviceReportAnalysis1: "Next 30-day booking forecast",
-                    serviceReportAnalysis2: "Revenue optimization suggestions (e.g., how much premium a renovation upgrade can bring)",
-                    serviceReportAnalysis3: "Annual data trend chart",
-                    serviceGuaranteedRentalDetailsTitle: "Guaranteed Rental Service Terms",
-                    serviceGuaranteedRentalHowItWorks: "How it Works",
-                    serviceGuaranteedRentalConditions: "Contract Conditions:",
-                    serviceGuaranteedRentalConditions1: "Property must meet safety standards",
-                    serviceGuaranteedRentalConditions2: "Minimum contract period 12 months",
-                    serviceGuaranteedRentalPayment: "Payment Rules:",
-                    serviceGuaranteedRentalPayment1: "Fixed monthly transfer of guaranteed amount by 5th (e.g., RM2,500)",
-                    serviceGuaranteedRentalPayment2: "Actual income exceeding guaranteed amount, shared proportionally",
-                    serviceGuaranteedRentalCompensation: "Difference Compensation:",
-                    serviceGuaranteedRentalCompensation1: "Difference compensated by the 15th of the following month",
-                    serviceGuaranteedRentalCompensation2: "Annual cumulative compensation not exceeding 2 months' rent",
-                    serviceGuaranteedRentalOwnerObligations: "Owner Obligations",
-                    serviceGuaranteedRentalOwnerObligations1: "Allow necessary renovations/modifications",
-                    serviceGuaranteedRentalOwnerObligations2: "Major repair cost sharing (e.g., replacement of scrapped appliances)",
-                    serviceGuaranteedRentalTransparency: "Transparency Commitment",
-                    serviceGuaranteedRentalTransparency1: "All terms written in contract, no hidden details",
-                    serviceGuaranteedRentalTransparency2: "View sample guaranteed rental contract",
-                    testimonialsTitle: "Client Testimonials & Success Stories",
-                    testimonialsSubtitle: "Hear from our valued property owners and learn how Ms Pro Management helped them maximize their property value.",
-                    testimonialsMore: "More success stories and detailed data coming soon!",
-                    testimonialsPropertyBefore: "Property Before Management",
-                    testimonialsPropertyAfter: "Property After Management",
-                    whyChooseUsTitle: "Why Choose Us?",
-                    whyChooseUsResults: "Results You Will Get:",
-                    whyChooseUsResults1: "Increased Income: Average rental income growth of 20-40% (higher than long-term rental)",
-                    whyChooseUsResults2: "Reduced Vacancy: Smart pricing + marketing strategy, occupancy rate maintained at 80%+",
-                    whyChooseUsResults3: "Hassle-Free Management: From maintenance to customer service, we handle everything, you just collect income",
-                    whyChooseUsProblems: "Are You Experiencing These Problems?",
-                    whyChooseUsProblems1: "Property vacant, no tenants, wasted potential",
-                    whyChooseUsProblems2: "Low long-term rental income, difficult tenant management",
-                    whyChooseUsProblems3: "Too troublesome to manage yourself, no time to deal with tenants",
-                    whyChooseUsProblems4: "Worried about property damage from short-term rentals",
-                    whyChooseUsSolutions: "Our Solutions:",
-                    whyChooseUsSolutions1: "Income Guarantee: If income doesn't meet targets, we make up the difference",
-                    whyChooseUsSolutions2: "Professional Maintenance: Strict cleaning + maintenance supervision, property kept like new",
-                    whyChooseUsSolutions3: "Full Management: You don't have to worry, enjoy passive income",
-                    whyChooseUsReasons: "Why Owners Choose Us?",
-                    whyChooseUsReasons1: "Data-driven: Helped 200+ landlords increase income",
-                    whyChooseUsReasons2: "Transparent Cooperation: No hidden fees, account statements available anytime",
-                    whyChooseUsReasons3: "Flexible & Worry-Free: Flexible contract terms, no forced binding",
-                    whyChooseUsCTA: "You only need to do one thing: Hand over the keys, and wait for the rent",
-                    whyChooseUsCTAButton1: "Inquire Now",
-                    whyChooseUsCTAButton2: "Calculate My Property's Income",
-                    contactTitle: "Contact Us",
-                    contactSubtitle: "We look forward to cooperating with you to maximize your property's value. Please fill in the information below, and our team will contact you as soon as possible.",
-                    contactLeaveInfo: "Leave Your Information",
-                    contactName: "Your Name",
-                    contactEmail: "Your Email",
-                    contactPhone: "Your Phone Number (Optional)",
-                    contactMessage: "Your Message",
-                    contactNamePlaceholder: "Enter your name",
-                    contactEmailPlaceholder: "Enter a valid email address",
-                    contactPhonePlaceholder: "Enter your phone number",
-                    contactMessagePlaceholder: "Enter your message here",
-                    contactSend: "Send Message",
-                    contactTeam: "Contact Our Team",
-                    contactEmailLabel: "Email:",
-                    contactCEO: "Reino (CEO):",
-                    contactCOO: "Hai Jing (COO):",
-                    footerText: "© 2025 Ms Pro Management Sdn Bhd. All Rights Reserved.",
-                    footerPrivacy: "Privacy Policy",
-                    footerTerms: "Terms of Service",
-                    faqTitle: "Frequently Asked Questions",
-                    faqSubtitle: "Below are our most frequently asked questions and their answers.",
-                    faqSectionTitle: "Basic Questions About Our Services",
-                    faqQ1: "What services does Ms Pro Management offer?",
-                    faqA1: "We offer comprehensive property management services for serviced apartments, homestays, and townhouses, including interior design, professional management, efficient cleaning, monthly detailed reports, and guaranteed rental service.",
-                    faqSectionRevenue: "Revenue Related Questions",
-                    faqQ3: "How much can my property's income increase?",
-                    faqA3: "After management, average rental income can increase by 20-40% (higher than long-term leases). Through smart pricing and marketing strategies, we maintain an occupancy rate of over 80%.",
-                    faqQ4: "Is there a guaranteed rental service?",
-                    faqA4: "Yes, we offer a guaranteed rental service, promising a fixed monthly rental return to eliminate your vacancy concerns and ensure a stable return on your investment. Specific terms will be clearly stated in the contract.",
-                    faqSectionHouseMgmt: "Property Management Questions",
-                    faqQ5: "How does Ms Pro Management ensure the safety of my property?",
-                    faqA5: "We implement strict check-in/check-out inspection processes, combined with smart systems and manual patrols, and assist with guest damage claims to ensure your property's safety and security.",
-                    faqQ6: "What are the cleaning and maintenance standards?",
-                    faqA6: "We adhere to hotel-level cleaning standards, with deep disinfection after every guest. Our maintenance team responds 24/7, and we partner with certified repair technicians to ensure your property always remains in optimal condition.",
-                    faqQ7: "How can I view my property's operational reports?",
-                    faqA7: "We provide detailed monthly operational reports, including key data such as occupancy rate, average daily rate, and income/expense breakdowns, allowing you to stay informed about your property's earnings at all times。",
-                    faqQ8: "What if there's an emergency?",
-                    faqA8: "We have a dedicated emergency response team that handles emergencies such as water/power outages, lock malfunctions, etc., within 30 minutes, ensuring guest experience is not affected。",
-                    faqQ9: "What is the contract period? Can it be flexible?",
-                    faqA9: "Our minimum contract period is 12 months, but we also offer flexible renewal and termination policies, which can be negotiated based on your needs。",
-                    faqQ10: "How do I start cooperating with Ms Pro Management?",
-                    faqA10: "You can fill out the contact form on our website, or directly contact our team via phone/email. We will get in touch with you as soon as possible to provide a customized solution。",
-                    收起详情: "Hide Details",
-                    了解更多: "Learn More",
-                    关注我们: "Follow Us",
-                    faqSectionOther: "Other Questions",
-                    language: "Language",
-                    chinese: "Chinese",
-                    english: "English",
-                    malay: "Malay",
+                    chinese: "CN",
+                    english: "EN",
+                    malay: "MY",
                     messageSent: "Message Sent!", // Added for form submission feedback
 
                     // Testimonials specific translation keys
@@ -1661,11 +955,11 @@
                     // New translation keys for trust badges and email validation
                     trustBadgeTripAdvisorAlt: "TripAdvisor Certificate of Excellence",
                     trustBadgeAirbnbAlt: "Airbnb Official Partner",
-                    trustBadgeBookingAlt: "Booking.com Partner Logo", // New translation
-                    trustBadgeAgodaAlt: "Agoda Partner Logo",      // New translation
+                    trustBadgeBookingAlt: "Booking.com Partner Logo",
+                    trustBadgeAgodaAlt: "Agoda Partner Logo",
                     contactEmailInvalid: "Please enter a valid email address",
                 },
-                ms: {
+                ms: { // Added Malay translations
                     companyName: "Ms Pro Management",
                     navHome: "Laman Utama",
                     navAbout: "Tentang Kami",
@@ -1675,75 +969,162 @@
                     navFAQ: "Soalan Lazim",
                     navContact: "Hubungi Kami",
                     navViewProperties: "Lihat Hartanah Tersedia",
-                    heroTitle: "Pemilik Pangsapuri! Jadikan Hartanah Anda Menjana Pulangan Tinggi Yang Stabil",
+                    heroTitle: "Perhatian Pemilik Pangsapuri! Biarkan Hartanah Anda Menjana Pulangan Tinggi yang Stabil",
                     heroSubtitle: "Ms Pro Management Sdn Bhd pakar dalam pengurusan pangsapuri servis, menawarkan penyelesaian menyeluruh tanpa kerisauan untuk memaksimumkan nilai pelaburan anda.",
                     aboutTitle: "Tentang Kami",
                     aboutStory: "Kisah Kami",
-                    aboutStoryText: "Ditubuhkan pada tahun 2021, kami pada mulanya menumpukan kepada operasi pangsapuri servis butik. Dengan perkhidmatan托管 profesional dan pengurusan hasil pintar, kami cepat mendapat pengiktirafan pasaran. Dengan pembangunan perniagaan, kami secara beransur-ansur berkembang untuk menguruskan rumah bandar dan homestay persendirian, dan secara inovatif melancarkan ruang kerja bersama Co-Office, memenuhi keperluan pelbagai kumpulan pelanggan.",
+                    aboutStoryText: "Ditubuhkan pada 2021, kami pada mulanya menumpukan operasi pangsapuri servis butik. Dengan perkhidmatan pengurusan profesional dan pengurusan hasil pintar, kami cepat mendapat pengiktirafan pasaran. Seiring perkembangan perniagaan kami, kami secara beransur-ansur berkembang untuk mengurus rumah bandar dan inap desa persendirian, dan secara inovatif melancarkan ruang kerja bersama Co-Office untuk memenuhi pelbagai keperluan kumpulan pelanggan.",
                     aboutVision: "Visi",
                     aboutVisionText: "“Mendefinisikan Semula Pengurusan Hartanah, Memastikan Setiap Ruang Mencipta Nilai”",
                     aboutMission: "Misi",
-                    aboutMissionText1: "Untuk Pemilik: Menyediakan penyelesaian pengurusan aset tanpa kerumitan dan pulangan tinggi",
-                    aboutMissionText2: "Untuk Penghuni: Mencipta pengalaman penginapan yang selesa dan bernilai tinggi",
-                    aboutMissionText3: "Untuk Komuniti: Mengaktifkan hartanah terbiar dan mempromosikan pembangunan pelancongan tempatan",
+                    aboutMissionText1: "Untuk Pemilik: Menyediakan penyelesaian pengurusan aset yang mudah dan berpulangan tinggi",
+                    aboutMissionText2: "Untuk Tetamu: Mencipta pengalaman penginapan yang selesa dan bernilai tinggi",
+                    aboutMissionText3: "Untuk Komuniti: Menggiatkan semula hartanah yang tidak digunakan dan mempromosikan pembangunan pelancongan tempatan",
                     aboutTeam: "Pasukan Kami",
                     aboutTeamReino: "Reino Cheong | Pengasas Bersama & CEO",
                     aboutTeamReinoDetails1: "10+ tahun pengalaman operasi hotel dan sewa jangka pendek",
-                    aboutTeamReinoDetails2: "Pernah menguruskan beberapa projek pangsapuri servis terkenal di Malaysia",
+                    aboutTeamReinoDetails2: "Menguruskan pelbagai projek pangsapuri servis terkenal di Malaysia",
                     aboutTeamReinoDetails3: "Pakar dalam pengoptimuman hasil dan pembangunan sistem pintar",
                     aboutTeamHaiJing: "Lee Hai Jing | Pengasas Bersama & COO",
-                    aboutTeamHaiJingDetails1: "Pakar pengurusan hartanah, berkhidmat untuk 500+ hartanah",
-                    aboutTeamHaiJingDetails2: "Menerajui pembangunan prosedur pembersihan dan penyelenggaraan piawai syarikat",
-                    aboutTeamHaiJingDetails3: "Komited mendalam untuk meningkatkan pengalaman pelanggan dan kawalan kualiti perkhidmatan",
+                    aboutTeamHaiJingDetails1: "Pakar pengurusan hartanah, telah berkhidmat untuk 500+ hartanah",
+                    aboutTeamHaiJingDetails2: "Menerajui pembangunan prosedur pembersihan dan penyelenggaraan standard syarikat",
+                    aboutTeamHaiJingDetails3: "Komited untuk meningkatkan pengalaman pelanggan dan kawalan kualiti perkhidmatan",
                     aboutTeamAdvantage: "Kelebihan Pasukan:",
                     aboutTeamAdvantage1: "Purata pengalaman industri 8+ tahun",
-                    aboutTeamAdvantage2: "Model dipacu dwi-teras teknologi + perkhidmatan",
+                    aboutTeamAdvantage2: "Model didorong dwi-teras teknologi + perkhidmatan",
                     aboutTeamAdvantage3: "Sokongan operasi dan penyelenggaraan 7×24 jam",
-                    aboutValues: "Nilai-nilai Kami",
+                    aboutValues: "Nilai-Nilai Kami",
                     aboutValue1Title: "1. Integriti & Ketelusan",
                     aboutValue1Desc1: "Tiada klausa tersembunyi",
                     aboutValue1Desc2: "Semua pendapatan dan perbelanjaan boleh dikesan",
-                    aboutValue1Desc3: "Melaporkan status operasi dengan tepat",
+                    aboutValue1Desc3: "Pelaporan status operasi yang tepat",
                     aboutValue2Title: "2. Kecemerlangan Profesional",
                     aboutValue2Desc1: "Sentiasa mengoptimumkan sistem pengurusan pintar",
                     aboutValue2Desc2: "Kakitangan pembersihan/penyelenggaraan bertauliah",
                     aboutValue2Desc3: "Laporan data industri bulanan",
-                    aboutValue3Title: "3. Kerjasama Efisien",
+                    aboutValue3Title: "3. Kerjasama Berkesan",
                     aboutValue3Desc1: "Permintaan pemilik dijawab dalam 2 jam",
-                    aboutValue3Desc2: "Menggunakan alat digital untuk meningkatkan kecekapan",
+                    aboutValue3Desc2: "Guna alat digital untuk tingkatkan kecekapan",
                     aboutValue3Desc3: "Kerjasama lancar antara jabatan",
                     aboutValue4Title: "4. Inovasi & Menang-Menang",
-                    aboutValue4Desc1: "Memperkenalkan model perkhidmatan baharu secara berkala",
-                    aboutValue4Desc2: "Berkongsi sumber industri与业主",
-                    aboutValue4Desc3: "Komuniti lestari pembangunan pelan",
+                    aboutValue4Desc1: "Secara berkala memperkenalkan model perkhidmatan baru",
+                    aboutValue4Desc2: "Berkongsi sumber industri dengan pemilik",
+                    aboutValue4Desc3: "Pelan pembangunan komuniti lestari",
+                    aboutTrust: "Mengapa Percayakan Kami?",
+                    aboutTrust1: "3 tahun perkhidmatan tanpa aduan besar",
+                    aboutTrust2: "Purata kadar pembaharuan hartanah koperasi 92%",
+                    servicesTitle: "Perkhidmatan Teras Kami",
+                    serviceManagement: "Pengurusan Profesional",
+                    serviceManagementDesc: "Penyegerakan berbilang platform, pengurusan status hartanah pintar, khidmat pelanggan 7x12 jam dan respons kecemasan untuk pengurusan hartanah tanpa kerisauan.",
+                    serviceDesign: "Reka Bentuk Dalaman",
+                    serviceDesignDesc: "Menawarkan gaya moden, Nordik, industri untuk membantu pangsapuri anda mencapai premium lebih 25%.",
+                    serviceCleaning: "Pembersihan Cekap",
+                    serviceCleaningDesc: "Piawaian pembersihan tahap hotel, disinfeksi mendalam selepas setiap tetamu, memastikan hartanah sentiasa bersih seperti baru.",
+                    serviceReport: "Laporan Bulanan Terperinci",
+                    serviceReportDesc: "Menyediakan data kewangan dan operasi yang telus untuk memberi anda kawalan penuh ke atas pendapatan hartanah dan trend pasaran.",
+                    serviceGuaranteedRental: "Perkhidmatan Sewa Dijamin",
+                    serviceGuaranteedRentalDesc: "Menjamin pulangan sewa bulanan tetap, menghilangkan kebimbangan kekosongan dan memastikan pulangan stabil ke atas pelaburan anda.",
+                    serviceDetailsTitle: "Butiran Perkhidmatan",
+                    serviceManagementDetailsTitle: "Pengurusan Profesional",
+                    serviceManagementBooking: "Pengurusan Platform Tempahan",
+                    serviceManagementBooking1: "Penyegerakan berbilang platform: Disenaraikan secara automatik di platform utama seperti Airbnb, Booking.com, Agoda, Trip.com",
+                    serviceManagementBooking2: "Pengurusan status bilik pintar: Penyegerakan masa nyata status tempahan untuk mengelakkan tempahan berganda",
+                    serviceManagementBooking3: "Amaran ulasan buruk: Memantau secara automatik penilaian rendah, dikendalikan dalam 48 jam",
+                    serviceManagementCustomerComm: "Komunikasi Pelanggan",
+                    serviceManagementCustomerComm1: "Khidmat pelanggan 7x12 jam: Menguruskan pertanyaan, perubahan tempahan, permintaan khas",
+                    serviceManagementCustomerComm2: "Sokongan pelbagai bahasa: Inggeris, Cina, Melayu",
+                    serviceManagementCustomerComm3: "Sistem respons automatik: Jawapan segera AI untuk soalan kerap (contohnya, kata laluan Wi-Fi, panduan daftar masuk)",
+                    serviceManagementCheckInOut: "Pengurusan Daftar Masuk/Daftar Keluar",
+                    serviceManagementCheckInOut1: "Daftar masuk sendiri: Kunci pintu elektronik + panduan video, tiada penyerahan fizikal diperlukan",
+                    serviceManagementCheckInOut2: "Pemeriksaan daftar keluar pintar: AI mengenal pasti barangan rosak/hilang, maklum balas dalam 1 jam",
+                    serviceManagementCheckInOut3: "Dasar fleksibel: Menyokong mod campuran sewa jam, jangka panjang, bulanan",
+                    serviceManagementEmergency: "Pengendalian Kecemasan",
+                    serviceManagementEmergency1: "Respons 30 minit: Gangguan air/elektrik, kerosakan kunci, dsb.",
+                    serviceManagementEmergency2: "Juruterapi rakan kongsi: Juruelektrik/tukang paip bertauliah, sebut harga telus",
+                    serviceManagementEmergency3: "Hubungan insurans: Bantuan dengan tuntutan kerosakan tetamu",
+                    serviceDesignDetailsTitle: "Perkhidmatan Reka Bentuk Dalaman",
+                    serviceDesignStyles: "Kes Gaya",
+                    serviceDesignModern: "Gaya Minimalis Moden",
+                    serviceDesignModernDetails1: "Ciri-ciri: Nada neutral, perabot pelbagai fungsi",
+                    serviceDesignModernDetails2: "Kes: Pengubahsuaian pangsapuri KLCC Kuala Lumpur, premium 25%",
+                    serviceDesignNordic: "Gaya Semula Jadi Nordik",
+                    serviceDesignNordicDetails1: "Ciri-ciri: Elemen kayu, hiasan tumbuhan",
+                    serviceDesignNordicDetails2: "Kes: Hartanah George Town Pulau Pinang, harga musim puncak berganda",
+                    serviceDesignIndustrial: "Gaya Loft Industri",
+                    serviceDesignIndustrialDetails1: "Ciri-ciri: Dinding bata terdedah, pencahayaan kreatif",
+                    serviceDesignIndustrialDetails2: "Kes: Ruang Co-Office Petaling Jaya, kadar penghunian 92%",
+                    serviceDesignCustomized: "Perkhidmatan Tersuai",
+                    serviceDesignCustomized1: "Perundingan reka bentuk percuma: 3 pilihan untuk dipilih",
+                    serviceDesignCustomized2: "Pakej perabot lembut: Dari RM5,000 (termasuk perabot + hiasan)",
+                    serviceDesignCustomized3: "Peningkatan pintar: Pemasangan pilihan sistem pencahayaan/termostat pintar",
+                    serviceCleaningDetailsTitle: "Piawaian Pembersihan Cekap",
+                    serviceCleaningDaily: "Pembersihan Harian",
+                    serviceCleaningDaily1: "Diperlukan untuk setiap tetamu:",
+                    serviceCleaningDaily1_1: "Linen, tuala dicuci dan diganti suhu tinggi",
+                    serviceCleaningDaily1_2: "Pembasmian kuman bilik mandi secara mendalam (menggunakan disinfektan gred hospital)",
+                    serviceCleaningDaily1_3: "Mengelap permukaan (pemegang pintu, alat kawalan jauh, dsb.)",
+                    serviceCleaningDaily2: "Pembersihan mendalam mingguan: Penapis AC, penyahbekuan peti sejuk, dsb.",
+                    serviceCleaningQuality: "Proses Pemeriksaan Kualiti",
+                    serviceCleaningQuality1: "Pencuci memuat naik gambar",
+                    serviceCleaningQuality2: "Penyelia memeriksa secara rawak 30% hartanah",
+                    serviceCleaningQuality3: "Maklum balas penilaian tetamu (di bawah 4.5 bintang secara automatik mencetuskan pembersihan semula)",
+                    serviceReportDetailsTitle: "Kandungan Laporan Bulanan Terperinci",
+                    serviceReportCoreData: "Data Teras",
+                    serviceReportCoreData1: "Metrik operasi: Kadar penghunian, kadar harian purata, RevPAR (Pendapatan per Bilik Tersedia)",
+                    serviceReportCoreData2: "Butiran kewangan:",
+                    serviceReportCoreData2_1: "Pendapatan sewa (dipaparkan mengikut platform)",
+                    serviceReportCoreData2_2: "Pecahan perbelanjaan (pembersihan/penyelenggaraan/utiliti)",
+                    serviceReportCoreData2_3: "Pengiraan pendapatan bersih",
+                    serviceReportCoreData3: "Perbandingan pasaran: Kedudukan hartanah di kawasan yang sama",
+                    serviceReportAnalysis: "Analisis Nilai Tambah",
+                    serviceReportAnalysis1: "Ramalan tempahan 30 hari seterusnya",
+                    serviceReportAnalysis2: "Cadangan pengoptimuman hasil (contohnya, berapa premium yang boleh dibawa oleh peningkatan pengubahsuaian)",
+                    serviceReportAnalysis3: "Carta trend data tahunan",
+                    serviceGuaranteedRentalDetailsTitle: "Terma Perkhidmatan Sewa Dijamin",
+                    serviceGuaranteedRentalHowItWorks: "Bagaimana Ia Berfungsi",
+                    serviceGuaranteedRentalConditions: "Syarat Kontrak:",
+                    serviceGuaranteedRentalConditions1: "Hartanah mesti memenuhi piawaian keselamatan",
+                    serviceGuaranteedRentalConditions2: "Tempoh kontrak minimum 12 bulan",
+                    serviceGuaranteedRentalPayment: "Peraturan Pembayaran:",
+                    serviceGuaranteedRentalPayment1: "Pemindahan bulanan tetap jumlah dijamin pada 5 haribulan (contohnya, RM2,500)",
+                    serviceGuaranteedRentalPayment2: "Pendapatan sebenar melebihi jumlah dijamin, dikongsi secara berkadar",
+                    serviceGuaranteedRentalCompensation: "Pampasan Perbezaan:",
+                    serviceGuaranteedRentalCompensation1: "Perbezaan diberi pampasan pada 15 haribulan bulan berikutnya",
+                    serviceGuaranteedRentalCompensation2: "Pampasan kumulatif tahunan tidak melebihi sewa 2 bulan",
+                    serviceGuaranteedRentalOwnerObligations: "Kewajipan Pemilik",
+                    serviceGuaranteedRentalOwnerObligations1: "Membenarkan pengubahsuaian/pembaharuan yang perlu",
+                    serviceGuaranteedRentalOwnerObligations2: "Perkongsian kos pembaikan utama (contohnya, penggantian peralatan yang rosak)",
+                    serviceGuaranteedRentalTransparency: "Komitmen Ketelusan",
+                    serviceGuaranteedRentalTransparency1: "Semua terma ditulis dalam kontrak, tiada butiran tersembunyi",
+                    serviceGuaranteedRentalTransparency2: "Lihat contoh kontrak sewa dijamin",
                     testimonialsTitle: "Testimoni Pelanggan & Kisah Kejayaan",
-                    testimonialsSubtitle: "Dengar daripada pemilik hartanah kami yang dihargai dan pelajari bagaimana Ms Pro Management membantu mereka memaksakan nilai hartanah mereka.",
+                    testimonialsSubtitle: "Dengarkan daripada pemilik hartanah kami yang dihargai dan ketahui bagaimana Ms Pro Management membantu mereka memaksimumkan nilai hartanah mereka.",
                     testimonialsMore: "Lebih banyak kisah kejayaan dan data terperinci akan datang!",
-                    testimonialsPropertyBefore: "Sebelum Pengurusan Hartanah",
-                    testimonialsPropertyAfter: "Selepas Pengurusan Hartanah",
-                    whyChooseUsTitle: "Mengapa Pilih Ms Pro Management?",
-                    whyChooseUsResults: "Hasil Yang Akan Anda Perolehi:",
-                    whyChooseUsResults1: "Peningkatan Pendapatan: Purata peningkatan pendapatan sewa 20-40% selepas pengurusan (lebih tinggi daripada sewa jangka panjang)",
+                    testimonialsPropertyBefore: "Hartanah Sebelum Pengurusan",
+                    testimonialsPropertyAfter: "Hartanah Selepas Pengurusan",
+                    whyChooseUsTitle: "Mengapa Pilih Kami?",
+                    whyChooseUsResults: "Hasil yang Akan Anda Perolehi:",
+                    whyChooseUsResults1: "Peningkatan Pendapatan: Purata pertumbuhan pendapatan sewa 20-40% (lebih tinggi daripada sewa jangka panjang)",
                     whyChooseUsResults2: "Pengurangan Kekosongan: Penentuan harga pintar + strategi pemasaran, kadar penghunian dikekalkan pada 80%+",
-                    whyChooseUsResults3: "Pengurusan Tanpa Kerumitan: Daripada penyelenggaraan hingga perkhidmatan pelanggan, kami mengendalikan segala-galanya, anda hanya mengutip pendapatan",
+                    whyChooseUsResults3: "Pengurusan Tanpa Kerisauan: Dari penyelenggaraan hingga khidmat pelanggan, kami mengendalikan semuanya, anda hanya mengutip pendapatan",
                     whyChooseUsProblems: "Adakah Anda Mengalami Masalah Ini?",
                     whyChooseUsProblems1: "Hartanah kosong, tiada penyewa, potensi terbuang",
                     whyChooseUsProblems2: "Pendapatan sewa jangka panjang rendah, pengurusan penyewa sukar",
                     whyChooseUsProblems3: "Terlalu menyusahkan untuk mengurus sendiri, tiada masa untuk berurusan dengan penyewa",
                     whyChooseUsProblems4: "Bimbang tentang kerosakan hartanah daripada sewa jangka pendek",
                     whyChooseUsSolutions: "Penyelesaian Kami:",
-                    whyChooseUsSolutions1: "Jaminan Pendapatan: Jika pendapatan tidak mencapai sasaran, kami menampung perbezaan",
-                    whyChooseUsSolutions2: "Penyelenggaraan Profesional: Pembersihan ketat + penyeliaan penyelenggaraan, hartanah sentiasa seperti baru",
-                    whyChooseUsSolutions3: "Pengurusan Penuh: Anda tidak perlu risau, nikmati pendapatan pasif",
+                    whyChooseUsSolutions1: "Jaminan Pendapatan: Jika pendapatan tidak mencapai sasaran, kami akan menampung perbezaan",
+                    whyChooseUsSolutions2: "Penyelenggaraan Profesional: Pembersihan ketat + pengawasan penyelenggaraan, hartanah kekal seperti baru",
+                    whyChooseUsSolutions3: "Pengurusan Penuh: Anda tidak perlu bimbang, nikmati pendapatan pasif",
                     whyChooseUsReasons: "Mengapa Pemilik Memilih Kami?",
-                    whyChooseUsReasons1: "Dipacu Data: Telah membantu 200+ pemilik tanah meningkatkan pendapatan",
-                    whyChooseUsReasons2: "Kerjasama Telus: Tiada yuran tersembunyi, penyata akaun tersedia bila-bila masa",
-                    whyChooseUsReasons3: "Fleksibel & Tanpa Kerisauan: Terma kontrak fleksibel, tiada ikatan paksaan",
-                    whyChooseUsCTA: "您只需做一件事：交钥匙，等收租",
+                    whyChooseUsReasons1: "Berasaskan data: Membantu 200+ pemilik tanah meningkatkan pendapatan",
+                    whyChooseUsReasons2: "Kerjasama telus: Tiada bayaran tersembunyi, penyata akaun tersedia bila-bila masa",
+                    whyChooseUsReasons3: "Fleksibel & Tanpa Kerisauan: Terma kontrak fleksibel, tiada ikatan paksa",
+                    whyChooseUsCTA: "Anda hanya perlu melakukan satu perkara: Serahkan kunci, dan tunggu sewa",
                     whyChooseUsCTAButton1: "Tanya Sekarang",
                     whyChooseUsCTAButton2: "Kira Pendapatan Hartanah Saya",
                     contactTitle: "Hubungi Kami",
-                    contactSubtitle: "Kami berharap dapat bekerjasama dengan anda untuk memaksimumkan nilai hartanah anda. Sila isi maklumat di bawah, dan pasukan kami akan menghubungi anda secepat mungkin.",
+                    contactSubtitle: "Kami berharap untuk bekerjasama dengan anda untuk memaksimumkan nilai hartanah anda. Sila isi maklumat di bawah, dan pasukan kami akan menghubungi anda secepat mungkin.",
                     contactLeaveInfo: "Tinggalkan Maklumat Anda",
                     contactName: "Nama Anda",
                     contactEmail: "E-mel Anda",
@@ -1760,58 +1141,54 @@
                     contactCOO: "Hai Jing (COO):",
                     footerText: "© 2025 Ms Pro Management Sdn Bhd. Hak Cipta Terpelihara.",
                     footerPrivacy: "Dasar Privasi",
-                    footerTerms: "Terma Perkhidmatan",
+                    footerTerms: "Syarat Perkhidmatan",
                     faqTitle: "Soalan Lazim",
-                    faqSubtitle: "Berikut adalah soalan lazim kami dan jawapannya.",
+                    faqSubtitle: "Di bawah adalah soalan lazim kami dan jawapannya.",
                     faqSectionTitle: "Soalan Asas Mengenai Perkhidmatan Kami",
                     faqQ1: "Apakah perkhidmatan yang ditawarkan oleh Ms Pro Management?",
-                    faqA1: "Kami menawarkan perkhidmatan pengurusan hartanah yang komprehensif untuk pangsapuri servis, homestay, dan rumah bandar, termasuk reka bentuk dalaman, pengurusan profesional, pembersihan cekap, laporan terperinci bulanan, dan perkhidmatan sewa dijamin.",
+                    faqA1: "Kami menawarkan perkhidmatan pengurusan hartanah yang menyeluruh untuk pangsapuri servis, inap desa, dan rumah bandar, termasuk reka bentuk dalaman, pengurusan profesional, pembersihan cekap, laporan bulanan terperinci, dan perkhidmatan sewa dijamin.",
                     faqSectionRevenue: "Soalan Berkaitan Pendapatan",
                     faqQ3: "Berapa banyak pendapatan hartanah saya boleh meningkat?",
-                    faqA3: "Selepas pengurusan, purata pendapatan sewa boleh meningkat sebanyak 20-40% (lebih tinggi daripada sewaan jangka panjang). Melalui strategi harga dan pemasaran pintar, kami mengekalkan kadar penghunian lebih 80%。",
+                    faqA3: "Selepas pengurusan, purata pendapatan sewa boleh meningkat sebanyak 20-40% (lebih tinggi daripada sewaan jangka panjang). Melalui penentuan harga pintar dan strategi pemasaran, kami mengekalkan kadar penghunian melebihi 80%.",
                     faqQ4: "Adakah terdapat perkhidmatan sewa dijamin?",
-                    faqA4: "Ya, kami menawarkan perkhidmatan sewa dijamin, menjanjikan pulangan sewa bulanan tetap untuk menghapuskan kebimbangan kekosongan anda dan memastikan pulangan yang stabil ke atas pelaburan anda. Terma khusus akan dinyatakan dengan jelas dalam kontrak。",
+                    faqA4: "Ya, kami menawarkan perkhidmatan sewa dijamin, menjanjikan pulangan sewa bulanan tetap untuk menghilangkan kebimbangan kekosongan anda dan memastikan pulangan stabil ke atas pelaburan anda. Terma khusus akan dinyatakan dengan jelas dalam kontrak.",
                     faqSectionHouseMgmt: "Soalan Pengurusan Hartanah",
                     faqQ5: "Bagaimana Ms Pro Management memastikan keselamatan hartanah saya?",
-                    faqA5: "Kami melaksanakan proses pemeriksaan daftar masuk/daftar keluar yang ketat, digabungkan dengan sistem pintar dan rondaan manual, dan membantu tuntutan kerosakan tetamu untuk memastikan keselamatan dan jaminan hartanah anda。",
+                    faqA5: "Kami melaksanakan proses pemeriksaan daftar masuk/daftar keluar yang ketat, digabungkan dengan sistem pintar dan rondaan manual, serta membantu tuntutan kerosakan tetamu untuk memastikan keselamatan dan jaminan hartanah anda.",
                     faqQ6: "Apakah piawaian pembersihan dan penyelenggaraan?",
-                    faqA6: "Kami mematuhi piawaian pembersihan tahap hotel, dengan pembasmian kuman mendalam selepas setiap tetamu. Pasukan penyelenggaraan kami bertindak balas 24/7, dan kami bekerjasama dengan juruterapi pembaikan bertauliah untuk memastikan hartanah anda sentiasa dalam keadaan optimum。",
-                    faqQ7: "How can I view my property's operational reports?",
-                    faqA7: "Kami menyediakan laporan operasi bulanan yang terperinci, termasuk data utama seperti kadar penghunian, purata kadar harian, dan pecahan pendapatan/perbelanjaan, membolehkan anda sentiasa dimaklumkan tentang pendapatan hartanah anda pada setiap masa。",
-                    faqQ8: "What if there's an emergency?",
-                    faqA8: "Kami mempunyai pasukan tindak balas kecemasan yang berdedikasi yang mengendalikan kecemasan seperti gangguan air/elektrik, kerosakan kunci, dll., dalam masa 30 minit, memastikan pengalaman tetamu tidak terjejas。",
-                    faqQ9: "Berapakah tempoh kontrak? Bolehkah ia fleksibel?",
-                    faqA9: "Tempoh kontrak minimum kami ialah 12 bulan, tetapi kami also menawarkan polisi pembaharuan dan penamatan yang fleksibel, yang boleh dirundingkan berdasarkan keperluan anda。",
-                    faqQ10: "How do I start cooperating with Ms Pro Management?",
-                    faqA10: "Anda boleh mengisi borang hubungan di laman web kami, atau terus menghubungi pasukan kami melalui telefon/e-mel. Kami akan menghubungi anda secepat mungkin untuk menyediakan penyelesaian yang disesuaikan。",
+                    faqA6: "Kami mematuhi piawaian pembersihan tahap hotel, dengan pembasmian kuman mendalam selepas setiap tetamu. Pasukan penyelenggaraan kami bertindak balas 24/7, dan kami bekerjasama dengan juruteknik pembaikan bertauliah untuk memastikan hartanah anda sentiasa dalam keadaan optimum.",
+                    faqQ7: "Bagaimana saya boleh melihat laporan operasi hartanah saya?",
+                    faqA7: "Kami menyediakan laporan operasi bulanan terperinci, termasuk data utama seperti kadar penghunian, kadar harian purata, dan pecahan pendapatan/perbelanjaan, membolehkan anda sentiasa dimaklumkan tentang pendapatan hartanah anda pada setiap masa.",
+                    faqQ8: "Bagaimana jika berlaku kecemasan?",
+                    faqA8: "Kami mempunyai pasukan respons kecemasan yang berdedikasi yang mengendalikan kecemasan seperti gangguan air/elektrik, kerosakan kunci, dsb., dalam masa 30 minit, memastikan pengalaman tetamu tidak terjejas.",
+                    faqQ9: "Berapa lamakah tempoh kontrak? Bolehkah ia fleksibel?",
+                    faqA9: "Tempoh kontrak minimum kami ialah 12 bulan, tetapi kami juga menawarkan dasar pembaharuan dan penamatan yang fleksibel, yang boleh dirundingkan berdasarkan keperluan anda.",
+                    faqQ10: "Bagaimana saya mula bekerjasama dengan Ms Pro Management?",
+                    faqA10: "Anda boleh mengisi borang hubungan di laman web kami, atau terus menghubungi pasukan kami melalui telefon/e-mel. Kami akan menghubungi anda secepat mungkin untuk menyediakan penyelesaian yang disesuaikan.",
                     收起详情: "Sembunyikan Butiran",
                     了解更多: "Ketahui Lebih Lanjut",
                     关注我们: "Ikuti Kami",
                     faqSectionOther: "Soalan Lain",
+                    faqSectionOperations: "Soalan Operasi",
                     language: "Bahasa",
-                    chinese: "Cina",
-                    english: "Inggeris",
-                    malay: "Melayu",
-                    messageSent: "Mesej Dihantar!", // Added for form submission feedback
-
-                    // Testimonials specific translation keys
-                    testimonialsTanAltText: "Potret profesional Encik Tan, seorang pelanggan Ms Pro Management, berkongsi ulasan positifnya tentang perkhidmatan pengurusan",
-                    testimonialsTanQuote: "Ms Pro Management benar-benar mengubah hidup saya! Sebelum ini, pangsapuri saya sentiasa kosong atau saya hanya boleh menyewakannya pada harga jangka panjang yang rendah. Sekarang mereka membantu saya dengan pengurusan sewa jangka pendek, dan pendapatan saya hampir dua kali ganda, dan saya tidak perlu risau tentang apa-apa; semuanya dikendalikan dengan sempurna. Paling penting, saya menerima bayaran tepat pada masanya setiap bulan, yang sangat mudah!",
+                    chinese: "CN",
+                    english: "EN",
+                    malay: "MY",
+                    messageSent: "Mesej Dihantar!",
+                    testimonialsTanAltText: "Potret profesional Encik Tan, pelanggan Ms Pro Management, berkongsi ulasan positifnya tentang perkhidmatan pengurusan",
+                    testimonialsTanQuote: "Ms Pro Management benar-benar mengubah hidup saya! Sebelum ini, pangsapuri saya selalu kosong atau saya hanya boleh menyewakannya pada harga jangka panjang yang rendah. Sekarang mereka membantu saya dengan pengurusan sewa jangka pendek, dan pendapatan saya hampir dua kali ganda, dan saya tidak perlu risau tentang apa-apa; semuanya dikendalikan dengan sempurna. Paling penting, saya menerima bayaran tepat pada masanya setiap bulan, yang sangat mudah!",
                     testimonialsTanAuthor: "- Encik Tan, Pemilik Hartanah di Kuala Lumpur",
-                    testimonialsTanBefore: "Pendapatan Bulanan Purata: RM 1,200 (Sewa jangka panjang)",
-                    testimonialsTanAfter: "Pendapatan Bulanan Purata: RM 2,500+ (Pengurusan jangka pendek)",
-
-                    testimonialsLimAltText: "Potret profesional Puan Lim, seorang pelanggan Ms Pro Management, memuji perkhidmatan pengurusan tanpa kerisauan",
-                    testimonialsLimQuote: "I am a real estate investor, and I'm based overseas, so it's impossible for me to manage my property in Johor Bahru myself. Ms Pro Management's one-stop service is perfect; from design and renovation to operations and cleaning, they are all very professional. The monthly reports are also very clear and transparent, allowing me to fully understand my investment. Thanks to them for making my investment so simple and efficient!",
-                    testimonialsLimAuthor: "- Puan Lim, Pemilik Hartanah di Pulau Pinang",
+                    testimonialsTanBefore: "Purata Pendapatan Bulanan: RM 1,200 (Sewa jangka panjang)",
+                    testimonialsTanAfter: "Purata Pendapatan Bulanan: RM 2,500+ (Pengurusan sewa jangka pendek)",
+                    testimonialsLimAltText: "Potret profesional Cik Lim, pelanggan Ms Pro Management, memuji perkhidmatan pengurusan tanpa kerisauan",
+                    testimonialsLimQuote: "Saya seorang pelabur hartanah, dan saya berpangkalan di luar negara, jadi mustahil bagi saya untuk menguruskan hartanah saya di Johor Bahru sendiri. Perkhidmatan sehenti Ms Pro Management adalah sempurna; dari reka bentuk dan pengubahsuaian hingga operasi dan pembersihan, semuanya sangat profesional. Laporan bulanan juga sangat jelas dan telus, membolehkan saya memahami sepenuhnya pelaburan saya. Terima kasih kepada mereka kerana menjadikan pelaburan saya begitu mudah dan cekap!",
+                    testimonialsLimAuthor: "- Cik Lim, Pemilik Hartanah di Pulau Pinang",
                     testimonialsLimBefore: "Kadar kekosongan tinggi, hampir tiada pendapatan",
                     testimonialsLimAfter: "Kadar penghunian tahunan mencapai 85%, ROI tahunan meningkat sebanyak 15%",
-
-                    // New translation keys for trust badges and email validation
                     trustBadgeTripAdvisorAlt: "Sijil Kecemerlangan TripAdvisor",
                     trustBadgeAirbnbAlt: "Rakan Kongsi Rasmi Airbnb",
-                    trustBadgeBookingAlt: "Logo Rakan Kongsi Booking.com", // New translation
-                    trustBadgeAgodaAlt: "Logo Rakan Kongsi Agoda",      // New translation
+                    trustBadgeBookingAlt: "Logo Rakan Kongsi Booking.com",
+                    trustBadgeAgodaAlt: "Logo Rakan Kongsi Agoda",
                     contactEmailInvalid: "Sila masukkan alamat e-mel yang sah",
                 }
             };
@@ -1914,7 +1291,7 @@
                 // Set initial ctaText based on current language
                 setCtaText(t('whyChooseUsCTAButton1'));
                 const timer = setTimeout(() => {
-                    setCtaText(lang === 'zh' ? '限时免管理费！' : lang === 'en' ? 'Limited Time: Management Fee Waived!' : 'Masa Terhad: Yuran Pengurusan Dikecualikan!');
+                    setCtaText(lang === 'zh' ? '限时免管理费！' : lang === 'en' ? 'Limited Time: Management Fee Waived!' : t('limitedTimeManagementFeeWaived')); // Use t() for Malay
                 }, 30000); // Change CTA text after 30 seconds
                 return () => clearTimeout(timer);
             }, [lang]); // Re-run when language changes
@@ -2045,7 +1422,7 @@
                                     </p>
                                 </div>
                                 <div className="order-1 md:order-2 flex justify-center items-center">
-                                    {/* Image of Our Story */}
+                                    {/* [Image of Ms Pro Management 的发展故事：一张展示公司成长和专业服务的图片] */}
                                     <img src="https://i.imgur.com/jMXuTKB.png" alt={t("Ms Pro Management 的发展故事：一张展示公司成长和专业服务的图片")} className="rounded-xl shadow-md w-full max-w-md" onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/500x350/F8D497/754F00?text=Story"; }} />
                                 </div>
                             </div>
@@ -2076,9 +1453,8 @@
                             <div className="mb-20 p-8 bg-white rounded-xl shadow-lg border border-gray-100">
                                 <h3 className="text-3xl font-semibold text-primary-800 mb-10 text-center">{t('aboutTeam')}</h3>
                                 <div className="grid md:grid-cols-2 gap-10">
-                                    {/* Reino Cheong */}
+                                    {/* [Image of Ms Pro Management Co-founder and CEO Reino Cheong 的专业肖像] */}
                                     <div className="flex flex-col items-center text-center p-6 rounded-lg bg-primary-50 bg-opacity-50 shadow-md">
-                                        {/* Image of Ms Pro Management Co-founder and CEO Reino Cheong */}
                                         <img src="https://imgur.com/69ci5tL.png" alt={t("Ms Pro Management 联合创始人兼CEO Reino Cheong 的专业肖像")} className="w-32 h-32 rounded-full mb-4 object-cover border-4 border-primary-300 shadow-lg" onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/120x120/FFD700/FFFFFF?text=Reino"; }} />
                                         <h4 className="text-xl font-bold text-gray-800 mb-2">{t('aboutTeamReino')}</h4>
                                         <ul className="text-gray-600 text-base list-disc list-inside">
@@ -2087,9 +1463,8 @@
                                             <li>{t('aboutTeamReinoDetails3')}</li>
                                         </ul>
                                     </div>
-                                    {/* Lee Hai Jing */}
+                                    {/* [Image of Ms Pro Management Co-founder and COO Lee Hai Jing 的专业肖像] */}
                                     <div className="flex flex-col items-center text-center p-6 rounded-lg bg-primary-50 bg-opacity-50 shadow-md">
-                                        {/* Image of Ms Pro Management Co-founder and COO Lee Hai Jing */}
                                         <img src="https://imgur.com/DX6cb1H.png" alt={t("Ms Pro Management 联合创始人兼COO Lee Hai Jing 的专业肖像")} className="w-32 h-32 rounded-full mb-4 object-cover border-4 border-primary-300 shadow-lg" onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/120x120/A0DA8B/FFFFFF?text=Hai+Jing"; }} />
                                         <h4 className="text-xl font-bold text-gray-800 mb-2">{t('aboutTeamHaiJing')}</h4>
                                         <ul className="text-gray-600 text-base list-disc list-inside">
@@ -2175,7 +1550,7 @@
                 };
 
                 // ServiceDetail component now accepts a serviceName prop for dynamic ID
-                const ServiceDetail = ({ serviceName, titleKey, sections, children }) => (
+                const ServiceDetail = ({ serviceName, titleKey, sections, children, t }) => (
                     <div id={`${serviceName}-details`} className="bg-white p-6 rounded-xl shadow-lg border border-gray-100 mb-8">
                         <h3 className="text-3xl font-bold text-primary-800 mb-6">{t(titleKey)}</h3>
                         {sections.map((section, idx) => (
@@ -2269,6 +1644,7 @@
                                                 { icon: 'fas fa-key', titleKey: 'serviceManagementCheckInOut', items: ['serviceManagementCheckInOut1', 'serviceManagementCheckInOut2', 'serviceManagementCheckInOut3'] },
                                                 { icon: 'fas fa-exclamation-triangle', titleKey: 'serviceManagementEmergency', items: ['serviceManagementEmergency1', 'serviceManagementEmergency2', 'serviceManagementEmergency3'] },
                                             ]}
+                                            t={t} // Pass t to ServiceDetail
                                         />
                                     )}
                                     {openService === 'Design' && (
@@ -2279,6 +1655,7 @@
                                                 { icon: 'fas fa-palette', titleKey: 'serviceDesignStyles', items: [] }, // Styles are listed in sub-bullets
                                                 { icon: 'fas fa-ruler-combined', titleKey: 'serviceDesignCustomized', items: ['serviceDesignCustomized1', 'serviceDesignCustomized2', 'serviceDesignCustomized3'] },
                                             ]}
+                                            t={t} // Pass t to ServiceDetail
                                         >
                                             {/* Nested lists for design styles */}
                                             <ul className="list-none space-y-4 pl-4 text-gray-600">
@@ -2314,6 +1691,7 @@
                                                 { icon: 'fas fa-spray-can', titleKey: 'serviceCleaningDaily', items: ['serviceCleaningDaily1'] },
                                                 { icon: 'fas fa-clipboard-check', titleKey: 'serviceCleaningQuality', items: ['serviceCleaningQuality1', 'serviceCleaningQuality2', 'serviceCleaningQuality3'] },
                                             ]}
+                                            t={t} // Pass t to ServiceDetail
                                         >
                                             {/* Nested list for daily cleaning details */}
                                             <ul className="list-disc list-inside text-gray-600 space-y-2 pl-8">
@@ -2332,6 +1710,7 @@
                                                 { icon: 'fas fa-database', titleKey: 'serviceReportCoreData', items: ['serviceReportCoreData1', 'serviceReportCoreData2', 'serviceReportCoreData3'] },
                                                 { icon: 'fas fa-chart-pie', titleKey: 'serviceReportAnalysis', items: ['serviceReportAnalysis1', 'serviceReportAnalysis2', 'serviceReportAnalysis3'] },
                                             ]}
+                                            t={t} // Pass t to ServiceDetail
                                         >
                                             {/* Nested list for financial details */}
                                             <ul className="list-disc list-inside text-gray-600 space-y-2 pl-8">
@@ -2353,6 +1732,7 @@
                                                 { icon: 'fas fa-user-tie', titleKey: 'serviceGuaranteedRentalOwnerObligations', items: ['serviceGuaranteedRentalOwnerObligations1', 'serviceGuaranteedRentalOwnerObligations2'] },
                                                 { icon: 'fas fa-eye', titleKey: 'serviceGuaranteedRentalTransparency', items: ['serviceGuaranteedRentalTransparency1', 'serviceGuaranteedRentalTransparency2'] },
                                             ]}
+                                            t={t} // Pass t to ServiceDetail
                                         />
                                     )}
                                 </div>
@@ -2413,7 +1793,7 @@
                                         className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${index === activeCase ? 'opacity-100' : 'opacity-0'}`}
                                     >
                                         <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100 flex flex-col items-center text-center h-full">
-                                            {/* Image of Client */}
+                                            {/* [Image of Client] */}
                                             <img src="https://placehold.co/100x100/FFD700/FFFFFF?text=Client+1" alt={t(caseStudy.altTextKey)} className="w-24 h-24 rounded-full object-cover mb-6 border-4 border-primary-200 shadow-md" onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/100x100/FFD700/FFFFFF?text=Client"; }} />
                                             <p className="text-gray-700 italic mb-6 text-lg flex-grow">
                                                 {t(caseStudy.quoteKey)}
@@ -2717,7 +2097,7 @@
                         ]
                     },
                     {
-                        section: 'faqSectionOperations', // Using translation key
+                        section: 'faqSectionOperations', // Added this section for operational questions
                         questions: [
                             { q: 'faqQ7', a: 'faqA7' },
                             { q: 'faqQ8', a: 'faqA8' }
@@ -2838,104 +2218,104 @@
                                     <div className="flex space-x-6">
                                         <a href="https://www.facebook.com/profile.php?id=100089252581375" target="_blank" rel="noopener noreferrer" className="text-primary-700 hover:text-primary-900 transition-colors duration-300"><i className="fab fa-facebook-square text-4xl"></i></a>
                                         <a href="#" className="text-primary-700 hover:text-primary-900 transition-colors duration-300"><i className="fab fa-instagram-square text-4xl"></i></a>
-                                        <a href="#" className="text-primary-700 hover:text-primary-900 transition-colors duration-300"><i className="fab fa-linkedin text-4xl"></i></a>
+                                            <a href="#" className="text-primary-700 hover:text-primary-900 transition-colors duration-300"><i className="fab fa-linkedin text-4xl"></i></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </footer>
+                        </footer>
+                    );
+                };
+
+
+                // Main App Structure
+                return (
+                    <div className="font-inter antialiased bg-gray-50 text-gray-900">
+                        {/* Navbar receives props, including lang and setLang */}
+                        <Navbar 
+                            handleNavClick={handleNavClick} 
+                            setIsMenuOpen={setIsMenuOpen} 
+                            isMenuOpen={isMenuOpen} 
+                            lang={lang} 
+                            setLang={setLang} 
+                            t={t} 
+                        />
+                        <main className="pt-20"> {/* Adjusted for fixed navbar */}
+                            {/* Conditional rendering based on activeView state */}
+                            {activeView === 'main' ? (
+                                <>
+                                    <Hero t={t} />
+                                    <AboutUs t={t} />
+                                    <Services t={t} />
+                                    <Testimonials t={t} />
+                                    <WhyChooseUs handleNavClick={handleNavClick} ctaText={ctaText} t={t} />
+                                    <ContactUs t={t} />
+                                </>
+                            ) : (
+                                <FAQContent handleNavClick={handleNavClick} t={t} /> // Render FAQ directly here when activeView is 'faq'
+                            )}
+                        </main>
+                        {/* Footer receives props */}
+                        <Footer handleNavClick={handleNavClick} t={t} />
+                        {/* 4.2 返回顶部按钮 */}
+                        <ScrollToTopButton />
+                    </div>
                 );
             };
 
-
-            // Main App Structure
-            return (
-                <div className="font-inter antialiased bg-gray-50 text-gray-900">
-                    {/* Navbar receives props, including lang and setLang */}
-                    <Navbar 
-                        handleNavClick={handleNavClick} 
-                        setIsMenuOpen={setIsMenuOpen} 
-                        isMenuOpen={isMenuOpen} 
-                        lang={lang} 
-                        setLang={setLang} 
-                        t={t} 
-                    />
-                    <main className="pt-20"> {/* Adjusted for fixed navbar */}
-                        {/* Conditional rendering based on activeView state */}
-                        {activeView === 'main' ? (
-                            <>
-                                <Hero t={t} />
-                                <AboutUs t={t} />
-                                <Services t={t} />
-                                <Testimonials t={t} />
-                                <WhyChooseUs handleNavClick={handleNavClick} ctaText={ctaText} t={t} />
-                                <ContactUs t={t} />
-                            </>
-                        ) : (
-                            <FAQContent handleNavClick={handleNavClick} t={t} /> // Render FAQ directly here when activeView is 'faq'
-                        )}
-                    </main>
-                    {/* Footer receives props */}
-                    <Footer handleNavClick={handleNavClick} t={t} />
-                    {/* 4.2 返回顶部按钮 */}
-                    <ScrollToTopButton />
-                </div>
-            );
-        };
-
-        // Custom CSS for animations and general styling not handled by Tailwind
-        const style = document.createElement('style');
-        style.innerHTML = `
-            html {
-                scroll-behavior: smooth;
-            }
-            body {
-                font-family: 'Inter', sans-serif;
-            }
-            .animate-fade-in-up {
-                animation: fadeInUp 1s ease-out forwards;
-                opacity: 0;
-            }
-            .animate-fade-in-up.delay-200 {
-                animation-delay: 0.2s;
-            }
-            .animate-fade-in {
-                animation: fadeIn 0.5s ease-out forwards;
-                opacity: 0;
-            }
-            /* Ensure the canvas fills its container */
-            canvas {
-                display: block;
-                width: 100%;
-                height: 100%;
-            }
-
-            @keyframes fadeInUp {
-                from {
-                    opacity: 0;
-                    transform: translateY(20px);
+            // Custom CSS for animations and general styling not handled by Tailwind
+            const style = document.createElement('style');
+            style.innerHTML = `
+                html {
+                    scroll-behavior: smooth;
                 }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
+                body {
+                    font-family: 'Inter', sans-serif;
                 }
-            }
-            @keyframes fadeIn {
-                from {
+                .animate-fade-in-up {
+                    animation: fadeInUp 1s ease-out forwards;
                     opacity: 0;
                 }
-                to {
-                    opacity: 1;
+                .animate-fade-in-up.delay-200 {
+                    animation-delay: 0.2s;
                 }
-            }
-        `;
-        document.head.appendChild(style);
+                .animate-fade-in {
+                    animation: fadeIn 0.5s ease-out forwards;
+                    opacity: 0;
+                }
+                /* Ensure the canvas fills its container */
+                canvas {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                }
 
-        // Render the App component into the root element
-        ReactDOM.render(<App />, document.getElementById('root'));
-    </script>
-</head>
-<body>
-    <div id="root"></div>
-</body>
-</html>
+                @keyframes fadeInUp {
+                    from {
+                        opacity: 0;
+                        transform: translateY(20px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+                @keyframes fadeIn {
+                    from {
+                        opacity: 0;
+                    }
+                    to {
+                        opacity: 1;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+
+            // Render the App component into the root element
+            ReactDOM.render(<App />, document.getElementById('root'));
+        </script>
+    </head>
+    <body>
+        <div id="root"></div>
+    </body>
+    </html>
