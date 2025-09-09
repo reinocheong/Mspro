@@ -1,0 +1,10 @@
+# robots.txt for https://msprohost.com/
+User-agent: *
+Allow: /
+
+# （可选）如果未来有后台或临时目录，可在下面禁止抓取：
+# Disallow: /admin/
+# Disallow: /drafts/
+# Disallow: /api/
+
+Sitemap: https://msprohost.com/sitemap.xml
