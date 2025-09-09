@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <!-- 1.1 网站图标 (Favicon) -->
-<link href="https://imgur.com/vIQgkO2.png" rel="icon" type="image/png"/>
+<link href="/assets/img/favicon-source.png" rel="icon" type="image/png"/>
 <title>新山公寓式酒店管理专家｜新山民宿管理｜Ms Pro Management</title> <!-- Optimized title for SEO -->
 <meta content="Ms Pro Management —— 专注新山（Johor Bahru）民宿管理与公寓式酒店管理：短租托管、渠道上架、清洁维护与收益优化。搜索“新山民宿管理”即可找到我们。" name="description"/> <!-- Meta description for SEO -->
 <!-- 3.2 关键词优化 - 补充长尾关键词 -->
@@ -13,7 +13,7 @@
 <!-- 1.2 社交媒体元标签 (Open Graph) -->
 <meta content="新山公寓式酒店管理专家｜Ms Pro Management" property="og:title"/>
 <meta content="在新山做民宿？交给专业团队。一站式托管、保洁维护、收益优化。" property="og:description"/>
-<meta content="https://i.imgur.com/pUnCS9s.png" property="og:image"/>
+<meta content="https://msprohost.com/assets/img/og-cover.png" property="og:image"/>
 <meta content="https://msprohost.com/" property="og:url"/> <!-- 请替换为您的实际网站URL -->
 <meta content="website" property="og:type"/>
 <!-- 1.3 移动端优化 - theme-color -->
@@ -89,7 +89,7 @@
 <!-- 2.3 页面加载优化 - 预加载关键资源 -->
 <link as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
 <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/></noscript>
-<link as="image" href="https://i.imgur.com/pUnCS9s.png" rel="preload"/>
+<link as="image" href="/assets/img/og-cover.png" rel="preload"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
 <!-- Required React 18 libraries -->
 <script crossorigin="" src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
@@ -97,13 +97,7 @@
 <!-- Babel for in-browser JSX/React.createElement transpilation -->
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <!-- 3.1 结构化数据 (Schema Markup) -->
-
 <!-- 1.1 内容结构化增强 - 为每个服务页面添加独立的 Service 结构化数据 -->
-
-
-
-
-
 <!-- 5.1 安全性与性能 - CSP 头部建议 (请在生产环境中配置，根据您的实际需求调整) -->
 <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://unpkg.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://i.imgur.com https://imgur.com https://placehold.co; connect-src 'self' https://booking-engine.smartorder.ai;"> -->
 <!-- Google Analytics (或类似工具) 集成 -->
@@ -149,7 +143,7 @@
                     navFAQ: "常见问题",
                     navContact: "联系我们",
                     navViewProperties: "查看可用房源",
-                    heroTitle: "公寓屋主看过来！让您的房产创造稳定高收益",
+                    heroTitle: "新山公寓式酒店管理专家",
                     heroSubtitle: "Ms Pro Management Sdn Bhd 专注于公寓式酒店管理，提供全方位无忧解决方案，让您的投资价值最大化。",
                     aboutTitle: "公司简介",
                     aboutStory: "我们的故事",
@@ -1213,7 +1207,7 @@
                         <div className="container mx-auto px-6 max-w-full flex justify-between items-center"> {/* Added max-w-full for wider screens */}
                             {/* Company Name / Logo - always returns to main view home */}
                             <a href="#" onClick={() => handleNavClick('home')} className="flex items-center text-2xl font-bold text-primary-900 transition-colors duration-300 ease-in-out hover:text-primary-700">
-                                <img src="https://imgur.com/vIQgkO2.png" alt="Ms Pro Management Logo" className="h-8 mr-2 rounded-full" /> {/* Integrated the new logo */}
+                                <img src="/assets/img/favicon-source.png" alt="Ms Pro Management Logo" className="h-8 mr-2 rounded-full" /> {/* Integrated the new logo */}
                                 {t('companyName')}
                             </a>
 
@@ -1275,7 +1269,7 @@
                         id="home"
                         className="relative h-screen flex items-center justify-center overflow-hidden bg-primary-700 bg-cover bg-center" // Changed to primary-700 background
                         style={{
-                            backgroundImage: `url('https://i.imgur.com/pUnCS9s.png')` // Updated to the new direct image link for hero section
+                            backgroundImage: `url('/assets/img/og-cover.png')` // Updated to the new direct image link for hero section
                         }}
                     >
                         {/* Overlay to ensure text readability */}
@@ -1312,7 +1306,7 @@
                                 </div>
                                 <div className="order-1 md:order-2 flex justify-center items-center">
                                     {/* [Image of Ms Pro Management 的发展故事：一张展示公司成长和专业服务的图片] */}
-                                    <img src="https://i.imgur.com/jMXuTKB.png" alt={t("Ms Pro Management 的发展故事：一张展示公司成长和专业服务的图片")} className="rounded-xl shadow-md w-full max-w-md" onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/500x350/F8D497/754F00?text=Story"; }} />
+                                    <img src="/assets/img/hero.png" alt={t("Ms Pro Management 的发展故事：一张展示公司成长和专业服务的图片")} className="rounded-xl shadow-md w-full max-w-md" onError={(e) => { e.target.onerror = null; e.target.src="/assets/img/story.png"; }} />
                                 </div>
                             </div>
 
@@ -1344,7 +1338,7 @@
                                 <div className="grid md:grid-cols-2 gap-10">
                                     {/* [Image of Ms Pro Management Co-founder and CEO Reino Cheong 的专业肖像] */}
                                     <div className="flex flex-col items-center text-center p-6 rounded-lg bg-primary-50 bg-opacity-50 shadow-md">
-                                        <img src="https://imgur.com/69ci5tL.png" alt={t("Ms Pro Management 联合创始人兼CEO Reino Cheong 的专业肖像")} className="w-32 h-32 rounded-full mb-4 object-cover border-4 border-primary-300 shadow-lg" onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/120x120/FFD700/FFFFFF?text=Reino"; }} />
+                                        <img src="/assets/img/founder-reino.png" alt={t("Ms Pro Management 联合创始人兼CEO Reino Cheong 的专业肖像")} className="w-32 h-32 rounded-full mb-4 object-cover border-4 border-primary-300 shadow-lg" onError={(e) => { e.target.onerror = null; e.target.src="/assets/img/testimonial-reino.png"; }} />
                                         <h4 className="text-xl font-bold text-gray-800 mb-2">{t('aboutTeamReino')}</h4>
                                         <ul className="text-gray-600 text-base list-disc list-inside">
                                             <li>{t('aboutTeamReinoDetails1')}</li>
@@ -1354,7 +1348,7 @@
                                     </div>
                                     {/* [Image of Ms Pro Management Co-founder and COO Lee Hai Jing 的专业肖像] */}
                                     <div className="flex flex-col items-center text-center p-6 rounded-lg bg-primary-50 bg-opacity-50 shadow-md">
-                                        <img src="https://imgur.com/DX6cb1H.png" alt={t("Ms Pro Management 联合创始人兼COO Lee Hai Jing 的专业肖像")} className="w-32 h-32 rounded-full mb-4 object-cover border-4 border-primary-300 shadow-lg" onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/120x120/A0DA8B/FFFFFF?text=Hai+Jing"; }} />
+                                        <img src="/assets/img/founder-haijing.png" alt={t("Ms Pro Management 联合创始人兼COO Lee Hai Jing 的专业肖像")} className="w-32 h-32 rounded-full mb-4 object-cover border-4 border-primary-300 shadow-lg" onError={(e) => { e.target.onerror = null; e.target.src="/assets/img/testimonial-haijing.png"; }} />
                                         <h4 className="text-xl font-bold text-gray-800 mb-2">{t('aboutTeamHaiJing')}</h4>
                                         <ul className="text-gray-600 text-base list-disc list-inside">
                                             <li>{t('aboutTeamHaiJingDetails1')}</li>
@@ -1404,11 +1398,11 @@
                                 </div>
                                 {/* 4.1 信任徽章系统 */}
                                 <div className="trust-badges flex justify-center items-center mt-8 space-x-6">
-                                    <img src="https://placehold.co/100x40/FFD700/000000?text=TripAdvisor" alt={t('trustBadgeTripAdvisorAlt')} loading="lazy" className="h-10 opacity-90 hover:opacity-100 transition-opacity duration-300" />
-                                    <img src="https://placehold.co/100x40/FF5A5F/FFFFFF?text=AirbnbPartner" alt={t('trustBadgeAirbnbAlt')} loading="lazy" className="h-10 opacity-90 hover:opacity-100 transition-opacity duration-300" />
+                                    <img src="/assets/img/logo-tripadvisor.png" alt={t('trustBadgeTripAdvisorAlt')} loading="lazy" className="h-10 opacity-90 hover:opacity-100 transition-opacity duration-300" />
+                                    <img src="/assets/img/logo-airbnb-partner.png" alt={t('trustBadgeAirbnbAlt')} loading="lazy" className="h-10 opacity-90 hover:opacity-100 transition-opacity duration-300" />
                                     {/* Added Booking.com and Agoda logos */}
-                                    <img src="https://placehold.co/100x40/003580/FFFFFF?text=Booking.com" alt={t('trustBadgeBookingAlt')} loading="lazy" className="h-10 opacity-90 hover:opacity-100 transition-opacity duration-300" />
-                                    <img src="https://placehold.co/100x40/003B94/FFFFFF?text=Agoda" alt={t('trustBadgeAgodaAlt')} loading="lazy" className="h-10 opacity-90 hover:opacity-100 transition-opacity duration-300" />
+                                    <img src="/assets/img/logo-booking.png" alt={t('trustBadgeBookingAlt')} loading="lazy" className="h-10 opacity-90 hover:opacity-100 transition-opacity duration-300" />
+                                    <img src="/assets/img/logo-agoda.png" alt={t('trustBadgeAgodaAlt')} loading="lazy" className="h-10 opacity-90 hover:opacity-100 transition-opacity duration-300" />
                                 </div>
                             </div>
                         </div>
@@ -1637,7 +1631,7 @@
                 const caseStudies = [
                     {
                         id: 1,
-                        clientImg: "https://placehold.co/100x100/FFD700/FFFFFF?text=Client+1",
+                        clientImg: "/assets/img/client-1.png",
                         altTextKey: "testimonialsTanAltText",
                         quoteKey: "testimonialsTanQuote",
                         authorKey: "testimonialsTanAuthor",
@@ -1646,7 +1640,7 @@
                     },
                     {
                         id: 2,
-                        clientImg: "https://placehold.co/100x100/A0DA8B/FFFFFF?text=Client+2",
+                        clientImg: "/assets/img/client-2.png",
                         altTextKey: "testimonialsLimAltText",
                         quoteKey: "testimonialsLimQuote",
                         authorKey: "testimonialsLimAuthor",
@@ -1683,7 +1677,7 @@
                                     >
                                         <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100 flex flex-col items-center text-center h-full">
                                             {/* [Image of Client] */}
-                                            <img src="https://placehold.co/100x100/FFD700/FFFFFF?text=Client+1" alt={t(caseStudy.altTextKey)} className="w-24 h-24 rounded-full object-cover mb-6 border-4 border-primary-200 shadow-md" onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/100x100/FFD700/FFFFFF?text=Client"; }} />
+                                            <img src="/assets/img/client-1.png" alt={t(caseStudy.altTextKey)} className="w-24 h-24 rounded-full object-cover mb-6 border-4 border-primary-200 shadow-md" onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/100x100/FFD700/FFFFFF?text=Client"; }} />
                                             <p className="text-gray-700 italic mb-6 text-lg flex-grow">
                                                 {t(caseStudy.quoteKey)}
                                             </p>
@@ -2203,7 +2197,7 @@
             // Render the App component into the root element
             ReactDOM.render(<App />, document.getElementById('root'));
         </script>
-<link href="https://msprohost.com/" rel="canonical"/><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://msprohost.com/#website","url":"https://msprohost.com/","name":"Ms Pro Management","inLanguage":"zh-CN","potentialAction":{"@type":"SearchAction","target":"https://msprohost.com/?q={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ProfessionalService","@id":"https://msprohost.com/#org","name":"Ms Pro Management Sdn Bhd","url":"https://msprohost.com/","logo":"https://i.imgur.com/pUnCS9s.png","image":"https://i.imgur.com/pUnCS9s.png","telephone":"+60 16-791 3913","email":"hello@msprohost.com","priceRange":"$$","address":{"@type":"PostalAddress","streetAddress":"Laguna Height, Johor Bahru","addressLocality":"Johor Bahru","addressRegion":"Johor","postalCode":"81200","addressCountry":"MY"},"areaServed":{"@type":"Place","name":"Johor Bahru"},"sameAs":["https://www.facebook.com/profile.php?id=100089252581375"],"contactPoint":{"@type":"ContactPoint","telephone":"+60 16-791 3913","contactType":"customer service","areaServed":"MY","availableLanguage":["zh-CN","en"]}},{"@type":"Service","serviceType":"民宿托管（短租/长租）","provider":{"@id":"https://msprohost.com/#org"},"areaServed":"Johor Bahru"},{"@type":"Service","serviceType":"渠道代运营（Airbnb/Booking/小红书）","provider":{"@id":"https://msprohost.com/#org"},"areaServed":"Johor Bahru"},{"@type":"Service","serviceType":"保洁与维保、软装与民宿设计","provider":{"@id":"https://msprohost.com/#org"},"areaServed":"Johor Bahru"},{"@type":"FAQPage","@id":"https://msprohost.com/#faq","mainEntity":[{"@type":"Question","name":"在新山做民宿托管怎么收费？","acceptedAnswer":{"@type":"Answer","text":"可选固定管理费或营收分成（如15%–25%），视房型、位置与服务内容测算。"}},{"@type":"Question","name":"覆盖新山哪些区域？","acceptedAnswer":{"@type":"Answer","text":"Johor Bahru 核心商圈及周边公寓：Danga Bay、CIQ、KSL、Eco Botanic、Medini/Nusajaya 等。"}}]}]}</script></head>
+<link href="https://msprohost.com/" rel="canonical"/><link href="/assets/img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/><link href="/assets/img/favicon-192.png" rel="icon" sizes="192x192" type="image/png"/><link href="/assets/img/favicon-192.png" rel="apple-touch-icon"/><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://msprohost.com/#website","url":"https://msprohost.com/","name":"Ms Pro Management","inLanguage":"zh-CN"},{"@type":"ProfessionalService","@id":"https://msprohost.com/#org","name":"Ms Pro Management Sdn Bhd","url":"https://msprohost.com/","logo":"https://msprohost.com/assets/img/favicon-192.png","image":"https://msprohost.com/assets/img/og-cover.png","telephone":"+60 16-791 3913","address":{"@type":"PostalAddress","streetAddress":"L-08-03 Laguna Height Condominium Jalan Sri Laguna 1 Taman Laguna","addressLocality":"Johor Bahru","addressRegion":"Johor","postalCode":"81200","addressCountry":"MY"},"areaServed":{"@type":"Place","name":"Johor Bahru"},"sameAs":["https://www.facebook.com/profile.php?id=100089252581375"],"founder":[{"@id":"https://msprohost.com/#reino"},{"@id":"https://msprohost.com/#haijing"}]},{"@type":"Person","@id":"https://msprohost.com/#reino","name":"Reino","jobTitle":"Founder","image":"https://msprohost.com/assets/img/founder-reino.png","worksFor":{"@id":"https://msprohost.com/#org"}},{"@type":"Person","@id":"https://msprohost.com/#haijing","name":"Hai Jing","jobTitle":"Co-founder","image":"https://msprohost.com/assets/img/founder-haijing.png","worksFor":{"@id":"https://msprohost.com/#org"}}]}</script></head>
 <body>
 <div id="root"></div>
 </body>
